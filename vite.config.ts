@@ -15,7 +15,14 @@ export default defineConfig({
       reporter: ["lcov", "text"],
       all: true,
       src: ["src"],
-      exclude: ["**/*.test.{ts,tsx}", "**/types.ts", "**/*.d.ts"],
+      exclude: [
+        "**/*.test.{ts,tsx}",
+        "**/types.ts",
+        "**/*.d.ts",
+        "src/main.tsx",
+        "src/styles",
+        "src/store/index.ts",
+      ],
     },
   },
 });
