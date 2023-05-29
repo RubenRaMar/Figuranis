@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "../../store";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/theme/theme";
 
 describe("Given an App component", () => {
   describe("When rendered", () => {
@@ -10,7 +12,9 @@ describe("Given an App component", () => {
 
       render(
         <Provider store={store}>
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
         </Provider>
       );
 
