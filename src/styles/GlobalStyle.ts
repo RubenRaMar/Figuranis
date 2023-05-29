@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: inherit;
+    color: inherit;
     cursor: pointer;
   }
 
