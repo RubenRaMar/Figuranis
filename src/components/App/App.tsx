@@ -1,5 +1,11 @@
+import GeneralContainerStyled from "../shared/GeneralContainerStyled";
+
 const App = (): JSX.Element => {
-  return <h1>FIGURANIS</h1>;
+  return (
+    <GeneralContainerStyled>
+      <h1>FIGURANIS</h1>
+    </GeneralContainerStyled>
+  );
 };
 
 export default App;
