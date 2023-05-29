@@ -14,6 +14,7 @@
     "test:dev": "vitest"
   },
   "dependencies": {
+    "@fontsource/lexend": "^5.0.1",
     "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,6 +28,7 @@
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0-beta.0",
@@ -40,6 +42,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.1",
     "prettier": "^2.8.8",
+    "styled-components": "^5.3.10",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.0",
