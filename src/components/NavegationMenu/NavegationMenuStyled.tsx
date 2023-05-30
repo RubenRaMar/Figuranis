@@ -6,10 +6,12 @@ const NavegationMenuStyled = styled.nav`
   border-block: 1px solid ${(prop) => prop.theme.color.primary};
 
   .navbar {
-    display: flex;
-    justify-content: space-between;
+    &__list {
+      display: flex;
+      justify-content: space-between;
+    }
 
-    &_list_icon {
+    &__icon {
       display: flex;
       flex-direction: column;
       align-items: center;

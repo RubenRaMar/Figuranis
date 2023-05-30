@@ -24,14 +24,14 @@ describe("Given a MainHeader component", () => {
       expect(logo).toBeInTheDocument();
     });
 
-    test("Then it should show a All figures icon", () => {
-      const expectedAlternativeText = "All figures icon";
+    test("Then it should show a 'A showcase full of figures'", () => {
+      const expectedAlternativeText = "A showcase full of figures";
 
       renderWithProviders(<MainHeader />);
 
-      const logo = screen.getByRole("img", { name: expectedAlternativeText });
+      const image = screen.getByRole("img", { name: expectedAlternativeText });
 
-      expect(logo).toBeInTheDocument();
+      expect(image).toBeInTheDocument();
     });
   });
 });

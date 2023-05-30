@@ -4,22 +4,33 @@ import { renderWithProviders } from "../../utils/testUtils";
 
 describe("Given a NavegationMenu component", () => {
   describe("When it rendering", () => {
-    test("Then it should show three icons", () => {
+    test("Then it should show two links", () => {
       const expectedAlternativesTexts = [
         "All figures icon",
-        "Filter pending figures icon",
         "Add figures icon",
       ];
 
       renderWithProviders(<NavegationMenu />);
 
       expectedAlternativesTexts.forEach((expectedAlternativeText) => {
-        const image = screen.getByRole("img", {
+        const link = screen.getByRole("link", {
           name: expectedAlternativeText,
         });
 
-        expect(image).toBeInTheDocument();
+        expect(link).toBeInTheDocument();
       });
+    });
+
+    test("Then it should show a button with the 'Pending figures icon' text", () => {
+      const expectedAlternativeText = "Pending figures icon";
+
+      renderWithProviders(<NavegationMenu />);
+
+      const button = screen.getByRole("button", {
+        name: expectedAlternativeText,
+      });
+
+      expect(button).toBeInTheDocument();
     });
 
     test("Then it should show the 'All', 'Pending', and 'Add' texts", () => {
