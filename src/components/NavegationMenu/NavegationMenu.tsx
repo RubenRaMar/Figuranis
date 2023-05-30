@@ -4,37 +4,45 @@ import NavegationMenuStyled from "./NavegationMenuStyled";
 
 const NavegationMenu = (): React.ReactElement => {
   return (
-    <NavegationMenuStyled>
-      <ul className="navbar">
-        <li className="navbar_list">
-          <NavLink to={"/figures"} className="navbar_list_icon">
+    <NavegationMenuStyled className="navbar">
+      <ul className="navbar__list">
+        <li>
+          <NavLink
+            aria-label="All figures icon"
+            to="/figures"
+            className="navbar__icon"
+          >
             <img
               src="/images/allfigures.svg"
               width="60"
               height="64.5"
-              alt="All figures icon"
+              alt="A showcase full of figures"
             />
             <span>All</span>
           </NavLink>
         </li>
-        <li className="navbar_list">
-          <button className="navbar_list_icon">
+        <li>
+          <button aria-label="Pending figures icon" className="navbar__icon">
             <img
               src="/images/pendingfigures.svg"
               width="60"
               height="64.5"
-              alt="Filter pending figures icon"
+              alt="A showcase with a shopping list with figurines"
             />
             <span>Pending</span>
           </button>
         </li>
-        <li className="navbar_list">
-          <NavLink to={"/addFigures"} className="navbar_list_icon">
+        <li>
+          <NavLink
+            aria-label="Add figures icon"
+            to="/addFigures"
+            className="navbar__icon"
+          >
             <img
               src="/images/addfigure.svg"
               width="60"
               height="64.5"
-              alt="Add figures icon"
+              alt="A showcase case with an addition symbol on the inside"
             />
             <span>Add</span>
           </NavLink>
