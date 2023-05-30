@@ -2,8 +2,8 @@ import styled from "styled-components";
 import toRem from "../../styles/functions/toRem";
 
 const NavegationMenuStyled = styled.nav`
-  padding: ${toRem(22)};
-  border-block: ${toRem(1)} solid ${(prop) => prop.theme.color.primary};
+  padding: 22px;
+  border-block: 1px solid ${(prop) => prop.theme.color.primary};
 
   .navbar {
     display: flex;
@@ -14,7 +14,7 @@ const NavegationMenuStyled = styled.nav`
       flex-direction: column;
       align-items: center;
       font-size: ${toRem(18)};
-      gap: ${toRem(8)};
+      gap: 8px;
     }
   }
 

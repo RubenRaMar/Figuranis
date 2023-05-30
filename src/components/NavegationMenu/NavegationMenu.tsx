@@ -9,7 +9,7 @@ const NavegationMenu = (): React.ReactElement => {
         <li className="navbar_list">
           <NavLink to={"/figures"} className="navbar_list_icon">
             <img
-              src="/images/allWhite.png"
+              src="/images/allfigures.svg"
               width="60"
               height="64.5"
               alt="All figures icon"
@@ -20,7 +20,7 @@ const NavegationMenu = (): React.ReactElement => {
         <li className="navbar_list">
           <button className="navbar_list_icon">
             <img
-              src="/images/pendingWhite.png"
+              src="/images/pendingfigures.svg"
               width="60"
               height="64.5"
               alt="Filter pending figures icon"
@@ -31,7 +31,7 @@ const NavegationMenu = (): React.ReactElement => {
         <li className="navbar_list">
           <NavLink to={"/addFigures"} className="navbar_list_icon">
             <img
-              src="/images/addWhite.png"
+              src="/images/addfigure.svg"
               width="60"
               height="64.5"
               alt="Add figures icon"
