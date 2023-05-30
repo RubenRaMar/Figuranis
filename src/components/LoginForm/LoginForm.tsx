@@ -13,20 +13,16 @@ const LoginForm = (): React.ReactElement => {
         <br /> access your figures
       </span>
 
-      <label htmlFor="username" hidden>
-        Username
-      </label>
       <input
+        aria-label="username"
         type="text"
         id="username"
         autoComplete="off"
         placeholder="Username"
       />
 
-      <label htmlFor="password" hidden>
-        Password
-      </label>
       <input
+        aria-label="password"
         type="password"
         id="password"
         autoComplete="off"
