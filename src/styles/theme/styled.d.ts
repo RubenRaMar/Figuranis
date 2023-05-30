@@ -14,6 +14,7 @@ declare module "styled-components" {
       mainBackground: string;
       secondaryBackground: string;
       pending: string;
+      borderInputs: string;
     };
     font: {
       primary: string;

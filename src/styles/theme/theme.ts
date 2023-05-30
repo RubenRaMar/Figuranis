@@ -13,6 +13,7 @@ export const theme: DefaultTheme = {
     light: "#d0d0d0",
     lightGrey: "#525252",
     pending: "#e0730e",
+    borderInputs: "#27be84",
   },
   font: {
     primary: "Lexend",

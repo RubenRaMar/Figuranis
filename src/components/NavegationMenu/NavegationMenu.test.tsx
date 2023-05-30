@@ -13,7 +13,7 @@ describe("Given a NavegationMenu component", () => {
 
       renderWithProviders(<NavegationMenu />);
 
-      expectedAlternativesTexts.map((expectedAlternativeText) => {
+      expectedAlternativesTexts.forEach((expectedAlternativeText) => {
         const image = screen.getByRole("img", {
           name: expectedAlternativeText,
         });
@@ -27,7 +27,7 @@ describe("Given a NavegationMenu component", () => {
 
       renderWithProviders(<NavegationMenu />);
 
-      expectedTexts.map((expectedText) => {
+      expectedTexts.forEach((expectedText) => {
         const text = screen.getByText(expectedText);
 
         expect(text).toBeInTheDocument();
