@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(prop) => prop.theme.color.mainBackground};
     color: ${(prop) => prop.theme.color.light};
     font-family: ${(prop) => prop.theme.font.primary};
+    font-display: swap;
   }
 
   a {
@@ -45,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding-left: 0;
     margin: 0;
+  }
+
+  h1 {
+    padding: 31px;
   }
 `;
 

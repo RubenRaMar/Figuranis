@@ -14,7 +14,7 @@ const MainHeader = (): React.ReactElement => {
         />
         <img
           className="logout"
-          src="images/logout.svg"
+          src="/images/logout.svg"
           alt="Logout button icon"
         />
       </MainHeaderStyled>
