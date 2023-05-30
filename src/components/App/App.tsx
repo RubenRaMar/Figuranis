@@ -1,10 +1,9 @@
-import GeneralContainerStyled from "../shared/GeneralContainerStyled";
-
+import Layout from "../Layout/Layout";
 const App = (): JSX.Element => {
   return (
-    <GeneralContainerStyled>
-      <h1>FIGURANIS</h1>
-    </GeneralContainerStyled>
+    <>
+      <Layout />
+    </>
   );
 };
 
