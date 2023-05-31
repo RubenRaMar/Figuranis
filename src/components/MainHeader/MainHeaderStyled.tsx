@@ -13,6 +13,9 @@ const MainHeaderStyled = styled.header`
     position: absolute;
     right: 22px;
     top: 22px;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
   }
 `;
 

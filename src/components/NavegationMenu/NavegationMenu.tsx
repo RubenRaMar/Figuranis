@@ -15,7 +15,7 @@ const NavegationMenu = (): React.ReactElement => {
             <img
               src="/images/allfigures.svg"
               width="60"
-              height="64.5"
+              height="65"
               alt="A showcase full of figures"
               loading="lazy"
             />
@@ -27,7 +27,7 @@ const NavegationMenu = (): React.ReactElement => {
             <img
               src="/images/pendingfigures.svg"
               width="60"
-              height="64.5"
+              height="65"
               alt="A showcase with a shopping list with figurines"
               loading="lazy"
             />
@@ -43,7 +43,7 @@ const NavegationMenu = (): React.ReactElement => {
             <img
               src="/images/addfigure.svg"
               width="60"
-              height="64.5"
+              height="65"
               alt="A showcase case with an addition symbol on the inside"
               loading="lazy"
             />
