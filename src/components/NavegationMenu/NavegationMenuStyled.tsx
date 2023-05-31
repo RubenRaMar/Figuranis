@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import toRem from "../../styles/functions/toRem";
+import { themeColors } from "../../styles/theme/theme";
 
 const NavegationMenuStyled = styled.nav`
   padding: 22px;
-  border-block: 1px solid ${(prop) => prop.theme.color.primary};
+  border-block: 1px solid ${themeColors.primary};
 
   .navbar {
     &__list {

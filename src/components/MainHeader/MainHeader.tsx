@@ -11,11 +11,13 @@ const MainHeader = (): React.ReactElement => {
           alt="Figuranis logotype"
           width="270"
           height="128"
+          loading="lazy"
         />
         <img
           className="logout"
           src="/images/logout.svg"
           alt="Logout button icon"
+          loading="lazy"
         />
       </MainHeaderStyled>
       <NavegationMenu />

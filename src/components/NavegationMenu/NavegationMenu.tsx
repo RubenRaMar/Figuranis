@@ -17,6 +17,7 @@ const NavegationMenu = (): React.ReactElement => {
               width="60"
               height="64.5"
               alt="A showcase full of figures"
+              loading="lazy"
             />
             <span>All</span>
           </NavLink>
@@ -28,6 +29,7 @@ const NavegationMenu = (): React.ReactElement => {
               width="60"
               height="64.5"
               alt="A showcase with a shopping list with figurines"
+              loading="lazy"
             />
             <span>Pending</span>
           </button>
@@ -43,6 +45,7 @@ const NavegationMenu = (): React.ReactElement => {
               width="60"
               height="64.5"
               alt="A showcase case with an addition symbol on the inside"
+              loading="lazy"
             />
             <span>Add</span>
           </NavLink>
