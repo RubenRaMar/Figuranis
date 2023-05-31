@@ -1,7 +1,7 @@
 import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
-  color: {
+  colors: {
     primary: "#24acf0",
     secundary: "#0bfdb4",
     dark: "#000",
@@ -14,8 +14,12 @@ export const theme: DefaultTheme = {
     lightGrey: "#525252",
     pending: "#e0730e",
     borderInputs: "#27be84",
+    placeholder: "#9c9c9c",
   },
-  font: {
+  fonts: {
     primary: "Lexend",
   },
 };
+
+export const themeColors = theme.colors;
+export const themeFonts = theme.fonts;

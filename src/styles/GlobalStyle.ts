@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import toRem from "./functions/toRem";
+import { themeColors, themeFonts } from "./theme/theme";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -22,9 +23,9 @@ const GlobalStyle = createGlobalStyle`
   
   
   body {
-    background-color: ${(prop) => prop.theme.color.mainBackground};
-    color: ${(prop) => prop.theme.color.light};
-    font-family: ${(prop) => prop.theme.font.primary}, sans-serif;
+    background-color: ${themeColors.mainBackground};
+    color: ${themeColors.light};
+    font-family: ${themeFonts.primary}, sans-serif;
   }
 
   a {

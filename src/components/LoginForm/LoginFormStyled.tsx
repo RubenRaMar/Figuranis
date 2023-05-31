@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import toRem from "../../styles/functions/toRem";
+import { themeColors } from "../../styles/theme/theme";
 
 const LoginFormStyled = styled.form`
-  background-color: ${(props) => props.theme.color.dark};
+  background-color: ${themeColors.dark};
   display: flex;
   flex-direction: column;
   font-size: ${toRem(16)};
@@ -26,9 +27,13 @@ const LoginFormStyled = styled.form`
     padding-left: 12px;
     border-radius: 4px;
     font-size: ${toRem(16)};
-    border: 1px solid ${(props) => props.theme.color.borderInputs};
-    background-color: ${(props) => props.theme.color.mainBackground};
-    color: ${(props) => props.theme.color.light};
+    border: 1px solid ${themeColors.borderInputs};
+    background-color: ${themeColors.mainBackground};
+    color: ${themeColors.light};
+  }
+
+  input::placeholder {
+    color: ${themeColors.placeholder};
   }
 
   button {
@@ -38,9 +43,9 @@ const LoginFormStyled = styled.form`
     font-size: ${toRem(18)};
     text-transform: uppercase;
     font-weight: bold;
-    border: 1px solid ${(props) => props.theme.color.primary};
-    background-color: ${(props) => props.theme.color.dark};
-    color: ${(props) => props.theme.color.primary};
+    border: 1px solid ${themeColors.primary};
+    background-color: ${themeColors.dark};
+    color: ${themeColors.primary};
   }
 `;
 
