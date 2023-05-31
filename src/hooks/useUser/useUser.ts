@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserCredentialsStructure } from "../types";
+import { UserCredentialsStructure } from "../../types";
 
 const useUser = () => {
   const getLoginUser = async (

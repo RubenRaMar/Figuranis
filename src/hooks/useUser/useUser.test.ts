@@ -4,7 +4,7 @@ import {
   userMockCredentials,
   userMockIncorrectCredentials,
   userTokenMock,
-} from "../mocks/user/userMocks";
+} from "../../mocks/user/userMocks";
 
 describe("Given a getLoginUser funtion", () => {
   const {
