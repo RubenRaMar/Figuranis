@@ -7,14 +7,18 @@ const useUser = () => {
   ): Promise<string> => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
-    const {
-      data: { token },
-    } = await axios.post<{ token: string }>(`${apiUrl}/user/login`, {
-      username: user.username,
-      password: user.password,
-    });
+    try {
+      const {
+        data: { token },
+      } = await axios.post<{ token: string }>(`${apiUrl}/user/login`, {
+        username: user.username,
+        password: user.password,
+      });
 
-    return token;
+      return token;
+    } catch (error) {
+      return "Wrong credentials";
+    }
   };
   return { getLoginUser };
 };

@@ -17,6 +17,8 @@ const MainHeader = (): React.ReactElement => {
           <img
             src="/images/logout.svg"
             alt="Logout button icon"
+            width="29"
+            height="31"
             loading="lazy"
           />
         </button>
