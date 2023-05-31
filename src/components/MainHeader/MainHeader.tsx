@@ -1,8 +1,11 @@
 import React from "react";
 import NavegationMenu from "../NavegationMenu/NavegationMenu";
 import MainHeaderStyled from "./MainHeaderStyled";
+import { useAppSelector } from "../../store";
 
 const MainHeader = (): React.ReactElement => {
+  const { isLogged } = useAppSelector((status) => status.user);
+
   return (
     <MainHeaderStyled>
       <section className="top-header">
@@ -23,7 +26,7 @@ const MainHeader = (): React.ReactElement => {
           />
         </button>
       </section>
-      <NavegationMenu />
+      {isLogged ? <NavegationMenu /> : <></>}
     </MainHeaderStyled>
   );
 };

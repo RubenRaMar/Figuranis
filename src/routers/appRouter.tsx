@@ -9,6 +9,8 @@ const routes: RouteObject[] = [
     children: [
       { index: true, element: <Navigate to={"/user/login"} replace /> },
       { path: "/user/login", element: <LazyLoginPage /> },
+      { path: "/figures", element: <LazyLoginPage /> },
+      { path: "/addFigures", element: <LazyLoginPage /> },
     ],
   },
 ];
