@@ -22,7 +22,7 @@ export default defineConfig({
         "src/main.tsx",
         "src/styles/GlobalStyle.ts",
         "src/routers/appRouter.tsx",
-        "src / routers / lazyLoginPage / lazyLoginPage.ts",
+        "src/routers/lazyLoginPage/lazyLoginPage.ts",
       ],
     },
   },
