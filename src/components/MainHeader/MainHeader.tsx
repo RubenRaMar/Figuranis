@@ -4,8 +4,8 @@ import MainHeaderStyled from "./MainHeaderStyled";
 
 const MainHeader = (): React.ReactElement => {
   return (
-    <>
-      <MainHeaderStyled>
+    <MainHeaderStyled>
+      <section className="top-header">
         <img
           src="/images/logo.svg"
           alt="Figuranis logotype"
@@ -22,9 +22,9 @@ const MainHeader = (): React.ReactElement => {
             loading="lazy"
           />
         </button>
-      </MainHeaderStyled>
+      </section>
       <NavegationMenu />
-    </>
+    </MainHeaderStyled>
   );
 };
 
