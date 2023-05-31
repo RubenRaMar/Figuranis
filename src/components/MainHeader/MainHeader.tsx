@@ -13,12 +13,13 @@ const MainHeader = (): React.ReactElement => {
           height="128"
           loading="lazy"
         />
-        <img
-          className="logout"
-          src="/images/logout.svg"
-          alt="Logout button icon"
-          loading="lazy"
-        />
+        <button className="logout">
+          <img
+            src="/images/logout.svg"
+            alt="Logout button icon"
+            loading="lazy"
+          />
+        </button>
       </MainHeaderStyled>
       <NavegationMenu />
     </>

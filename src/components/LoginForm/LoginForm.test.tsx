@@ -89,7 +89,7 @@ describe("Given a LoginForm component", () => {
   });
 
   describe("When rendering and a user types 'Xavi' as the username 'champion' as the password", () => {
-    test("Then it should  the button should be enabled", async () => {
+    test("Then it should  the user should be able to submit the form", async () => {
       renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
 
       const usernameInput = screen.getByLabelText(expectedArialsLabelsTexts[0]);

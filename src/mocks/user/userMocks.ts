@@ -19,10 +19,14 @@ export const initialUserMock: UserLoggedStructured = {
 export const userDataLoginMock: UserTokenStructure = {
   id: "123456",
   username: "Xavi",
-  token: "$2y$10$ZjvNKsgp65c00/qWQhm2EuCXxnQ2QtAKPJDeZOGAlXIOZ6jrmxKXG",
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTYiLCJuYW1lIjoiWGF2aSJ9.mnjzr5sUVS-ot7dK31LmaAoPnZPuzNtqvepmo_9dn4I",
 };
 
 export const userDataLoggedMock: UserLoggedStructured = {
   ...userDataLoginMock,
   isLogged: true,
 };
+
+export const userTokenMock =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTYiLCJuYW1lIjoiWGF2aSJ9.mnjzr5sUVS-ot7dK31LmaAoPnZPuzNtqvepmo_9dn4I";
