@@ -7,9 +7,11 @@ import { useAppDispatch } from "../../store";
 import useUser from "../../hooks/useUser/useUser";
 import useToken from "../../hooks/useToken/useToken";
 import { userLoginActionCreator } from "../../store/user/userSlice";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 const LoginPage = (): React.ReactElement => {
   const { getLoginUser } = useUser();
   const { getLoginToken } = useToken();
+  const { setToken } = useLocalStorage();
   const dispatch = useAppDispatch();
 
   const handleUserLogin = async (user: UserCredentialsStructure) => {
@@ -18,6 +20,7 @@ const LoginPage = (): React.ReactElement => {
     if (token) {
       const userData = getLoginToken(token);
 
+      setToken("FIguRaniSTokeN", token);
       dispatch(userLoginActionCreator(userData));
     }
   };
