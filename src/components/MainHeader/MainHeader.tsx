@@ -26,7 +26,7 @@ const MainHeader = (): React.ReactElement => {
           />
         </button>
       </section>
-      {isLogged ? <NavegationMenu /> : <></>}
+      {isLogged && <NavegationMenu />}
     </MainHeaderStyled>
   );
 };
