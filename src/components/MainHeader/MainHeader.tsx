@@ -8,7 +8,7 @@ const MainHeader = (): React.ReactElement => {
 
   return (
     <MainHeaderStyled>
-      <section className="top-header">
+      <div className="top-header">
         <img
           src="/images/logo.svg"
           alt="Figuranis logotype"
@@ -25,7 +25,7 @@ const MainHeader = (): React.ReactElement => {
             loading="lazy"
           />
         </button>
-      </section>
+      </div>
       {isLogged && <NavegationMenu />}
     </MainHeaderStyled>
   );

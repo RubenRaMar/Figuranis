@@ -9,13 +9,7 @@ describe("Given the setToken and getToken functions", () => {
 
       const {
         result: {
-          current: { getToken },
-        },
-      } = renderHook(() => useLocalStorage());
-
-      const {
-        result: {
-          current: { setToken },
+          current: { getToken, setToken },
         },
       } = renderHook(() => useLocalStorage());
 
