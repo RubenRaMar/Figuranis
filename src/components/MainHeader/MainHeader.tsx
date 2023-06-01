@@ -10,10 +10,10 @@ const MainHeader = (): React.ReactElement => {
     <MainHeaderStyled>
       <div className="top-header">
         <img
-          src="/images/logo.svg"
+          src="/images/logo.webp"
           alt="Figuranis logotype"
-          width="270"
-          height="128"
+          width="250"
+          height="99"
           loading="lazy"
         />
         <button className="logout">
