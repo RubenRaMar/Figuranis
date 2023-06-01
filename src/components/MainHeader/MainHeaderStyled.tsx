@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const MainHeaderStyled = styled.header`
   display: flex;
-  background-image: url(/images/background.webp);
+  background-image: url(/images/header.png);
   background-position: center center;
   background-size: initial;
   flex-direction: column;

@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import toRem from "./functions/toRem";
 import { themeColors, themeFonts } from "./theme/theme";
 
 const GlobalStyle = createGlobalStyle`
@@ -47,11 +46,6 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
     padding-left: 0;
     margin: 0;
-  }
-
-  h1 {
-    font-size: ${toRem(22)};
-    padding: 31px;
   }
 `;
 

@@ -1,6 +1,5 @@
 import React from "react";
 import LoginPageStyled from "./LoginPageStyled";
-import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { UserCredentialsStructure } from "../../types";
 import { useAppDispatch } from "../../store";
@@ -33,10 +32,8 @@ const LoginPage = (): React.ReactElement => {
     <>
       <LoginPageStyled>
         <h1>LOGIN</h1>
-      </LoginPageStyled>
-      <GeneralContainerStyled>
         <LoginForm actionOnClick={handleUserLogin} />
-      </GeneralContainerStyled>
+      </LoginPageStyled>
     </>
   );
 };

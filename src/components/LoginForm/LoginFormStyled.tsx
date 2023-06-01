@@ -13,7 +13,7 @@ const LoginFormStyled = styled.form`
   box-shadow: 0px 0px 8px 1px rgba(11, 253, 180, 0.3);
 
   h2 {
-    font-size: ${toRem(24)};
+    font-size: ${toRem(21)};
     line-height: ${toRem(32)};
     font-weight: 100;
     span {
