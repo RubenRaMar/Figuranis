@@ -17,7 +17,7 @@ const App = (): JSX.Element => {
 
     if (token) {
       const userData = getDecodeToken(token);
-      dispatch(userLoginActionCreator(userData));
+      dispatch(userLoginActionCreator({ ...userData, token }));
 
       navigate("/figures");
     }

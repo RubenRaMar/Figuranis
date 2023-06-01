@@ -22,10 +22,10 @@ const MainHeader = (): React.ReactElement => {
     <MainHeaderStyled>
       <div className="top-header">
         <img
-          src="/images/logo.webp"
+          src="/images/logo.png"
           alt="Figuranis logotype"
           width="250"
-          height="99"
+          height="98"
           loading="lazy"
         />
         <button

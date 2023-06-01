@@ -1,5 +1,6 @@
 import {
   UserCredentialsStructure,
+  UserDataStructure,
   UserLoggedStructured,
   UserTokenStructure,
 } from "../../types";
@@ -21,15 +22,19 @@ export const initialUserMock: UserLoggedStructured = {
   isLogged: false,
 };
 
-export const userDataLoginMock: UserTokenStructure = {
+export const userDataLoginMock: UserDataStructure = {
   id: "123456",
   username: "Xavi",
+};
+
+export const userDataLoginTokenMock: UserTokenStructure = {
+  ...userDataLoginMock,
   token:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTYiLCJuYW1lIjoiWGF2aSJ9.mnjzr5sUVS-ot7dK31LmaAoPnZPuzNtqvepmo_9dn4I",
 };
 
 export const userDataLoggedMock: UserLoggedStructured = {
-  ...userDataLoginMock,
+  ...userDataLoginTokenMock,
   isLogged: true,
 };
 

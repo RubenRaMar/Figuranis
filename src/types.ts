@@ -3,9 +3,12 @@ export interface UserCredentialsStructure {
   password: string;
 }
 
-export interface UserTokenStructure {
+export interface UserDataStructure {
   id: string;
   username: string;
+}
+
+export interface UserTokenStructure extends UserDataStructure {
   token: string;
 }
 
