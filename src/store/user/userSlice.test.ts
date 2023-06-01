@@ -1,7 +1,7 @@
 import {
   initialUserMock,
   userDataLoggedMock,
-  userDataLoginMock,
+  userDataLoginTokenMock,
 } from "../../mocks/user/userMocks";
 import {
   userLoginActionCreator,
@@ -14,7 +14,7 @@ describe("Given a userLogin minireducer", () => {
     test("Then it should return a logged in user", () => {
       const loggedUser = userReducer(
         initialUserMock,
-        userLoginActionCreator(userDataLoginMock)
+        userLoginActionCreator(userDataLoginTokenMock)
       );
 
       expect(loggedUser).toStrictEqual(userDataLoggedMock);

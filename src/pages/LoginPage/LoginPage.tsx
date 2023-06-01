@@ -24,7 +24,7 @@ const LoginPage = (): React.ReactElement => {
       const userData = getDecodeToken(token);
 
       setToken("FIguRaniSTokeN", token);
-      dispatch(userLoginActionCreator(userData));
+      dispatch(userLoginActionCreator({ ...userData, token }));
       navigate("/figures");
     }
   };
