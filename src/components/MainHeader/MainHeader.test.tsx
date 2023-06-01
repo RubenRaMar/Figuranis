@@ -8,6 +8,7 @@ import userEvent from "@testing-library/user-event";
 describe("Given a MainHeader component", () => {
   const expectedAlternativeText =
     "A showcase with a shopping list with figurines";
+
   describe("When it rendering", () => {
     test("Then it should show a logo image", () => {
       const expectedAlternativeText = "Figuranis logotype";
@@ -43,6 +44,7 @@ describe("Given a MainHeader component", () => {
       test("Then it should show the image of a showcase with a shopping list with figurines", async () => {
         const expectedArialsLabelsUsername = "username";
         const expectedArialsLabelsPassword = "password";
+        const expectedAlternativeTextButton = "Login";
         const { username, password } = userMockCredentials;
 
         renderWithProviders(<LoginPage />);
@@ -54,7 +56,7 @@ describe("Given a MainHeader component", () => {
           expectedArialsLabelsPassword
         );
         const button = screen.getByRole("button", {
-          name: "Login",
+          name: expectedAlternativeTextButton,
         });
 
         await userEvent.type(usernameInput, username);
@@ -66,6 +68,23 @@ describe("Given a MainHeader component", () => {
         const image = screen.queryByAltText(expectedAlternativeText);
 
         expect(image).toBeInTheDocument();
+      });
+    });
+
+    describe("When it renderd with a logged user and he click on the Loyout button", () => {
+      test("Then it should redirect the user to LoginPage", async () => {
+        const expectedPath = "/";
+        const expectedArialLabel = "Logout button";
+
+        renderWithProviders(<MainHeader />);
+
+        const button = screen.getByRole("button", {
+          name: expectedArialLabel,
+        });
+
+        await userEvent.click(button);
+
+        expect(window.location.pathname).toBe(expectedPath);
       });
     });
   });
