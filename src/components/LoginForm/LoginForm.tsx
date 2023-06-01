@@ -65,7 +65,11 @@ const LoginForm = ({ actionOnClick }: LoginFormProps): React.ReactElement => {
         value={password}
       />
 
-      <button className="login" type="submit" disabled={!isNotDisabled}>
+      <button
+        className={isNotDisabled ? "login" : "login--disabled"}
+        type="submit"
+        disabled={!isNotDisabled}
+      >
         Login
       </button>
     </LoginFormStyled>
