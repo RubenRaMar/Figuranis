@@ -59,9 +59,9 @@ const LoginFormStyled = styled.form`
       font-size: ${toRem(18)};
       text-transform: uppercase;
       font-weight: bold;
-      border: 1px solid #0a374e;
+      border: 1px solid #24acf0b0;
       background-color: ${themeColors.dark};
-      color: #0a374e;
+      color: #24acf0b0;
     }
   }
 `;

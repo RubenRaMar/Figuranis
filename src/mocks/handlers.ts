@@ -10,7 +10,8 @@ interface CustomRequest {
 
 export const handlers = [
   rest.post(`${apiUrl}/user/login`, (req: CustomRequest, res, ctx) => {
-    return req.body.password === userMockCredentials.password
+    return req.body.password === userMockCredentials.password &&
+      req.body.username === userMockCredentials.username
       ? res(ctx.status(200), ctx.json({ token: userTokenMock }))
       : res(ctx.status(401), ctx.json({ message: "Wrong credentials" }));
   }),

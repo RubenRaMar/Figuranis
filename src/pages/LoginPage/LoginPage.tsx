@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = (): React.ReactElement => {
   const { getLoginUser } = useUser();
-  const { getLoginToken } = useToken();
+  const { getDecodeToken } = useToken();
   const { setToken } = useLocalStorage();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -20,8 +20,8 @@ const LoginPage = (): React.ReactElement => {
   const handleUserLogin = async (user: UserCredentialsStructure) => {
     const token = await getLoginUser(user);
 
-    if (token) {
-      const userData = getLoginToken(token);
+    if (token !== "Wrong credentials") {
+      const userData = getDecodeToken(token);
 
       setToken("FIguRaniSTokeN", token);
       dispatch(userLoginActionCreator(userData));

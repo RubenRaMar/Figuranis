@@ -10,11 +10,11 @@ describe("Given a getLoginToken function", () => {
 
       const {
         result: {
-          current: { getLoginToken },
+          current: { getDecodeToken },
         },
       } = renderHook(() => useToken());
 
-      const userLoginData = getLoginToken(token);
+      const userLoginData = getDecodeToken(token);
 
       expect(userLoginData).toStrictEqual(userDataLoginMock);
     });
