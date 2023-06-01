@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 import { PreloadedState } from "@reduxjs/toolkit";
@@ -8,6 +8,14 @@ import {
   userDataLoggedMock,
   userMockCredentials,
 } from "../../mocks/user/userMocks";
+import {
+  RouteObject,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../../styles/theme/theme";
+import { Provider } from "react-redux";
 
 describe("Given a LoginPage component", () => {
   describe("When it rendered", () => {
@@ -47,7 +55,20 @@ describe("Given a LoginPage component", () => {
     });
 
     test("Then you should redirect to the figures page", async () => {
-      renderWithProviders(<LoginPage />);
+      const routesTest: RouteObject[] = [
+        { path: "/", element: <LoginPage /> },
+        { path: "/figures", element: <LoginPage /> },
+      ];
+
+      const appRouterTest = createBrowserRouter(routesTest);
+
+      render(
+        <ThemeProvider theme={theme}>
+          <Provider store={store}>
+            <RouterProvider router={appRouterTest} />
+          </Provider>
+        </ThemeProvider>
+      );
 
       const usernameInput = screen.getByLabelText(expectedArialsLabelsUsername);
       const passwordInput = screen.getByLabelText(expectedArialsLabelsPassword);
