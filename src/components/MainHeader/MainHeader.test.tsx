@@ -1,8 +1,13 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import MainHeader from "./MainHeader";
+import { userMockCredentials } from "../../mocks/user/userMocks";
+import LoginPage from "../../pages/LoginPage/LoginPage";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a MainHeader component", () => {
+  const expectedAlternativeText =
+    "A showcase with a shopping list with figurines";
   describe("When it rendering", () => {
     test("Then it should show a logo image", () => {
       const expectedAlternativeText = "Figuranis logotype";
@@ -24,14 +29,44 @@ describe("Given a MainHeader component", () => {
       expect(logo).toBeInTheDocument();
     });
 
-    test("Then it should show a 'A showcase full of figures'", () => {
-      const expectedAlternativeText = "A showcase full of figures";
+    describe("When it rendering and the user is not logged in", () => {
+      test("Then it should not show the image of a showcase with a shopping list with figurines", async () => {
+        renderWithProviders(<MainHeader />);
 
-      renderWithProviders(<MainHeader />);
+        const image = screen.queryByAltText(expectedAlternativeText);
 
-      const image = screen.getByRole("img", { name: expectedAlternativeText });
+        expect(image).not.toBeInTheDocument();
+      });
+    });
 
-      expect(image).toBeInTheDocument();
+    describe("When it rendering and the user is logged", () => {
+      test("Then it should show the image of a showcase with a shopping list with figurines", async () => {
+        const expectedArialsLabelsUsername = "username";
+        const expectedArialsLabelsPassword = "password";
+        const { username, password } = userMockCredentials;
+
+        renderWithProviders(<LoginPage />);
+
+        const usernameInput = screen.getByLabelText(
+          expectedArialsLabelsUsername
+        );
+        const passwordInput = screen.getByLabelText(
+          expectedArialsLabelsPassword
+        );
+        const button = screen.getByRole("button", {
+          name: "Login",
+        });
+
+        await userEvent.type(usernameInput, username);
+        await userEvent.type(passwordInput, password);
+        await userEvent.click(button);
+
+        renderWithProviders(<MainHeader />);
+
+        const image = screen.queryByAltText(expectedAlternativeText);
+
+        expect(image).toBeInTheDocument();
+      });
     });
   });
 });

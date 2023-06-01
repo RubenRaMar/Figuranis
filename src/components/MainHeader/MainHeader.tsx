@@ -1,11 +1,14 @@
 import React from "react";
 import NavegationMenu from "../NavegationMenu/NavegationMenu";
 import MainHeaderStyled from "./MainHeaderStyled";
+import { useAppSelector } from "../../store";
 
 const MainHeader = (): React.ReactElement => {
+  const { isLogged } = useAppSelector((status) => status.user);
+
   return (
-    <>
-      <MainHeaderStyled>
+    <MainHeaderStyled>
+      <section className="top-header">
         <img
           src="/images/logo.svg"
           alt="Figuranis logotype"
@@ -22,9 +25,9 @@ const MainHeader = (): React.ReactElement => {
             loading="lazy"
           />
         </button>
-      </MainHeaderStyled>
-      <NavegationMenu />
-    </>
+      </section>
+      {isLogged ? <NavegationMenu /> : <></>}
+    </MainHeaderStyled>
   );
 };
 

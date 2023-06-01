@@ -4,7 +4,8 @@ import { themeColors } from "../../styles/theme/theme";
 
 const NavegationMenuStyled = styled.nav`
   padding: 22px;
-  border-block: 1px solid ${themeColors.primary};
+  border-top: 1px solid ${themeColors.primary};
+  background-color: ${themeColors.mainBackground};
 
   .navbar {
     &__list {

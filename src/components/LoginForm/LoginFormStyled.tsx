@@ -36,7 +36,12 @@ const LoginFormStyled = styled.form`
     color: ${themeColors.placeholder};
   }
 
-  button {
+  input:focus-visible {
+    outline: #24acf0 2px;
+    outline-style: inset;
+  }
+
+  .login {
     height: 48px;
     width: 237px;
     border-radius: 10px;
@@ -46,6 +51,18 @@ const LoginFormStyled = styled.form`
     border: 1px solid ${themeColors.primary};
     background-color: ${themeColors.dark};
     color: ${themeColors.primary};
+
+    &--disabled {
+      height: 48px;
+      width: 237px;
+      border-radius: 10px;
+      font-size: ${toRem(18)};
+      text-transform: uppercase;
+      font-weight: bold;
+      border: 1px solid #0a374e;
+      background-color: ${themeColors.dark};
+      color: #0a374e;
+    }
   }
 `;
 
