@@ -20,8 +20,7 @@ const userSlice = createSlice({
       isLogged: true,
     }),
 
-    userLogout: (currentUserState) => ({
-      ...currentUserState,
+    userLogout: () => ({
       ...initialUserState,
     }),
   },
