@@ -6,7 +6,8 @@ import LoginPage from "../../pages/LoginPage/LoginPage";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a MainHeader component", () => {
-  const expectedAlternativeText =
+  const expectedAltTextLayout = "Logout button icon";
+  const expectedAltTextAllfigures =
     "A showcase with a shopping list with figurines";
 
   describe("When it rendering", () => {
@@ -15,38 +16,40 @@ describe("Given a MainHeader component", () => {
 
       renderWithProviders(<MainHeader />);
 
-      const logo = screen.getByRole("img", { name: expectedAlternativeText });
+      const logoFiguranis = screen.getByRole("img", {
+        name: expectedAlternativeText,
+      });
 
-      expect(logo).toBeInTheDocument();
-    });
-
-    test("Then it should show a Logout button icon", () => {
-      const expectedAlternativeText = "Logout button icon";
-
-      renderWithProviders(<MainHeader />);
-
-      const logo = screen.getByRole("img", { name: expectedAlternativeText });
-
-      expect(logo).toBeInTheDocument();
+      expect(logoFiguranis).toBeInTheDocument();
     });
 
     describe("When it rendering and the user is not logged in", () => {
       test("Then it should not show the image of a showcase with a shopping list with figurines", async () => {
         renderWithProviders(<MainHeader />);
 
-        const image = screen.queryByAltText(expectedAlternativeText);
+        const imageAllFigures = screen.queryByAltText(
+          expectedAltTextAllfigures
+        );
 
-        expect(image).not.toBeInTheDocument();
+        expect(imageAllFigures).not.toBeInTheDocument();
+      });
+
+      test("Then it should not show the logout icon", async () => {
+        renderWithProviders(<MainHeader />);
+
+        const LayoutImage = screen.queryByAltText(expectedAltTextLayout);
+
+        expect(LayoutImage).not.toBeInTheDocument();
       });
     });
 
     describe("When it rendering and the user is logged", () => {
-      test("Then it should show the image of a showcase with a shopping list with figurines", async () => {
-        const expectedArialsLabelsUsername = "username";
-        const expectedArialsLabelsPassword = "password";
-        const expectedAlternativeTextButton = "Login";
-        const { username, password } = userMockCredentials;
+      const expectedArialsLabelsUsername = "username";
+      const expectedArialsLabelsPassword = "password";
+      const expectedAlternativeTextButton = "Login";
+      const { username, password } = userMockCredentials;
 
+      test("Then it should show the image of a showcase with a shopping list with figurines", async () => {
         renderWithProviders(<LoginPage />);
 
         const usernameInput = screen.getByLabelText(
@@ -55,19 +58,45 @@ describe("Given a MainHeader component", () => {
         const passwordInput = screen.getByLabelText(
           expectedArialsLabelsPassword
         );
-        const button = screen.getByRole("button", {
+        const loginButton = screen.getByRole("button", {
           name: expectedAlternativeTextButton,
         });
 
         await userEvent.type(usernameInput, username);
         await userEvent.type(passwordInput, password);
-        await userEvent.click(button);
+        await userEvent.click(loginButton);
 
         renderWithProviders(<MainHeader />);
 
-        const image = screen.queryByAltText(expectedAlternativeText);
+        const AllFiguresImage = screen.queryByAltText(
+          expectedAltTextAllfigures
+        );
 
-        expect(image).toBeInTheDocument();
+        expect(AllFiguresImage).toBeInTheDocument();
+      });
+
+      test("Then it should show the layout icon", async () => {
+        renderWithProviders(<LoginPage />);
+
+        const usernameInput = screen.getByLabelText(
+          expectedArialsLabelsUsername
+        );
+        const passwordInput = screen.getByLabelText(
+          expectedArialsLabelsPassword
+        );
+        const loginButton = screen.getByRole("button", {
+          name: expectedAlternativeTextButton,
+        });
+
+        await userEvent.type(usernameInput, username);
+        await userEvent.type(passwordInput, password);
+        await userEvent.click(loginButton);
+
+        renderWithProviders(<MainHeader />);
+
+        const layoutImage = screen.queryByAltText(expectedAltTextLayout);
+
+        expect(layoutImage).toBeInTheDocument();
       });
     });
 
@@ -78,11 +107,11 @@ describe("Given a MainHeader component", () => {
 
         renderWithProviders(<MainHeader />);
 
-        const button = screen.getByRole("button", {
+        const layoutButton = screen.getByRole("button", {
           name: expectedArialLabel,
         });
 
-        await userEvent.click(button);
+        await userEvent.click(layoutButton);
 
         expect(window.location.pathname).toBe(expectedPath);
       });

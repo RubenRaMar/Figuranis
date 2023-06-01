@@ -28,19 +28,22 @@ const MainHeader = (): React.ReactElement => {
           height="98"
           loading="lazy"
         />
-        <button
-          aria-label="Logout button"
-          onClick={handleLogoutUser}
-          className="logout"
-        >
-          <img
-            src="/images/logout.svg"
-            alt="Logout button icon"
-            width="29"
-            height="31"
-            loading="lazy"
-          />
-        </button>
+
+        {isLogged && (
+          <button
+            aria-label="Logout button"
+            onClick={handleLogoutUser}
+            className="logout"
+          >
+            <img
+              src="/images/logout.svg"
+              alt="Logout button icon"
+              width="29"
+              height="31"
+              loading="lazy"
+            />
+          </button>
+        )}
       </div>
       {isLogged && <NavegationMenu />}
     </MainHeaderStyled>
