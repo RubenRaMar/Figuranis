@@ -3,7 +3,11 @@ import {
   userDataLoggedMock,
   userDataLoginMock,
 } from "../../mocks/user/userMocks";
-import { userLoginActionCreator, userReducer } from "./userSlice";
+import {
+  userLoginActionCreator,
+  userLogoutActionCreator,
+  userReducer,
+} from "./userSlice";
 
 describe("Given a userLogin minireducer", () => {
   describe("When its invoked with the data of a user who is not logged in", () => {
@@ -14,6 +18,19 @@ describe("Given a userLogin minireducer", () => {
       );
 
       expect(loggedUser).toStrictEqual(userDataLoggedMock);
+    });
+  });
+});
+
+describe("Given a userLogout minireducer", () => {
+  describe("When its invoked with a logged user", () => {
+    test("Then it should delete user data from the strore", () => {
+      const logoutUser = userReducer(
+        userDataLoggedMock,
+        userLogoutActionCreator()
+      );
+
+      expect(logoutUser).toStrictEqual(initialUserMock);
     });
   });
 });
