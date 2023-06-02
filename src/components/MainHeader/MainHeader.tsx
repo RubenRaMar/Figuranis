@@ -22,22 +22,36 @@ const MainHeader = (): React.ReactElement => {
     <MainHeaderStyled>
       <div className="top-header">
         <img
-          src="/images/logo.png"
+          src="/images/logo.webp"
           alt="Figuranis logotype"
           width="250"
           height="98"
           loading="lazy"
         />
 
-        {isLogged && (
+        {isLogged ? (
           <button
-            aria-label="Logout button"
+            aria-label={"Logout button"}
             onClick={handleLogoutUser}
-            className="logout"
+            className="logout-login"
           >
             <img
               src="/images/logout.svg"
               alt="Logout button icon"
+              width="29"
+              height="31"
+              loading="lazy"
+            />
+          </button>
+        ) : (
+          <button
+            aria-label={"Login button"}
+            onClick={handleLogoutUser}
+            className="logout-login"
+          >
+            <img
+              src="/images/login.svg"
+              alt="Login button icon"
               width="29"
               height="31"
               loading="lazy"
