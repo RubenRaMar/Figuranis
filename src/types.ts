@@ -15,3 +15,18 @@ export interface UserTokenStructure extends UserDataStructure {
 export interface UserLoggedStructured extends UserTokenStructure {
   isLogged: boolean;
 }
+
+export interface FiguresDataStructures {
+  id: string;
+  title: string;
+  character: string;
+  franchise: string;
+  purchased: boolean;
+  manufacturer: string;
+  material: string;
+  size: number;
+  weight: number;
+  price: number;
+  image: string;
+  user: string;
+}
