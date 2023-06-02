@@ -34,7 +34,7 @@ describe("Given a MainHeader component", () => {
         expect(imageAllFigures).not.toBeInTheDocument();
       });
 
-      test("Then it should not show the logout icon", async () => {
+      test("Then it should not show the logout button", async () => {
         renderWithProviders(<MainHeader />);
 
         const LayoutImage = screen.queryByAltText(expectedAltTextLayout);
