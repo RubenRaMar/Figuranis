@@ -30,3 +30,7 @@ export interface FiguresDataStructures {
   image: string;
   user: string;
 }
+
+export interface FiguresStateStructure {
+  figuresData: FiguresDataStructures[];
+}

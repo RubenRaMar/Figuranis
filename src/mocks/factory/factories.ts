@@ -17,6 +17,6 @@ const figureFactory = Factory.define<FiguresDataStructures>(() => ({
   user: "123456",
 }));
 
-export const figureMock = figureFactory.build();
+export const figureMockFactory = figureFactory.build();
 
-export const figuresMocks = figureFactory.buildList(10);
+export const figuresMocksFactory = figureFactory.buildList(4);
