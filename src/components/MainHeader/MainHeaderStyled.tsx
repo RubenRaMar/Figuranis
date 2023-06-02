@@ -15,7 +15,7 @@ const MainHeaderStyled = styled.header`
     height: 213px;
   }
 
-  .logout {
+  .logout-login {
     position: absolute;
     right: 22px;
     top: 22px;

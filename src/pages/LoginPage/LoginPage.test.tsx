@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 import { PreloadedState } from "@reduxjs/toolkit";
@@ -16,16 +16,19 @@ import {
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/theme/theme";
 import { Provider } from "react-redux";
+import { LazyLoginPage } from "../../routers/lazyPages/lazyPages";
 
 describe("Given a LoginPage component", () => {
   describe("When it rendered", () => {
-    test("Then it should show a heading with 'LOGIN' text", () => {
+    test("Then it should show a heading with 'LOGIN' text", async () => {
       const expectedTest = "LOGIN";
       const mockState: PreloadedState<RootState> = { user: userDataLoggedMock };
 
-      renderWithProviders(<LoginPage />, mockState);
+      renderWithProviders(<LazyLoginPage />, mockState);
 
-      const heading = screen.getByRole("heading", { name: expectedTest });
+      const heading = await waitFor(() =>
+        screen.getByRole("heading", { name: expectedTest })
+      );
 
       expect(heading).toBeInTheDocument();
     });
