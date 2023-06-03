@@ -18,6 +18,7 @@ export const theme: DefaultTheme = {
   },
   fonts: {
     primary: "Lexend",
+    secondary: "lora",
   },
 };
 
