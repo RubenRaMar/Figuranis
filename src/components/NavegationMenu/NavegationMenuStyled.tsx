@@ -26,6 +26,10 @@ const NavegationMenuStyled = styled.nav`
     border: none;
     background-color: transparent;
   }
+
+  .active {
+    color: ${themeColors.primary};
+  }
 `;
 
 export default NavegationMenuStyled;

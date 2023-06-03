@@ -13,7 +13,11 @@ const NavegationMenu = (): React.ReactElement => {
             className="navbar__icon"
           >
             <img
-              src="/images/allfigures.svg"
+              src={
+                window.location.pathname === "/figures"
+                  ? "/images/allfiguresblue.svg"
+                  : "/images/allfigures.svg"
+              }
               width="60"
               height="65"
               alt="A showcase full of figures"

@@ -19,6 +19,7 @@ declare module "styled-components" {
 
   interface fontStructure {
     primary: string;
+    secondary: string;
   }
   interface DefaultTheme {
     colors: colorStructure;
