@@ -20,6 +20,7 @@ const useUser = () => {
       return "Wrong credentials";
     }
   };
+
   return { getLoginUser };
 };
 
