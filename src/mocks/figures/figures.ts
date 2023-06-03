@@ -3,7 +3,7 @@ import { FiguresDataStructures } from "../../types";
 export const figuresMock: FiguresDataStructures[] = [
   {
     id: "5f234c24c2a7890123456789",
-    title: "Goku SS4",
+    title: "Dragon Ball ZBC Studio Goku Extreme Power Monkey Resin Statue",
     character: "Goku",
     franchise: "Dragon Ball",
     purchased: true,
@@ -11,9 +11,9 @@ export const figuresMock: FiguresDataStructures[] = [
     material: "Resin",
     size: 31,
     weight: 2.67,
-    price: 95,
+    price: 1999.9,
     image:
-      "https://www.kaionation.com/wp-content/uploads/2023/05/Image_20230506143056-681x1024.jpg",
+      "https://media.discordapp.net/attachments/1111959294213107773/1111962213368991744/aaaaaa-2.png?width=485&height=716",
     user: "646fc50910c8e8c5b17d54a7",
   },
   {
@@ -72,7 +72,7 @@ export const figuresMock: FiguresDataStructures[] = [
     weight: 9.87,
     price: 1_599,
     image:
-      "https://kurogami.com/med/img/productos/37/70/FIGURA_SABER_ALTER_FATE_STAY_NIGHT_HEAVENS_FEEL_POP_UP_PARADE_1.webp",
+      "https://images-ext-2.discordapp.net/external/R7gWyRDdVXQ6g7SFH5_PQdFTkXlgdQvv3AC4UFU51lY/https/www.statueplanet.com/132959-large_default/jimei-palace-god-enel-one-piece.jpg?width=585&height=716",
     user: "646fc50910c8e8c5b17d54a7",
   },
 ];

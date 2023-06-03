@@ -8,7 +8,7 @@ import {
 describe("Given a loadFigures mini reducer", () => {
   describe("When it invoked with a figure list", () => {
     test("Then it returns a new list figures with the old figures plus the new figures", () => {
-      const figuresMock = figuresMocksFactory;
+      const figuresMock = figuresMocksFactory(2);
 
       const loadFigures = figureReducer(
         initialFiguresState,
