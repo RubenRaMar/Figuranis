@@ -1,6 +1,6 @@
 import React from "react";
-import { FiguresDataStructures } from "../../types";
-import FigureCardStyled from "./FigureCardStyled";
+import { FiguresDataStructures } from "../../types.js";
+import FigureCardStyled from "./FigureCardStyled.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
