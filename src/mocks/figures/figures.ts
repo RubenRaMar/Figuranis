@@ -2,6 +2,36 @@ import { FiguresDataStructures } from "../../types";
 
 export const figuresMock: FiguresDataStructures[] = [
   {
+    id: "a1b2c3d4e5f6a7b8c9d0e1f2",
+    title: "Naruto 8thdays Studio Kakashi Hatake",
+    character: "Kakashi Hatake",
+    franchise: "Naruto",
+    purchased: false,
+    manufacturer: "Studio Kakashi",
+    material: "Resin",
+    size: 65,
+    weight: 5.23,
+    price: 245.99,
+    image:
+      "https://cdn.discordapp.com/attachments/1114553336134369300/1114554028370698240/kakashi.webp",
+    user: "646fc50910c8e8c5b17d54a7",
+  },
+  {
+    id: "60b8f9b43b58a71331a7cd49",
+    title: "One Piece XS Studio Zoro",
+    character: "Zoro",
+    franchise: "One Piece",
+    purchased: true,
+    manufacturer: "XS Studio",
+    material: "Resin",
+    size: 38,
+    weight: 5.87,
+    price: 295,
+    image:
+      "https://cdn.discordapp.com/attachments/1114553336134369300/1114554223745585212/zoro.webp",
+    user: "646fc50910c8e8c5b17d54a7",
+  },
+  {
     id: "5f234c24c2a7890123456789",
     title: "Dragon Ball ZBC Studio Goku Extreme Power Monkey",
     character: "Goku",
@@ -16,21 +46,7 @@ export const figuresMock: FiguresDataStructures[] = [
       "https://cdn.discordapp.com/attachments/1114553336134369300/1114553930077188177/Goku_god.webp",
     user: "646fc50910c8e8c5b17d54a7",
   },
-  {
-    id: "a1b2c3d4e5f6a7b8c9d0e1f2",
-    title: "Naruto 8thdays Studio Kakashi Hatake",
-    character: "Hatake",
-    franchise: "Naruto",
-    purchased: false,
-    manufacturer: "Studio Kakashi",
-    material: "Resin",
-    size: 65,
-    weight: 5.23,
-    price: 245.99,
-    image:
-      "https://cdn.discordapp.com/attachments/1114553336134369300/1114554028370698240/kakashi.webp",
-    user: "646fc50910c8e8c5b17d54a7",
-  },
+
   {
     id: "abcdef123456789012345678",
     title: "One Piece ATT Studio Nika Luffy",
@@ -240,21 +256,6 @@ export const figuresMock: FiguresDataStructures[] = [
     price: 499.99,
     image:
       "https://cdn.discordapp.com/attachments/1114553336134369300/1114554161917333524/ventus.webp",
-    user: "646fc50910c8e8c5b17d54a7",
-  },
-  {
-    id: "60b8f9b43b58a71331a7cd49",
-    title: "One Piece XS Studio Zoro",
-    character: "Zoro",
-    franchise: "One Piece",
-    purchased: true,
-    manufacturer: "XS Studio",
-    material: "Resin",
-    size: 38,
-    weight: 5.87,
-    price: 295,
-    image:
-      "https://cdn.discordapp.com/attachments/1114553336134369300/1114554223745585212/zoro.webp",
     user: "646fc50910c8e8c5b17d54a7",
   },
   {
