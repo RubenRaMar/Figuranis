@@ -28,7 +28,7 @@ const FigureCard = ({
             {title}
           </span>
           <span
-            aria-label={`The figure price is ${title}`}
+            aria-label={`The figure price is ${price} euros`}
             className="figure__data__price"
           >{`${price}€`}</span>
         </div>
