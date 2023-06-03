@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import { userMockCredentials, userTokenMock } from "./user/userMocks";
 import { UserCredentialsStructure } from "../types";
+import { figuresMock } from "./figures/figures";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -14,5 +15,8 @@ export const handlers = [
       req.body.username === userMockCredentials.username
       ? res(ctx.status(200), ctx.json({ token: userTokenMock }))
       : res(ctx.status(401), ctx.json({ message: "Wrong credentials" }));
+  }),
+  rest.get(`${apiUrl}/figures`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ figures: figuresMock }));
   }),
 ];
