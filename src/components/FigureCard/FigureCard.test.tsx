@@ -10,6 +10,8 @@ describe("Given a FiguresList component", () => {
     test("Then it should show a card title with a heading ", () => {
       renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
+      figureMock.purchased = true;
+
       const heading = screen.getByRole("heading", {
         name: figureMock.franchise,
       });
@@ -19,6 +21,8 @@ describe("Given a FiguresList component", () => {
 
     test("Then it should show a card image", () => {
       renderWithProviders(<FigureCard position={0} figure={figureMock} />);
+
+      figureMock.purchased = false;
 
       const image = screen.getByRole("img", {
         name: `${figureMock.title} figure`,
