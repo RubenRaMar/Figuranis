@@ -11,7 +11,7 @@ export const theme: DefaultTheme = {
     error: "#c80c0c",
     errorBackground: "#170404",
     light: "#d0d0d0",
-    lightGrey: "#525252",
+    lightGrey: "#8a8888",
     pending: "#e0730e",
     borderInputs: "#27be84",
     placeholder: "#9c9c9c",

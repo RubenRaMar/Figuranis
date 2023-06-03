@@ -25,3 +25,9 @@ export const renderWithProviders = (
 
   render(ui, { wrapper: Wrapper });
 };
+
+export const wrapWithProviders = ({
+  children,
+}: PropsWithChildren): React.ReactElement => (
+  <Provider store={store}>{children}</Provider>
+);
