@@ -8,7 +8,7 @@ describe("Given a FiguresList component", () => {
     const figureMock = figureMockFactory();
 
     test("Then it should show a card title with a heading ", () => {
-      renderWithProviders(<FigureCard figure={figureMock} />);
+      renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
       const heading = screen.getByRole("heading", {
         name: figureMock.franchise,
@@ -18,7 +18,7 @@ describe("Given a FiguresList component", () => {
     });
 
     test("Then it should show a card image", () => {
-      renderWithProviders(<FigureCard figure={figureMock} />);
+      renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
       const image = screen.getByRole("img", {
         name: `${figureMock.title} figure`,
@@ -34,7 +34,7 @@ describe("Given a FiguresList component", () => {
         `The figure price is ${figureMock.price} euros`,
       ];
 
-      renderWithProviders(<FigureCard figure={figureMock} />);
+      renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
       figuresData.forEach((figureData) => {
         const text = screen.getByLabelText(figureData);
