@@ -8,8 +8,8 @@ const FiguresList = (): React.ReactElement => {
 
   return (
     <FiguresListStyled className="figure-list">
-      {figures.map((figure) => (
-        <FigureCard figure={figure} key={figure.id} />
+      {figures.map((figure, posotion) => (
+        <FigureCard figure={figure} key={figure.id} position={posotion} />
       ))}
     </FiguresListStyled>
   );

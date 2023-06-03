@@ -10,7 +10,7 @@ const FigureCardStyled = styled.li`
     align-items: center;
     background-color: ${themeColors.dark};
     border-radius: 18px;
-    padding-bottom: 15px;
+    position: relative;
     box-shadow: 0px 0px 8px 1px rgba(11, 253, 180, 0.3);
 
     &--pending {
@@ -20,7 +20,7 @@ const FigureCardStyled = styled.li`
     &__image {
       width: 277px;
       border-radius: 18px 18px 0 0;
-      height: 292px;
+      height: 382px;
       object-fit: cover;
     }
 
@@ -31,6 +31,7 @@ const FigureCardStyled = styled.li`
       align-items: center;
       width: 100%;
       gap: 15px;
+      padding-block: 15px;
 
       &__purchased,
       &__pending {
@@ -40,12 +41,13 @@ const FigureCardStyled = styled.li`
         height: 46px;
         display: flex;
         align-items: center;
-        border-block: 1px solid ${themeColors.secundary};
-        color: ${themeColors.secundary};
         width: 100%;
         justify-content: center;
         text-transform: uppercase;
         letter-spacing: 3px;
+        position: absolute;
+        top: 336px;
+        background-color: ${themeColors.dark};
       }
 
       &__purchased {
