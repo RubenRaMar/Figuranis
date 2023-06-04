@@ -7,17 +7,14 @@ import FiguresListStyled from "./FiguresListStyled.js";
 const FiguresList = (): React.ReactElement => {
   const [showElement, setShowElement] = useState(false);
 
-  const figures = useAppSelector((state) => state.figure.figuresData);
+  const figures = useAppSelector(({ figure: { figuresData } }) => figuresData);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const timerShowElement = setTimeout(() => {
       setShowElement(true);
-      clearTimeout(timer);
     }, 500);
 
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timerShowElement);
   }, []);
 
   return (

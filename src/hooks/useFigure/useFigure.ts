@@ -1,10 +1,16 @@
 import axios from "axios";
-import { useAppSelector } from "../../store";
-import { FiguresDataStructures } from "../../types";
 import { useCallback } from "react";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { FiguresDataStructures } from "../../types";
+import {
+  hideLoadingActionCreator,
+  showLoadingActionCreator,
+} from "../../store/ui/uiSlice";
 
 const useFigures = () => {
-  const token = useAppSelector((state) => state.user.token);
+  const dispatch = useAppDispatch();
+
+  const token = useAppSelector(({ user: { token } }) => token);
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const figuresApi = axios.create({
@@ -12,19 +18,29 @@ const useFigures = () => {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  const getFigureList = useCallback(async (): Promise<
-    FiguresDataStructures[]
+  const getFiguresList = useCallback(async (): Promise<
+    FiguresDataStructures[] | undefined
   > => {
-    const {
-      data: { figures },
-    } = await figuresApi.get<{ figures: FiguresDataStructures[] }>(
-      `${apiUrl}/figures`
-    );
+    try {
+      dispatch(showLoadingActionCreator());
 
-    return figures;
-  }, [apiUrl, figuresApi]);
+      const {
+        data: { figures },
+      } = await figuresApi.get<{ figures: FiguresDataStructures[] }>(
+        `${apiUrl}/figures`
+      );
 
-  return { getFigureList };
+      dispatch(hideLoadingActionCreator());
+
+      return figures;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+
+      throw new Error("No figures have been found to list");
+    }
+  }, [apiUrl, figuresApi, dispatch]);
+
+  return { getFiguresList };
 };
 
 export default useFigures;

@@ -5,17 +5,18 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { userLogoutActionCreator } from "../../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
+import pathList from "../../routers/pathList/pathList";
 
 const MainHeader = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { isLogged } = useAppSelector((status) => status.user);
+  const isLogged = useAppSelector(({ user: { isLogged } }) => isLogged);
   const { removeToken } = useLocalStorage();
 
   const handleLogoutUser = () => {
     removeToken("FIguRaniSTokeN");
     dispatch(userLogoutActionCreator());
-    navigate("/user/login");
+    navigate(`${pathList.user}${pathList.login}`);
   };
 
   return (

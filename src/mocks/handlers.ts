@@ -16,7 +16,17 @@ export const handlers = [
       ? res(ctx.status(200), ctx.json({ token: userTokenMock }))
       : res(ctx.status(401), ctx.json({ message: "Wrong credentials" }));
   }),
+
   rest.get(`${apiUrl}/figures`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ figures: figuresMock }));
+  }),
+];
+
+export const errorHandlers = [
+  rest.get(`${apiUrl}/figures`, (_req, res, ctx) => {
+    const invalidAuthorization = "Invalid totoken";
+
+    ctx.set(`Authorization`, invalidAuthorization);
+    return res(ctx.status(401));
   }),
 ];

@@ -17,6 +17,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/theme/theme";
 import { Provider } from "react-redux";
 import { LazyLoginPage } from "../../routers/lazyPages/lazyPages";
+import pathList from "../../routers/pathList/pathList";
 
 describe("Given a LoginPage component", () => {
   describe("When it rendered", () => {
@@ -59,8 +60,8 @@ describe("Given a LoginPage component", () => {
 
     test("Then you should redirect to the figures page", async () => {
       const routesTest: RouteObject[] = [
-        { path: "/", element: <LoginPage /> },
-        { path: "/figures", element: <LoginPage /> },
+        { path: `${pathList.root}`, element: <LoginPage /> },
+        { path: `${pathList.figures}`, element: <LoginPage /> },
       ];
 
       const appRouterTest = createBrowserRouter(routesTest);
@@ -83,7 +84,7 @@ describe("Given a LoginPage component", () => {
       await userEvent.type(passwordInput, password);
       await userEvent.click(button);
 
-      expect(window.location.pathname).toBe("/figures");
+      expect(window.location.pathname).toBe(`${pathList.figures}`);
     });
   });
 });
