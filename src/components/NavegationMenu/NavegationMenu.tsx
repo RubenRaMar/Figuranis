@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
+import pathList from "../../routers/pathList/pathList";
 
 const NavegationMenu = (): React.ReactElement => {
   return (
@@ -9,12 +10,12 @@ const NavegationMenu = (): React.ReactElement => {
         <li>
           <NavLink
             aria-label="All figures icon"
-            to="/figures"
+            to={`${pathList.figures}`}
             className="navbar__icon"
           >
             <img
               src={
-                window.location.pathname === "/figures"
+                window.location.pathname === `${pathList.figures}`
                   ? "/images/allfiguresblue.svg"
                   : "/images/allfigures.svg"
               }

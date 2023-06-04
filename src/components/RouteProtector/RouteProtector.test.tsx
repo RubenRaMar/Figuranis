@@ -2,11 +2,12 @@ import { renderHook } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import RouteProtector from "./RouteProtector";
+import pathList from "../../routers/pathList/pathList";
 
 describe("Given a RouteProtector component", () => {
   describe("When it rendered and the user is not logged in beforehand", () => {
     test("then it should redirect the user to the loguin page", () => {
-      const expectedPath = "/user/login";
+      const expectedPath = `${pathList.user}${pathList.login}`;
 
       renderWithProviders(<RouteProtector />);
 
@@ -16,7 +17,7 @@ describe("Given a RouteProtector component", () => {
 
   describe("When it rendered and the user is logged in", () => {
     test("then it should redirect the user to the FiguresPage page", async () => {
-      const expectedPath = "/figures";
+      const expectedPath = `${pathList.figures}`;
 
       const key = "FIguRaniSTokeN";
       const value =

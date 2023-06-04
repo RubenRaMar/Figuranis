@@ -8,6 +8,7 @@ import useToken from "../../hooks/useToken/useToken";
 import { userLoginActionCreator } from "../../store/user/userSlice";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { useNavigate } from "react-router-dom";
+import pathList from "../../routers/pathList/pathList";
 
 const LoginPage = (): React.ReactElement => {
   const { getLoginUser } = useUser();
@@ -24,7 +25,7 @@ const LoginPage = (): React.ReactElement => {
 
       setToken("FIguRaniSTokeN", token);
       dispatch(userLoginActionCreator({ ...userData, token }));
-      navigate("/figures");
+      navigate(`${pathList.figures}`);
     }
   };
 

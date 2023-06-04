@@ -4,6 +4,7 @@ import MainHeader from "./MainHeader";
 import { userMockCredentials } from "../../mocks/user/userMocks";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import userEvent from "@testing-library/user-event";
+import pathList from "../../routers/pathList/pathList";
 
 describe("Given a MainHeader component", () => {
   const expectedAltTextLayout = "Logout button icon";
@@ -102,7 +103,7 @@ describe("Given a MainHeader component", () => {
 
     describe("When it renderd with a logged user and he click on the Loyout button", () => {
       test("Then it should redirect the user to LoginPage", async () => {
-        const expectedPath = "/user/login";
+        const expectedPath = `${pathList.user}${pathList.login}`;
         const expectedArialLabel = "Logout button";
 
         renderWithProviders(<MainHeader />);

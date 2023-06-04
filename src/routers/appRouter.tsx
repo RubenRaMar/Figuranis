@@ -2,15 +2,16 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import { LazyFiguresPage, LazyLoginPage } from "./lazyPages/lazyPages";
 import { Suspense } from "react";
+import pathList from "./pathList/pathList";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
+    path: `${pathList.root}`,
     element: <App />,
     children: [
-      { index: true, element: <Navigate to={"/figures"} replace /> },
+      { index: true, element: <Navigate to={`${pathList.figures}`} replace /> },
       {
-        path: "/user/login",
+        path: `${pathList.user}${pathList.login}`,
         element: (
           <Suspense>
             <LazyLoginPage />
@@ -18,7 +19,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/figures",
+        path: `${pathList.figures}`,
         element: (
           <Suspense>
             <LazyFiguresPage />
@@ -26,7 +27,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: "/add-figures",
+        path: `${pathList.addFigures}`,
         element: (
           <Suspense>
             <LazyLoginPage />
