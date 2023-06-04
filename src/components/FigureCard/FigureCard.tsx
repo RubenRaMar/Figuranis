@@ -15,6 +15,8 @@ const FigureCard = ({
     <FigureCardStyled>
       <article className={`figure${purchased ? "" : "--pending"}`}>
         <img
+          width="277"
+          height="382"
           className="figure__image"
           src={image}
           alt={`${title} figure`}

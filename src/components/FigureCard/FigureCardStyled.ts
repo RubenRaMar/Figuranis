@@ -18,9 +18,7 @@ const FigureCardStyled = styled.li`
     }
 
     &__image {
-      width: 277px;
       border-radius: 18px 18px 0 0;
-      height: 382px;
       object-fit: cover;
     }
 

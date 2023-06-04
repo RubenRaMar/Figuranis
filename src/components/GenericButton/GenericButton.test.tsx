@@ -1,8 +1,8 @@
 import { vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import GenericButton from "./GenericButton";
-import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 
 describe("Given a GenericButton component", () => {
   const expectedTextButton = "Delete";
