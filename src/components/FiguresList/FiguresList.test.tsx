@@ -1,8 +1,8 @@
 import { act, screen } from "@testing-library/react";
+import { vi } from "vitest";
 import { figuresMocksFactory } from "../../mocks/factory/factories";
 import { renderWithProviders } from "../../utils/testUtils";
 import FiguresList from "./FiguresList";
-import { vi } from "vitest";
 
 describe("Given a FiguresList component", () => {
   describe("When it rendered", () => {
