@@ -63,12 +63,16 @@ const FigureCardStyled = styled.li`
         font-weight: bold;
         text-transform: uppercase;
         color: ${themeColors.lightGrey};
+        text-align: center;
+        max-width: 237px;
+        overflow: auto;
       }
 
       &__title {
-        width: 237px;
+        max-width: 237px;
         text-align: center;
         font-size: ${toRem(19)};
+        overflow: auto;
       }
 
       &__price {
@@ -78,6 +82,7 @@ const FigureCardStyled = styled.li`
         font-weight: bold;
         border-radius: 8px;
         max-width: 200px;
+        text-align: center;
         overflow: auto;
         margin: 4px;
       }

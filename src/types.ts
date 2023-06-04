@@ -34,3 +34,7 @@ export interface FiguresDataStructures {
 export interface FiguresStateStructure {
   figuresData: FiguresDataStructures[];
 }
+
+export interface UiStructure {
+  isLoading: boolean;
+}
