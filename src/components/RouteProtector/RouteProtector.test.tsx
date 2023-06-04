@@ -1,21 +1,21 @@
 import { renderHook } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
-import App from "./App";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import RouteProtector from "./RouteProtector";
 
-describe("Given a App component", () => {
+describe("Given a RouteProtector component", () => {
   describe("When it rendered and the user is not logged in beforehand", () => {
     test("then it should redirect the user to the loguin page", () => {
-      const expectedPath = "/";
+      const expectedPath = "/user/login";
 
-      renderWithProviders(<App />);
+      renderWithProviders(<RouteProtector />);
 
       expect(window.location.pathname).toBe(expectedPath);
     });
   });
 
   describe("When it rendered and the user is logged in", () => {
-    test("then it should redirect the user to the loguin page", async () => {
+    test("then it should redirect the user to the FiguresPage page", async () => {
       const expectedPath = "/figures";
 
       const key = "FIguRaniSTokeN";
@@ -30,9 +30,9 @@ describe("Given a App component", () => {
 
       setToken(key, value);
 
-      renderWithProviders(<App />);
+      await renderWithProviders(<RouteProtector />);
 
-      expect(window.location.pathname).toBe(expectedPath);
+      await expect(window.location.pathname).toBe(expectedPath);
     });
   });
 });

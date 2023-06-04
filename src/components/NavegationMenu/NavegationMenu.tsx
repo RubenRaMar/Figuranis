@@ -41,7 +41,7 @@ const NavegationMenu = (): React.ReactElement => {
         <li>
           <NavLink
             aria-label="Add figures icon"
-            to="/addFigures"
+            to="/add-figures"
             className="navbar__icon"
           >
             <img
