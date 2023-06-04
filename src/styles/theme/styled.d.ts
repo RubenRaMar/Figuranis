@@ -15,6 +15,7 @@ declare module "styled-components" {
     pending: string;
     borderInputs: string;
     placeholder: string;
+    modal: string;
   }
 
   interface fontStructure {

@@ -15,6 +15,7 @@ export const theme: DefaultTheme = {
     pending: "#e0730e",
     borderInputs: "#27be84",
     placeholder: "#9c9c9c",
+    modal: "#000000eb",
   },
   fonts: {
     primary: "Lexend",
