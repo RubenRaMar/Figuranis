@@ -75,7 +75,7 @@ describe("Given a MainHeader component", () => {
         expect(AllFiguresImage).toBeInTheDocument();
       });
 
-      test("Then it should show the layout icon", async () => {
+      test("Then it should show the Logout Button", async () => {
         renderWithProviders(<LoginPage />);
 
         const usernameInput = screen.getByLabelText(
@@ -94,15 +94,15 @@ describe("Given a MainHeader component", () => {
 
         renderWithProviders(<MainHeader />);
 
-        const layoutImage = screen.queryByAltText(expectedAltTextLayout);
+        const LogoutButton = screen.queryByAltText(expectedAltTextLayout);
 
-        expect(layoutImage).toBeInTheDocument();
+        expect(LogoutButton).toBeInTheDocument();
       });
     });
 
     describe("When it renderd with a logged user and he click on the Loyout button", () => {
       test("Then it should redirect the user to LoginPage", async () => {
-        const expectedPath = "/";
+        const expectedPath = "/user/login";
         const expectedArialLabel = "Logout button";
 
         renderWithProviders(<MainHeader />);
