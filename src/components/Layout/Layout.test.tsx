@@ -14,4 +14,20 @@ describe("Given a Layout component", () => {
       expect(logo).toBeInTheDocument();
     });
   });
+
+  describe("When it rendered but expect a response", () => {
+    test("Then it should show a 'Goku playing the dragon balls' image", () => {
+      const expectedAltText = "Goku playing the dragon balls";
+
+      renderWithProviders(<Layout />, {
+        ui: {
+          isLoading: true,
+        },
+      });
+
+      const image = screen.getByRole("img", { name: expectedAltText });
+
+      expect(image).toBeInTheDocument();
+    });
+  });
 });
