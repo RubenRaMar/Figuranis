@@ -8,17 +8,17 @@ import { useEffect } from "react";
 
 const FiguresPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
-  const { getFigureList } = useFigures();
+  const { getFiguresList } = useFigures();
 
   useEffect(() => {
     (async () => {
-      const figureList = await getFigureList();
+      const figureList = await getFiguresList();
 
       if (figureList) {
         dispatch(loadFiguresActionCreator(figureList));
       }
     })();
-  }, [dispatch, getFigureList]);
+  }, [dispatch, getFiguresList]);
 
   return (
     <FiguresPageStyled>

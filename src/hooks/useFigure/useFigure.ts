@@ -18,7 +18,7 @@ const useFigures = () => {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  const getFigureList = useCallback(async (): Promise<
+  const getFiguresList = useCallback(async (): Promise<
     FiguresDataStructures[] | undefined
   > => {
     try {
@@ -35,10 +35,12 @@ const useFigures = () => {
       return figures;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
+
+      throw new Error("No figures have been found to list");
     }
   }, [apiUrl, figuresApi, dispatch]);
 
-  return { getFigureList };
+  return { getFiguresList };
 };
 
 export default useFigures;
