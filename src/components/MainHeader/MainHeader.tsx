@@ -15,7 +15,7 @@ const MainHeader = (): React.ReactElement => {
   const handleLogoutUser = () => {
     removeToken("FIguRaniSTokeN");
     dispatch(userLogoutActionCreator());
-    navigate("/");
+    navigate("/user/login");
   };
 
   return (
