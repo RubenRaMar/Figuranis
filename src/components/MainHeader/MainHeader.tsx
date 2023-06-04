@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const MainHeader = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { isLogged } = useAppSelector((status) => status.user);
+  const isLogged = useAppSelector(({ user: { isLogged } }) => isLogged);
   const { removeToken } = useLocalStorage();
 
   const handleLogoutUser = () => {
