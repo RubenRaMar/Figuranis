@@ -20,7 +20,7 @@ const LoginPage = (): React.ReactElement => {
   const handleUserLogin = async (user: UserCredentialsStructure) => {
     const token = await getLoginUser(user);
 
-    if (token !== "Wrong credentials") {
+    if (token) {
       const userData = getDecodeToken(token);
 
       setToken("FIguRaniSTokeN", token);

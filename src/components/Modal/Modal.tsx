@@ -1,9 +1,11 @@
 import React from "react";
-import ModalStyled from "./ModalStyled";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import ModalStyled from "./ModalStyled";
+import { hideModalActionCreator } from "../../store/ui/uiSlice";
 
 const Modal = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
   const { error, message } = useAppSelector(({ ui: { modal } }) => modal);
 
   let modalImage = "";
@@ -46,14 +48,20 @@ const Modal = (): React.ReactElement => {
       break;
   }
 
+  const handleHideModal = () => {
+    dispatch(hideModalActionCreator());
+  };
+
   return (
-    <ModalStyled>
-      <article className={`modal ${!error && "error"}`}>
+    <ModalStyled onClick={handleHideModal}>
+      <article className={`modal ${error && "error"}`}>
         <button className="modal__closeButton">
           <img
             src="/images/closemodal.svg"
             alt="An X to close"
             loading="lazy"
+            width="25"
+            height="25"
           />
         </button>
         <img

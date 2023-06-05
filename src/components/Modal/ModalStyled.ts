@@ -40,7 +40,7 @@ const ModalStyled = styled.section`
 
   .error {
     border: 3px solid ${themeColors.error};
-    background-color: #1a0000;
+    background-color: #0d0202;
   }
 `;
 
