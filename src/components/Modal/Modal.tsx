@@ -4,15 +4,12 @@ import { useAppSelector } from "../../store";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 const Modal = (): React.ReactElement => {
-  const { error } = useAppSelector(({ ui: { modal } }) => modal);
+  const { error, message } = useAppSelector(({ ui: { modal } }) => modal);
 
   let modalImage = "";
   let alt = "";
-  const modalMessage = {
-    message: modalsMessage.addCorrect,
-  };
 
-  switch (modalMessage.message) {
+  switch (message) {
     case modalsMessage.wrongCredentials:
       modalImage = "/images/modal/gotranks.svg";
       alt = "Skeletonized and disgruntled Gotranks";
@@ -67,7 +64,7 @@ const Modal = (): React.ReactElement => {
           width="150"
           height="150"
         />
-        <span className="modal__text">{modalMessage.message}</span>
+        <span className="modal__text">{message}</span>
       </article>
     </ModalStyled>
   );
