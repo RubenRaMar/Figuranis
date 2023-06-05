@@ -28,10 +28,22 @@ const uiSlice = createSlice({
       ...currentUiState,
       modal: action.payload,
     }),
+
+    hideModal: (currentUiState) => ({
+      ...currentUiState,
+      modal: {
+        isModal: false,
+        error: false,
+        message: "",
+      },
+    }),
   },
 });
 
-export const { showLoading: showLoadingActionCreator } = uiSlice.actions;
-export const { hideLoading: hideLoadingActionCreator } = uiSlice.actions;
-export const { showModal: showModalActionCreator } = uiSlice.actions;
+export const {
+  showLoading: showLoadingActionCreator,
+  hideLoading: hideLoadingActionCreator,
+  showModal: showModalActionCreator,
+  hideModal: hideModalActionCreator,
+} = uiSlice.actions;
 export const uiReducer = uiSlice.reducer;
