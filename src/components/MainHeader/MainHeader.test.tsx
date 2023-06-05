@@ -4,7 +4,7 @@ import MainHeader from "./MainHeader";
 import { userMockCredentials } from "../../mocks/user/userMocks";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import userEvent from "@testing-library/user-event";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 describe("Given a MainHeader component", () => {
   const expectedAltTextLayout = "Logout button icon";

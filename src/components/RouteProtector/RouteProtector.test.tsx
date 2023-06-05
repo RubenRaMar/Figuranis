@@ -2,7 +2,7 @@ import { renderHook } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import RouteProtector from "./RouteProtector";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 describe("Given a RouteProtector component", () => {
   describe("When it rendered and the user is not logged in beforehand", () => {

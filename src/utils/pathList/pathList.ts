@@ -5,7 +5,7 @@ const pathList: PathStructure = {
   user: "/user",
   login: "/login",
   figures: "/figures",
-  addFigures: "/add-figues",
+  addFigures: "/add-figures",
 };
 
 export default pathList;

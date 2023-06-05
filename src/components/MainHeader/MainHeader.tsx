@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { userLogoutActionCreator } from "../../store/user/userSlice";
 import { useNavigate } from "react-router-dom";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 const MainHeader = (): React.ReactElement => {
   const dispatch = useAppDispatch();

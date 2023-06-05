@@ -17,7 +17,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/theme/theme";
 import { Provider } from "react-redux";
 import { LazyLoginPage } from "../../routers/lazyPages/lazyPages";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 describe("Given a LoginPage component", () => {
   describe("When it rendered", () => {

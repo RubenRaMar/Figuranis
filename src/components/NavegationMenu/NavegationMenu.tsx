@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 const NavegationMenu = (): React.ReactElement => {
   return (
@@ -42,7 +42,7 @@ const NavegationMenu = (): React.ReactElement => {
         <li>
           <NavLink
             aria-label="Add figures icon"
-            to="/add-figures"
+            to={pathList.addFigures}
             className="navbar__icon"
           >
             <img

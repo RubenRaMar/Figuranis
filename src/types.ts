@@ -37,4 +37,10 @@ export interface FiguresStateStructure {
 
 export interface UiStructure {
   isLoading: boolean;
+  modal: UiModalStructure;
+}
+export interface UiModalStructure {
+  isModal: boolean;
+  error: boolean;
+  message: string;
 }

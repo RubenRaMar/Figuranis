@@ -5,13 +5,14 @@ import {
   userMockIncorrectCredentials,
   userTokenMock,
 } from "../../mocks/user/userMocks";
+import { wrapWithProviders } from "../../utils/testUtils";
 
 describe("Given a getLoginUser funtion", () => {
   const {
     result: {
       current: { getLoginUser },
     },
-  } = renderHook(() => useUser());
+  } = renderHook(() => useUser(), { wrapper: wrapWithProviders });
 
   describe("When it invoked with a valid user credentials 'Xavi' and 'xavi123'", () => {
     test("Then it should return a token", async () => {
