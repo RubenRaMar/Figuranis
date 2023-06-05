@@ -1,15 +1,22 @@
 import {
   hideLoadingActionCreator,
+  hideModalActionCreator,
   initialUiState,
   showLoadingActionCreator,
   showModalActionCreator,
   uiReducer,
 } from "./uiSlice";
 
+const modalErrorMock = {
+  isModal: true,
+  error: true,
+  message: "Wrong credential",
+};
+
 const isLoadingTrue = { ...initialUiState, isLoading: true };
 
 describe("Given a showLoading mini reducer", () => {
-  describe("When it invoked", () => {
+  describe("When it is invoked", () => {
     test("Then it should change the isLoading state to true", () => {
       const isLoading = uiReducer(initialUiState, showLoadingActionCreator());
 
@@ -19,7 +26,7 @@ describe("Given a showLoading mini reducer", () => {
 });
 
 describe("Given a hideLoading mini reducer", () => {
-  describe("When it invoked", () => {
+  describe("When it is invoked", () => {
     test("Then it should change the isLoading property to false", () => {
       const isLoading = uiReducer(isLoadingTrue, hideLoadingActionCreator());
 
@@ -29,14 +36,8 @@ describe("Given a hideLoading mini reducer", () => {
 });
 
 describe("Given a showModal mini reducer", () => {
-  describe("When it invoked to show an error message 'Wrong credentials'", () => {
-    test("Then it should chenge the idModal and error poperty to true and the message to 'Wrong credentials'", () => {
-      const modalErrorMock = {
-        isModal: true,
-        error: true,
-        message: "'Wrong credential",
-      };
-
+  describe("When it is invoked to show an error message 'Wrong credentials'", () => {
+    test("Then it should change the isModal and error poperty to true and the message to 'Wrong credentials'", () => {
       const modalError = uiReducer(
         initialUiState,
         showModalActionCreator(modalErrorMock)
@@ -46,6 +47,19 @@ describe("Given a showModal mini reducer", () => {
         ...initialUiState,
         modal: modalErrorMock,
       });
+    });
+  });
+});
+
+describe("Given a hideModal mini reducer", () => {
+  describe("When it is invoked", () => {
+    test("Then it should resetting the states of the modals", () => {
+      const resetModalsState = uiReducer(
+        { ...initialUiState, modal: modalErrorMock },
+        hideModalActionCreator()
+      );
+
+      expect(resetModalsState).toStrictEqual(initialUiState);
     });
   });
 });

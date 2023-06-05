@@ -4,14 +4,16 @@ import { useAppDispatch } from "../../store";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
+  showModalActionCreator,
 } from "../../store/ui/uiSlice";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
 
   const getLoginUser = async (
     user: UserCredentialsStructure
-  ): Promise<string> => {
+  ): Promise<string | undefined> => {
     const apiUrl = import.meta.env.VITE_API_URL;
 
     try {
@@ -29,8 +31,15 @@ const useUser = () => {
       return token;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: true,
+          isModal: true,
+          message: modalsMessage.wrongCredentials,
+        })
+      );
 
-      return "Wrong credentials";
+      throw new Error(modalsMessage.wrongCredentials);
     }
   };
 

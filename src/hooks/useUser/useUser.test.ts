@@ -6,6 +6,7 @@ import {
   userTokenMock,
 } from "../../mocks/user/userMocks";
 import { wrapWithProviders } from "../../utils/testUtils";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 describe("Given a getLoginUser funtion", () => {
   const {
@@ -23,10 +24,12 @@ describe("Given a getLoginUser funtion", () => {
   });
 
   describe("When it invoked with a incorrect credentials 'Xavi' and 'papi123'", () => {
-    test("Then it should retunt a 'Wrong credentials' message", async () => {
-      const message = await getLoginUser(userMockIncorrectCredentials);
+    test("Then it should retunt a 'Wrong credentials' message", () => {
+      const expectedError = new Error(modalsMessage.wrongCredentials);
 
-      expect(message).toStrictEqual("Wrong credentials");
+      const response = getLoginUser(userMockIncorrectCredentials);
+
+      expect(response).rejects.toThrowError(expectedError);
     });
   });
 });
