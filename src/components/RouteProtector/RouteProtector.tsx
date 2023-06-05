@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { userLoginActionCreator } from "../../store/user/userSlice";
 import { useAppDispatch } from "../../store";
 import Layout from "../Layout/Layout";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 const RouteProtector = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -19,7 +19,8 @@ const RouteProtector = (): React.ReactElement => {
     const token = getToken();
 
     if (!token) {
-      return navigate(`${pathList.user}${pathList.login}`);
+      navigate(`${pathList.user}${pathList.login}`);
+      return;
     }
 
     if (location.pathname === `${pathList.user}${pathList.login}`) {

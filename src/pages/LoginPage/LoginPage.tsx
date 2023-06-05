@@ -8,7 +8,7 @@ import useToken from "../../hooks/useToken/useToken";
 import { userLoginActionCreator } from "../../store/user/userSlice";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { useNavigate } from "react-router-dom";
-import pathList from "../../routers/pathList/pathList";
+import pathList from "../../utils/pathList/pathList";
 
 const LoginPage = (): React.ReactElement => {
   const { getLoginUser } = useUser();

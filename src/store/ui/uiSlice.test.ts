@@ -1,4 +1,3 @@
-import { UiStructure } from "../../types";
 import {
   hideLoadingActionCreator,
   initialUiState,
@@ -6,7 +5,7 @@ import {
   uiReducer,
 } from "./uiSlice";
 
-const isLoadingTrue: UiStructure = { isLoading: true };
+const isLoadingTrue = { ...initialUiState, isLoading: true };
 
 describe("Given a showLoading mini reducer", () => {
   describe("When it invoked", () => {

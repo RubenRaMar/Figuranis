@@ -2,7 +2,7 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import { LazyFiguresPage, LazyLoginPage } from "./lazyPages/lazyPages";
 import { Suspense } from "react";
-import pathList from "./pathList/pathList";
+import pathList from "../utils/pathList/pathList";
 
 const routes: RouteObject[] = [
   {
