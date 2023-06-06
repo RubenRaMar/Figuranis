@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 import { renderWithProviders } from "../../utils/testUtils";
 import Modal from "./Modal";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a Modal component", () => {
   describe("When it is rendered and receives a modal message list", () => {
@@ -26,14 +27,14 @@ describe("Given a Modal component", () => {
         removeError,
       ];
 
-      expectedAltTexts.forEach((expectedAltText, position) => {
+      expectedAltTexts.forEach((expectedAltText) => {
         renderWithProviders(<Modal />, {
           ui: {
             isLoading: false,
             modal: {
               message: expectedAltText,
               isModal: true,
-              error: !position && false,
+              error: true,
             },
           },
         });
@@ -42,6 +43,22 @@ describe("Given a Modal component", () => {
 
         expect(text).toBeInTheDocument();
       });
+    });
+  });
+
+  describe("When it is rendered ", () => {
+    test("Then it should show a 'An X to close' button", async () => {
+      const expectedAltTextButton = "An X to close";
+
+      renderWithProviders(<Modal />);
+
+      const button = screen.getByRole("button", {
+        name: expectedAltTextButton,
+      });
+
+      await userEvent.click(button);
+
+      expect(button).toBeInTheDocument();
     });
   });
 });

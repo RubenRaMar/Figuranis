@@ -4,6 +4,7 @@ import { wrapWithProviders } from "../../utils/testUtils";
 import { figuresMock } from "../../mocks/figures/figures";
 import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
+import { store } from "../../store";
 
 describe("Given a getFiguresList custom hook", () => {
   describe("When it invoked", () => {
@@ -21,10 +22,8 @@ describe("Given a getFiguresList custom hook", () => {
   });
 
   describe("When it receives an invalid token", () => {
-    test("Then it should throw a 'No figures have been found to list'", () => {
+    test("Then it should cancel the loading'", async () => {
       server.resetHandlers(...errorHandlers);
-
-      const expectedError = new Error("No figures have been found to list");
 
       const {
         result: {
@@ -32,9 +31,11 @@ describe("Given a getFiguresList custom hook", () => {
         },
       } = renderHook(() => useFigures(), { wrapper: wrapWithProviders });
 
-      const response = getFiguresList();
+      await getFiguresList();
 
-      expect(response).rejects.toThrowError(expectedError);
+      const isLoading = store.getState().ui.isLoading;
+
+      expect(isLoading).toBeFalsy();
     });
   });
 });

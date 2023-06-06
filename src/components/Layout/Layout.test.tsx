@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import Layout from "./Layout";
 import { initialUiState } from "../../store/ui/uiSlice";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 describe("Given a Layout component", () => {
   describe("When it rendering", () => {
@@ -24,6 +25,11 @@ describe("Given a Layout component", () => {
         ui: {
           ...initialUiState,
           isLoading: true,
+          modal: {
+            isModal: true,
+            error: true,
+            message: modalsMessage.wrongCredentials,
+          },
         },
       });
 

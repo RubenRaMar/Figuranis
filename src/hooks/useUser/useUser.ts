@@ -38,8 +38,6 @@ const useUser = () => {
           message: modalsMessage.wrongCredentials,
         })
       );
-
-      throw new Error(modalsMessage.wrongCredentials);
     }
   };
 
