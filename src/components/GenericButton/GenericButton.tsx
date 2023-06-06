@@ -1,4 +1,5 @@
 import React from "react";
+import GenericButtonStyled from "./GenericButtonStyled";
 
 interface GenericButtonProps {
   actionOnClick: () => void;
@@ -12,13 +13,13 @@ const GenericButton = ({
   text,
 }: GenericButtonProps): React.ReactElement => {
   return (
-    <button
+    <GenericButtonStyled
       className={className}
       onClick={actionOnClick}
       aria-label={className}
     >
       {text}
-    </button>
+    </GenericButtonStyled>
   );
 };
 

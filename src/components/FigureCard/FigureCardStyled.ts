@@ -28,8 +28,8 @@ const FigureCardStyled = styled.li`
       -webkit-box-align: center;
       align-items: center;
       width: 100%;
-      gap: 15px;
-      padding-block: 15px;
+      gap: 12px;
+      padding: 22px;
 
       &__purchased,
       &__pending {
@@ -66,6 +66,8 @@ const FigureCardStyled = styled.li`
         text-align: center;
         max-width: 237px;
         overflow: auto;
+        border-bottom: 2px solid rgb(138, 136, 136);
+        padding-bottom: 4px;
       }
 
       &__title {
@@ -76,7 +78,6 @@ const FigureCardStyled = styled.li`
       }
 
       &__price {
-        border: 2px solid rgb(57, 57, 57);
         padding: 4px 18px;
         font-size: 23px;
         font-weight: bold;
@@ -84,7 +85,6 @@ const FigureCardStyled = styled.li`
         max-width: 200px;
         text-align: center;
         overflow: auto;
-        margin: 4px;
       }
     }
   }

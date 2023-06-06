@@ -1,6 +1,7 @@
 import React from "react";
 import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
+import GenericButton from "../GenericButton/GenericButton.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -40,6 +41,13 @@ const FigureCard = ({
             aria-label={`The figure price is ${price} euros`}
             className="figure__data__price"
           >{`${price}€`}</span>
+          <GenericButton
+            actionOnClick={() => {
+              return;
+            }}
+            className="delete"
+            text="Delete"
+          />
         </div>
       </article>
     </FigureCardStyled>
