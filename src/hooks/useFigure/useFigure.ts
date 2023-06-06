@@ -35,8 +35,6 @@ const useFigures = () => {
       return figures;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
-
-      throw new Error("No figures have been found to list");
     }
   }, [apiUrl, figuresApi, dispatch]);
 
