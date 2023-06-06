@@ -13,7 +13,7 @@ export const renderWithProviders = (
 ) => {
   const testStore = preloadedState ? setupStore(preloadedState) : store;
 
-  const Wrapper = ({ children }: PropsWithChildren): JSX.Element => {
+  const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
     return (
       <BrowserRouter>
         <ThemeProvider theme={theme}>
