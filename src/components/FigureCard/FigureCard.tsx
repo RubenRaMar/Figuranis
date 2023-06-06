@@ -1,6 +1,9 @@
 import React from "react";
 import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
+import GenericButton from "../GenericButton/GenericButton.js";
+import { useAppDispatch } from "../../store/index.js";
+import { deleteFigureActionCreator } from "../../store/figures/figureSlice.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -8,9 +11,15 @@ interface FigureCardProps {
 }
 
 const FigureCard = ({
-  figure: { title, franchise, purchased, image, price },
+  figure: { title, franchise, purchased, image, price, id },
   position,
 }: FigureCardProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const handleDeleteFigure = () => {
+    dispatch(deleteFigureActionCreator(id));
+  };
+
   return (
     <FigureCardStyled>
       <article className={`figure${purchased ? "" : "--pending"}`}>
@@ -40,6 +49,11 @@ const FigureCard = ({
             aria-label={`The figure price is ${price} euros`}
             className="figure__data__price"
           >{`${price}€`}</span>
+          <GenericButton
+            actionOnClick={handleDeleteFigure}
+            className="delete"
+            text="Delete"
+          />
         </div>
       </article>
     </FigureCardStyled>

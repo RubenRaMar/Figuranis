@@ -2,9 +2,10 @@ import { screen } from "@testing-library/react";
 import { figureMockFactory } from "../../mocks/factory/factories";
 import { renderWithProviders } from "../../utils/testUtils";
 import FigureCard from "./FigureCard";
+import userEvent from "@testing-library/user-event";
 
 describe("Given a FiguresList component", () => {
-  describe("When it rendered and receives one figure", () => {
+  describe("When it is rendered and receives one figure", () => {
     const figureMock = figureMockFactory();
 
     test("Then it should show a card title with a heading ", () => {
@@ -44,6 +45,22 @@ describe("Given a FiguresList component", () => {
         const text = screen.getByLabelText(figureData);
 
         expect(text).toBeInTheDocument();
+      });
+    });
+
+    describe("When it is rendered and the user clicks the 'delete' button", () => {
+      test("Then it should be able to remove the figure", async () => {
+        const expectedAtlTextButton = "delete";
+
+        renderWithProviders(<FigureCard position={0} figure={figureMock} />);
+
+        const button = screen.getByRole("button", {
+          name: expectedAtlTextButton,
+        });
+
+        await userEvent.click(button);
+
+        expect(button).toBeInTheDocument();
       });
     });
   });
