@@ -5,7 +5,9 @@ import { FiguresDataStructures } from "../../types";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
+  showModalActionCreator,
 } from "../../store/ui/uiSlice";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 const useFigures = () => {
   const dispatch = useAppDispatch();
@@ -38,7 +40,33 @@ const useFigures = () => {
     }
   }, [apiUrl, figuresApi, dispatch]);
 
-  return { getFiguresList };
+  const deleteFigure = async (id: string) => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      await figuresApi.delete(`${apiUrl}/figures/delete/${id}`);
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: false,
+          isModal: true,
+          message: modalsMessage.removeCorrect,
+        })
+      );
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: true,
+          isModal: true,
+          message: modalsMessage.removeError,
+        })
+      );
+    }
+  };
+
+  return { getFiguresList, deleteFigure };
 };
 
 export default useFigures;
