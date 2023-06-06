@@ -9,6 +9,7 @@ import { wrapWithProviders } from "../../utils/testUtils";
 import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
 import { store } from "../../store";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 describe("Given a getLoginUser funtion", () => {
   const {
@@ -31,9 +32,9 @@ describe("Given a getLoginUser funtion", () => {
 
       await getLoginUser(userMockIncorrectCredentials);
 
-      const isLoading = store.getState().ui.isLoading;
+      const { message } = store.getState().ui.modal;
 
-      expect(isLoading).toBeFalsy();
+      expect(message).toBe(modalsMessage.wrongCredentials);
     });
   });
 });
