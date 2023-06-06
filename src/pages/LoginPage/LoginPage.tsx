@@ -30,12 +30,10 @@ const LoginPage = (): React.ReactElement => {
   };
 
   return (
-    <>
-      <LoginPageStyled>
-        <h1>LOGIN</h1>
-        <LoginForm actionOnClick={handleUserLogin} />
-      </LoginPageStyled>
-    </>
+    <LoginPageStyled>
+      <h1>LOGIN</h1>
+      <LoginForm actionOnClick={handleUserLogin} />
+    </LoginPageStyled>
   );
 };
 

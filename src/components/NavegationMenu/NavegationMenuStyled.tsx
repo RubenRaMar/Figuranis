@@ -4,13 +4,16 @@ import { themeColors } from "../../styles/theme/theme";
 
 const NavegationMenuStyled = styled.nav`
   padding: 22px;
-  border-top: 1px solid ${themeColors.primary};
-  background-color: ${themeColors.mainBackground};
+  border-top: 1px solid rgb(36, 172, 240);
+  background-color: rgb(13, 13, 13);
+  display: flex;
+  justify-content: center;
 
   .navbar {
     &__list {
       display: flex;
       justify-content: space-between;
+      width: 283px;
     }
 
     &__icon {
