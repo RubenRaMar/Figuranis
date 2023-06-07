@@ -28,6 +28,6 @@ export const errorHandlers = [
   }),
 
   rest.delete(`${apiUrl}/figures/delete/:id`, (_req, res, ctx) => {
-    return res(ctx.status(401));
+    return res(ctx.status(404));
   }),
 ];

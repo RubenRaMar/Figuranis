@@ -5,16 +5,19 @@ import toRem from "../../styles/functions/toRem";
 const FigureCardStyled = styled.li`
   .figure,
   .figure--pending {
+    position: relative;
+    width: 279px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: ${themeColors.dark};
     border-radius: 18px;
-    position: relative;
-    box-shadow: 0px 0px 8px 1px rgba(11, 253, 180, 0.3);
+    box-shadow: 0px 0px 8px 1px #0bfdb44d;
+    border: 1px solid #0bfdb438;
 
     &--pending {
-      box-shadow: 0px 0px 8px 1px rgba(224, 115, 14, 0.3);
+      box-shadow: 0px 0px 8px 1px #e0730e4d;
+      border: 1px solid #e0730e40;
     }
 
     &__image {

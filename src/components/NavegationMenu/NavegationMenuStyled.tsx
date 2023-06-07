@@ -4,6 +4,7 @@ import { themeColors } from "../../styles/theme/theme";
 
 const NavegationMenuStyled = styled.nav`
   padding: 22px;
+  height: 142px;
   border-top: 1px solid rgb(36, 172, 240);
   background-color: rgb(13, 13, 13);
   display: flex;
@@ -13,7 +14,7 @@ const NavegationMenuStyled = styled.nav`
     &__list {
       display: flex;
       justify-content: space-between;
-      width: 283px;
+      width: 275px;
     }
 
     &__icon {

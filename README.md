@@ -14,7 +14,7 @@ With Vite + TypeScript
 
 `npm run test`: runs vitest(test)
 
-# FIGURAniS README
+# FIGURAniS [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Ruben-Ramirez-Final-Project-front-202304-bcn&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Ruben-Ramirez-Final-Project-front-202304-bcn)
 
 ## Introduction
 
@@ -39,11 +39,10 @@ The FIGURAniS project utilizes the following technologies:
 
 ### Development and Build Tools:
 
-- Vite: A fast development build tool.
-- TypeScript: A typed superset of JavaScript.
-- Eslint: A pluggable linting utility for JavaScript and TypeScript.
-- Prettier: An opinionated code formatter.
-- Jest: A JavaScript testing framework.
+- https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E Vite: A fast development build tool.
+- https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white TypeScript: A typed superset of JavaScript.
+- https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white Eslint: A pluggable linting utility for JavaScript and TypeScript.
+- https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E Prettier: An opinionated code formatter.
 - Vitest: A test runner for Vite.
 - Husky: A Git hooks library.
 - Commitlint: A linting library for commit messages.
