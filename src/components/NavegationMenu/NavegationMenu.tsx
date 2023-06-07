@@ -45,7 +45,9 @@ const NavegationMenu = (): React.ReactElement => {
         </li>
         <li>
           <NavLink
-            aria-label="Add figures icon"
+            aria-label={`Add figures icon ${
+              location.pathname === "/add-figure" ? "blue" : ""
+            }`}
             to={pathList.addFigure}
             className="navbar__icon"
           >
