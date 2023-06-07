@@ -10,6 +10,7 @@ const GenericButtonStyled = styled.button`
   font-size: ${toRem(18)};
   text-transform: uppercase;
   font-weight: 700;
+  box-shadow: 0px 1px 8px 0px #c80c0cb3;
 `;
 
 export default GenericButtonStyled;

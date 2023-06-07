@@ -20,6 +20,13 @@ export const handlers = [
       ctx.json({ message: modalsMessage.removeCorrect })
     );
   }),
+
+  rest.post(`${apiUrl}/figures/add`, (_req, res, ctx) => {
+    return res(
+      ctx.status(201),
+      ctx.json({ message: modalsMessage.addCorrect })
+    );
+  }),
 ];
 
 export const errorHandlers = [
@@ -28,6 +35,10 @@ export const errorHandlers = [
   }),
 
   rest.delete(`${apiUrl}/figures/delete/:id`, (_req, res, ctx) => {
+    return res(ctx.status(404));
+  }),
+
+  rest.post(`${apiUrl}/figures/add`, (_req, res, ctx) => {
     return res(ctx.status(401));
   }),
 ];
