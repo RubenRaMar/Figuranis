@@ -3,5 +3,5 @@ export interface PathStructure {
   login: string;
   user: string;
   figures: string;
-  addFigures: string;
+  addFigure: string;
 }

@@ -1,9 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
 
 const NavegationMenu = (): React.ReactElement => {
+  const location = useLocation();
+
   return (
     <NavegationMenuStyled className="navbar">
       <ul className="navbar__list">
@@ -15,7 +17,7 @@ const NavegationMenu = (): React.ReactElement => {
           >
             <img
               src={
-                window.location.pathname === `${pathList.figures}`
+                location.pathname === `${pathList.figures}`
                   ? "/images/allfiguresblue.svg"
                   : "/images/allfigures.svg"
               }
@@ -28,25 +30,31 @@ const NavegationMenu = (): React.ReactElement => {
           </NavLink>
         </li>
         <li>
-          <button aria-label="Pending figures icon" className="navbar__icon">
-            <img
-              src="/images/pendingfigures.svg"
-              width="60"
-              height="65"
-              alt="A showcase with a shopping list with figurines"
-              loading="lazy"
-            />
-            <span>Pending</span>
-          </button>
+          {location.pathname === pathList.figures && (
+            <button aria-label="Pending figures icon" className="navbar__icon">
+              <img
+                src="/images/pendingfigures.svg"
+                width="60"
+                height="65"
+                alt="A showcase with a shopping list with figurines"
+                loading="lazy"
+              />
+              <span>Pending</span>
+            </button>
+          )}
         </li>
         <li>
           <NavLink
             aria-label="Add figures icon"
-            to={pathList.addFigures}
+            to={pathList.addFigure}
             className="navbar__icon"
           >
             <img
-              src="/images/addfigure.svg"
+              src={
+                location.pathname === `${pathList.addFigure}`
+                  ? "/images/addfigureblue.svg"
+                  : "/images/addfigure.svg"
+              }
               width="60"
               height="65"
               alt="A showcase case with an addition symbol on the inside"

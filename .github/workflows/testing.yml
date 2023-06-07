@@ -16,3 +16,8 @@ jobs:
 
       - name: 🧪 Testing
         run: npm test
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          DEBUG: ${{ secrets.DEBUG }}
+          MONGODB_CONNECTION: ${{ secrets.MONGO_DB_CONNECTION }}
+          ALLOEWD_ORIGIN: ${{ secrets.ALLOEWD_ORIGIN}}
