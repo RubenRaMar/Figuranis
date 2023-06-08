@@ -18,6 +18,7 @@ module.exports = {
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   plugins: ["react-refresh", "jsx-a11y", "react-hooks"],
   rules: {
+    "no-duplicate-imports": "error",
     "react-refresh/only-export-components": "warn",
     "no-console": "error",
   },

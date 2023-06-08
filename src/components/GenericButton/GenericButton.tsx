@@ -2,7 +2,7 @@ import React from "react";
 import GenericButtonStyled from "./GenericButtonStyled";
 
 interface GenericButtonProps {
-  actionOnClick: () => void;
+  actionOnClick?: () => void;
   text: string;
   className: string;
 }
@@ -17,6 +17,7 @@ const GenericButton = ({
       className={className}
       onClick={actionOnClick}
       aria-label={className}
+      type="submit"
     >
       {text}
     </GenericButtonStyled>
