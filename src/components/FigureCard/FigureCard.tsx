@@ -54,6 +54,7 @@ const FigureCard = ({
             className="figure__data__price"
           >{`${price}€`}</span>
           <GenericButton
+            isDisabled={false}
             actionOnClick={handleDeleteFigure}
             className="delete"
             text="Delete"

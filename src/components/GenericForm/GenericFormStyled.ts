@@ -47,12 +47,20 @@ const GenericFormStyled = styled.form`
     .symbol {
       position: absolute;
       right: 14px;
-      bottom: 15px;
+      bottom: 14px;
     }
   }
 
   .number {
     position: relative;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  input[type="number"] {
+    padding-right: 47px;
   }
 
   .purchased {
