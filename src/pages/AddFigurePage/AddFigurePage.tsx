@@ -7,7 +7,13 @@ const AddFiguresPage = (): React.ReactElement => {
       <h1>
         Add your favorite <br /> figure
       </h1>
-      <GenericForm buttonClassName="add" textButton="Add figure" />
+      <GenericForm
+        actionOnClick={() => {
+          return;
+        }}
+        buttonClassName="add"
+        textButton="Add figure"
+      />
     </AddFigurePageStyled>
   );
 };

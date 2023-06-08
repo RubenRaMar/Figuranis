@@ -12,6 +12,7 @@ describe("Given a GenericButton component", () => {
     test("Then it should show a button with a 'Delete' text ", () => {
       renderWithProviders(
         <GenericButton
+          isDisabled={true}
           actionOnClick={actionOnClick}
           text={expectedTextButton}
           className={""}
@@ -30,6 +31,7 @@ describe("Given a GenericButton component", () => {
     test("Then it should invoked the actonOnClick function", async () => {
       renderWithProviders(
         <GenericButton
+          isDisabled={false}
           actionOnClick={actionOnClick}
           text={expectedTextButton}
           className={""}
@@ -52,6 +54,7 @@ describe("Given a GenericButton component", () => {
 
       renderWithProviders(
         <GenericButton
+          isDisabled={true}
           actionOnClick={actionOnClick}
           text={expectedTextButton}
           className={expectedTextButton}
