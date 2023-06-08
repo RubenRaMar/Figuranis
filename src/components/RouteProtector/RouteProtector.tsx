@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useToken from "../../hooks/useToken/useToken";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
-import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { userLoginActionCreator } from "../../store/user/userSlice";
 import { useAppDispatch } from "../../store";
