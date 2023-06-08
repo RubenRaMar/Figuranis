@@ -4,14 +4,12 @@ import { FiguresDataStructures } from "../../types";
 import GenericButton from "../GenericButton/GenericButton";
 
 interface GenericFormProps {
-  actionOnClick: (figure: FiguresDataStructures) => void;
   textButton: string;
   buttonClassName: string;
   figure: FiguresDataStructures;
 }
 
 const GenericForm = ({
-  actionOnClick,
   textButton,
   buttonClassName,
   figure: {
@@ -26,13 +24,8 @@ const GenericForm = ({
     weight,
   },
 }: GenericFormProps): React.ReactElement => {
-  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event?.preventDefault();
-    actionOnClick;
-  };
-
   return (
-    <GenericFormStyled onSubmit={handleLoginSubmit}>
+    <GenericFormStyled>
       <h2 className="heading">
         Insert all the fields to be able
         <br /> to add a figure

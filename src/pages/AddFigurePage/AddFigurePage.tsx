@@ -9,9 +9,6 @@ const AddFiguresPage = (): React.ReactElement => {
         Add your favorite <br /> figure
       </h1>
       <GenericForm
-        actionOnClick={() => {
-          return;
-        }}
         buttonClassName="add"
         figure={figuresMock[0]}
         textButton="Add figure"
