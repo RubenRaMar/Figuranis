@@ -52,6 +52,10 @@ const LoginFormStyled = styled.form`
     background-color: ${themeColors.dark};
     color: ${themeColors.primary};
 
+    :focus-visible {
+      outline: ${themeColors.secundary} inset 1px;
+    }
+
     &--disabled {
       height: 48px;
       width: 237px;
