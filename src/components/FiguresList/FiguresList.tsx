@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../../store";
 import FigureCard from "../FigureCard/FigureCard.js";
 import FiguresListStyled from "./FiguresListStyled.js";
