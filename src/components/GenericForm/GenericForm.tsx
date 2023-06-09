@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import GenericFormStyled from "./GenericFormStyled";
-import { FiguresDataStructures } from "../../types";
+import { FigureAddDataStructure } from "../../types";
 import GenericButton from "../GenericButton/GenericButton";
 
 interface GenericFormProps {
-  actionOnClick: (figure: Partial<FiguresDataStructures>) => void;
+  actionOnClick: (figure: FigureAddDataStructure) => void;
   textButton: string;
   buttonClassName: string;
 }
@@ -14,7 +14,7 @@ const GenericForm = ({
   textButton,
   buttonClassName,
 }: GenericFormProps): React.ReactElement => {
-  const initialFigureState: Partial<FiguresDataStructures> = {
+  const initialFigureState: FigureAddDataStructure = {
     title: "",
     character: "",
     franchise: "",
@@ -67,7 +67,7 @@ const GenericForm = ({
 
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    actionOnClick(figureData);
+    actionOnClick({ ...figureData });
   };
 
   return (

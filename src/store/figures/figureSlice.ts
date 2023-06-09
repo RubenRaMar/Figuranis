@@ -21,10 +21,21 @@ const figureSlice = createSlice({
         (figure) => figure.id !== action.payload
       ),
     }),
+
+    addFigure: (
+      currentFiguresState,
+      action: PayloadAction<FiguresDataStructures>
+    ) => ({
+      ...currentFiguresState,
+      figuresData: [...currentFiguresState.figuresData, action.payload],
+    }),
   },
 });
 
-export const { loadFigures: loadFiguresActionCreator } = figureSlice.actions;
-export const { deleteFigure: deleteFigureActionCreator } = figureSlice.actions;
+export const {
+  loadFigures: loadFiguresActionCreator,
+  deleteFigure: deleteFigureActionCreator,
+  addFigure: addFigureActionCreator,
+} = figureSlice.actions;
 
 export const figureReducer = figureSlice.reducer;

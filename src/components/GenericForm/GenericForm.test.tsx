@@ -20,7 +20,7 @@ describe("Given a GenericForm", () => {
     "purchased",
   ];
 
-  const inputText = "http://localhost:5173/add-figure";
+  const inputText = "http://mockurl.com";
   const inputsLabelsNumbers = ["size", "price", "weight"];
 
   const inputsLabelsTexts = [
