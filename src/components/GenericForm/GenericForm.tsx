@@ -65,17 +65,13 @@ const GenericForm = ({
         });
   };
 
-  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddFigureSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    actionOnClick({ ...figureData });
+    actionOnClick(figureData);
   };
 
   return (
-    <GenericFormStyled onSubmit={handleLoginSubmit}>
-      <h2 className="heading">
-        Insert all the fields to be able
-        <br /> to add a figure
-      </h2>
+    <GenericFormStyled onSubmit={handleAddFigureSubmit}>
       <div className="controler">
         <label htmlFor="title">title</label>
         <input
@@ -127,7 +123,7 @@ const GenericForm = ({
         />
       </div>
       <div className="controler">
-        <label htmlFor="image">image(Url)</label>
+        <label htmlFor="image">image (URL)</label>
         <input
           type="url"
           id="image"

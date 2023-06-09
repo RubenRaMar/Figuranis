@@ -40,10 +40,6 @@ const LoginForm = ({ actionOnClick }: LoginFormProps): React.ReactElement => {
         Welcome to,
         <br /> <span>FIGURAniS</span>
       </h2>
-      <span>
-        Log in to your account to
-        <br /> access your figures
-      </span>
 
       <input
         aria-label="username"

@@ -6,6 +6,7 @@ const pathList: PathStructure = {
   login: "/login",
   figures: "/figures",
   addFigure: "/add-figure",
+  delete: "/delete",
 };
 
 export default pathList;

@@ -17,6 +17,7 @@ const GenericFormStyled = styled.form`
     font-size: ${toRem(16)};
     font-weight: normal;
     color: ${themeColors.light};
+    text-transform: none;
   }
 
   .controler {

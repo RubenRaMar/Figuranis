@@ -11,7 +11,7 @@ describe("Given a GenericForm", () => {
     "title",
     "character",
     "franchise",
-    "image(Url)",
+    "image (URL)",
     "manufacturer",
     "material",
     "price",
@@ -27,19 +27,19 @@ describe("Given a GenericForm", () => {
     "title",
     "character",
     "franchise",
-    "image(Url)",
+    "image (URL)",
     "manufacturer",
     "material",
   ];
 
   const expectedTextButton = "Add figures";
-  const handleLoginSubmit = vi.fn();
+  const handleAddFigureSubmit = vi.fn();
 
   describe("When it is rendered", () => {
     test("Then it should show the inputs 'title','character','franchise','image(Url)','manufacturer','material','price','size' and 'weight'", () => {
       renderWithProviders(
         <GenericForm
-          actionOnClick={handleLoginSubmit}
+          actionOnClick={handleAddFigureSubmit}
           buttonClassName=""
           textButton=""
         />
@@ -55,7 +55,7 @@ describe("Given a GenericForm", () => {
     test("Then it should show a 'Add figures' button", () => {
       renderWithProviders(
         <GenericForm
-          actionOnClick={handleLoginSubmit}
+          actionOnClick={handleAddFigureSubmit}
           buttonClassName=""
           textButton={expectedTextButton}
         />
@@ -66,29 +66,10 @@ describe("Given a GenericForm", () => {
       expect(button).toBeInTheDocument();
     });
 
-    test("Then it should show a heading with the 'Insert all the fields to be able to add a figure' text", () => {
-      const expectedHeadingText =
-        "Insert all the fields to be able to add a figure";
-
-      renderWithProviders(
-        <GenericForm
-          actionOnClick={handleLoginSubmit}
-          buttonClassName=""
-          textButton=""
-        />
-      );
-
-      const heading = screen.getByRole("heading", {
-        name: expectedHeadingText,
-      });
-
-      expect(heading).toBeInTheDocument();
-    });
-
     test("Then it shoul show a disabled button", () => {
       renderWithProviders(
         <GenericForm
-          actionOnClick={handleLoginSubmit}
+          actionOnClick={handleAddFigureSubmit}
           buttonClassName=""
           textButton={expectedTextButton}
         />
@@ -104,7 +85,7 @@ describe("Given a GenericForm", () => {
     test("Then the text should be written in the following fields", async () => {
       renderWithProviders(
         <GenericForm
-          actionOnClick={handleLoginSubmit}
+          actionOnClick={handleAddFigureSubmit}
           buttonClassName=""
           textButton={expectedTextButton}
         />
@@ -122,7 +103,7 @@ describe("Given a GenericForm", () => {
       test("Then the number should be written in the following fields", async () => {
         renderWithProviders(
           <GenericForm
-            actionOnClick={handleLoginSubmit}
+            actionOnClick={handleAddFigureSubmit}
             buttonClassName=""
             textButton={expectedTextButton}
           />
@@ -140,7 +121,7 @@ describe("Given a GenericForm", () => {
         test("Then it should call the actionOnClick function", async () => {
           renderWithProviders(
             <GenericForm
-              actionOnClick={handleLoginSubmit}
+              actionOnClick={handleAddFigureSubmit}
               buttonClassName={expectedTextButton}
               textButton={expectedTextButton}
             />
@@ -165,7 +146,7 @@ describe("Given a GenericForm", () => {
           await userEvent.click(addButon);
           await userEvent.click(check);
 
-          expect(handleLoginSubmit).toHaveBeenCalled();
+          expect(handleAddFigureSubmit).toHaveBeenCalled();
         });
       });
     });

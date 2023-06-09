@@ -43,16 +43,6 @@ describe("Given a LoginForm component", () => {
       expect(heading).toBeInTheDocument();
     });
 
-    test("Then it should show a 'Log in to your account to access your figures' text", () => {
-      const expectedText = "Log in to your account to access your figures";
-
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
-
-      const heading = screen.getByText(expectedText);
-
-      expect(heading).toBeInTheDocument();
-    });
-
     test("Then it shoul show a disabled button", () => {
       renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
 
