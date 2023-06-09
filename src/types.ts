@@ -15,9 +15,11 @@ export interface UserTokenStructure extends UserDataStructure {
 export interface UserLoggedStructured extends UserTokenStructure {
   isLogged: boolean;
 }
+export interface FiguresStateStructure {
+  figuresData: FiguresDataStructures[];
+}
 
-export interface FiguresDataStructures {
-  id: string;
+export interface FigureAddDataStructure {
   title: string;
   character: string;
   franchise: string;
@@ -28,11 +30,10 @@ export interface FiguresDataStructures {
   weight: number;
   price: number;
   image: string;
-  user: string;
 }
-
-export interface FiguresStateStructure {
-  figuresData: FiguresDataStructures[];
+export interface FiguresDataStructures extends FigureAddDataStructure {
+  id: string;
+  user: string;
 }
 
 export interface UiStructure {

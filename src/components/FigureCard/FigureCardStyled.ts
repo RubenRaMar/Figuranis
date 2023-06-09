@@ -68,7 +68,7 @@ const FigureCardStyled = styled.li`
         color: ${themeColors.lightGrey};
         text-align: center;
         max-width: 237px;
-        overflow: auto;
+        overflow-wrap: break-word;
         border-bottom: 2px solid rgb(138, 136, 136);
         padding-bottom: 4px;
       }
@@ -77,7 +77,7 @@ const FigureCardStyled = styled.li`
         max-width: 237px;
         text-align: center;
         font-size: ${toRem(19)};
-        overflow: auto;
+        overflow-wrap: break-word;
       }
 
       &__price {
@@ -87,7 +87,7 @@ const FigureCardStyled = styled.li`
         border-radius: 8px;
         max-width: 200px;
         text-align: center;
-        overflow: auto;
+        overflow-wrap: break-word;
       }
     }
   }
