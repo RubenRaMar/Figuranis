@@ -8,6 +8,7 @@ import {
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import pathList from "../../utils/pathList/pathList";
 
 const useFigures = () => {
   const dispatch = useAppDispatch();
@@ -29,7 +30,7 @@ const useFigures = () => {
       const {
         data: { figures },
       } = await figuresApi.get<{ figures: FiguresDataStructures[] }>(
-        `${apiUrl}/figures`
+        `${apiUrl}${pathList.figures}`
       );
 
       dispatch(hideLoadingActionCreator());
@@ -44,7 +45,9 @@ const useFigures = () => {
     try {
       dispatch(showLoadingActionCreator());
 
-      await figuresApi.delete(`${apiUrl}/figures/delete/${id}`);
+      await figuresApi.delete(
+        `${apiUrl}${pathList.figures}${pathList.delete}/${id}`
+      );
 
       dispatch(hideLoadingActionCreator());
       dispatch(
@@ -67,16 +70,16 @@ const useFigures = () => {
   };
 
   const addFigureApi = async (
-    figure: FigureAddDataStructure
-  ): Promise<FiguresDataStructures[] | undefined> => {
+    figureData: FigureAddDataStructure
+  ): Promise<FiguresDataStructures | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
 
       const {
-        data: { figures },
-      } = await figuresApi.post<{ figures: FiguresDataStructures[] }>(
-        `${apiUrl}/figures/add`,
-        figure
+        data: { figure },
+      } = await figuresApi.post<{ figure: FiguresDataStructures }>(
+        `${apiUrl}${pathList.figures}${pathList.addFigure}`,
+        figureData
       );
 
       dispatch(hideLoadingActionCreator());
@@ -88,7 +91,7 @@ const useFigures = () => {
         })
       );
 
-      return figures;
+      return figure;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
       dispatch(

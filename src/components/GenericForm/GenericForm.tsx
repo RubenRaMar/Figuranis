@@ -65,13 +65,13 @@ const GenericForm = ({
         });
   };
 
-  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddFigureSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
     actionOnClick(figureData);
   };
 
   return (
-    <GenericFormStyled onSubmit={handleLoginSubmit}>
+    <GenericFormStyled onSubmit={handleAddFigureSubmit}>
       <h2 className="heading">
         Insert all the fields to be able
         <br /> to add a figure
