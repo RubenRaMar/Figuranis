@@ -69,14 +69,36 @@ const useFigures = () => {
   const addFigureApi = async (
     figure: FigureAddDataStructure
   ): Promise<FiguresDataStructures[] | undefined> => {
-    const {
-      data: { figures },
-    } = await figuresApi.post<{ figures: FiguresDataStructures[] }>(
-      `${apiUrl}/figures/add`,
-      figure
-    );
+    try {
+      dispatch(showLoadingActionCreator());
 
-    return figures;
+      const {
+        data: { figures },
+      } = await figuresApi.post<{ figures: FiguresDataStructures[] }>(
+        `${apiUrl}/figures/add`,
+        figure
+      );
+
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: false,
+          isModal: true,
+          message: modalsMessage.addCorrect,
+        })
+      );
+
+      return figures;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: true,
+          isModal: true,
+          message: modalsMessage.addError,
+        })
+      );
+    }
   };
 
   return { getFiguresList, deleteFigure, addFigureApi };
