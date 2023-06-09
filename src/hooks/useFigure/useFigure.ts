@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { FiguresDataStructures } from "../../types";
+import { FigureAddDataStructure, FiguresDataStructures } from "../../types";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
@@ -66,7 +66,20 @@ const useFigures = () => {
     }
   };
 
-  return { getFiguresList, deleteFigure };
+  const addFigureApi = async (
+    figure: FigureAddDataStructure
+  ): Promise<FiguresDataStructures[] | undefined> => {
+    const {
+      data: { figures },
+    } = await figuresApi.post<{ figures: FiguresDataStructures[] }>(
+      `${apiUrl}/figures/add`,
+      figure
+    );
+
+    return figures;
+  };
+
+  return { getFiguresList, deleteFigure, addFigureApi };
 };
 
 export default useFigures;

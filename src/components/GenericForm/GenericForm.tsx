@@ -67,7 +67,7 @@ const GenericForm = ({
 
   const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    actionOnClick({ ...figureData });
+    actionOnClick(figureData);
   };
 
   return (
