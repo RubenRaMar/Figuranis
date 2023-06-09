@@ -86,7 +86,7 @@ describe("Given a deleteFigure custom hook", () => {
 
 describe("Given a addFigureApi custom hook", () => {
   describe("When it invoked with a valid figure", () => {
-    test.only("Then it shoud return a the figure created", async () => {
+    test("Then it shoud return a the figure created", async () => {
       server.resetHandlers(...handlers);
       const figure = figureMockFactory();
 

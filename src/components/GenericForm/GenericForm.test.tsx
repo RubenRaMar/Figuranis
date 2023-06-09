@@ -11,7 +11,7 @@ describe("Given a GenericForm", () => {
     "title",
     "character",
     "franchise",
-    "image(Url)",
+    "image (URL)",
     "manufacturer",
     "material",
     "price",
@@ -27,7 +27,7 @@ describe("Given a GenericForm", () => {
     "title",
     "character",
     "franchise",
-    "image(Url)",
+    "image (URL)",
     "manufacturer",
     "material",
   ];
@@ -64,25 +64,6 @@ describe("Given a GenericForm", () => {
       const button = screen.getByRole("button", { name: expectedTextButton });
 
       expect(button).toBeInTheDocument();
-    });
-
-    test("Then it should show a heading with the 'Insert all the fields to be able to add a figure' text", () => {
-      const expectedHeadingText =
-        "Insert all the fields to be able to add a figure";
-
-      renderWithProviders(
-        <GenericForm
-          actionOnClick={handleAddFigureSubmit}
-          buttonClassName=""
-          textButton=""
-        />
-      );
-
-      const heading = screen.getByRole("heading", {
-        name: expectedHeadingText,
-      });
-
-      expect(heading).toBeInTheDocument();
     });
 
     test("Then it shoul show a disabled button", () => {

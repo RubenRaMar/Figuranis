@@ -72,10 +72,6 @@ const GenericForm = ({
 
   return (
     <GenericFormStyled onSubmit={handleAddFigureSubmit}>
-      <h2 className="heading">
-        Insert all the fields to be able
-        <br /> to add a figure
-      </h2>
       <div className="controler">
         <label htmlFor="title">title</label>
         <input
@@ -127,7 +123,7 @@ const GenericForm = ({
         />
       </div>
       <div className="controler">
-        <label htmlFor="image">image(Url)</label>
+        <label htmlFor="image">image (URL)</label>
         <input
           type="url"
           id="image"
