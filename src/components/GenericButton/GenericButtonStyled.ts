@@ -33,6 +33,12 @@ const GenericButtonStyled = styled.button`
     color: ${themeColors.primary};
     box-shadow: 0px 1px 8px 0px #24acf070;
     text-transform: none;
+    &--disabled {
+      text-transform: none;
+      border: 1px solid #0084c7;
+      background-color: ${themeColors.dark};
+      color: #0084c7;
+    }
   }
 
   &.next {
@@ -40,6 +46,12 @@ const GenericButtonStyled = styled.button`
     color: ${themeColors.secundary};
     box-shadow: 0px 1px 8px 0px #0bfdb442;
     text-transform: none;
+    &--disabled {
+      text-transform: none;
+      border: 1px solid #0bfdb4b3;
+      background-color: ${themeColors.dark};
+      color: #0bfdb4b3;
+    }
   }
 `;
 
