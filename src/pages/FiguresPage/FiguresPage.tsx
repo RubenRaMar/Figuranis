@@ -12,7 +12,7 @@ const FiguresPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const figureList = await getFiguresList("1", "2");
+      const figureList = await getFiguresList();
 
       if (figureList) {
         dispatch(loadFiguresActionCreator(figureList));

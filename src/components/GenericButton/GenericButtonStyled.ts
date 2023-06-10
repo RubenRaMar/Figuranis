@@ -27,6 +27,20 @@ const GenericButtonStyled = styled.button`
     border: 2px solid ${themeColors.error};
     box-shadow: 0px 1px 8px 0px #c80c0cb3;
   }
+
+  &.previous {
+    border: 2px solid ${themeColors.primary};
+    color: ${themeColors.primary};
+    box-shadow: 0px 1px 8px 0px #24acf070;
+    text-transform: none;
+  }
+
+  &.next {
+    border: 2px solid ${themeColors.secundary};
+    color: ${themeColors.secundary};
+    box-shadow: 0px 1px 8px 0px #0bfdb442;
+    text-transform: none;
+  }
 `;
 
 export default GenericButtonStyled;
