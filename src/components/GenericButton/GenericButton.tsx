@@ -5,7 +5,7 @@ interface GenericButtonProps {
   actionOnClick?: () => void;
   text: string;
   className: string;
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }
 
 const GenericButton = ({

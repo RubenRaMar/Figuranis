@@ -5,6 +5,7 @@ import GenericButton from "../GenericButton/GenericButton.js";
 import { useAppDispatch } from "../../store/index.js";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
+import { useNavigate } from "react-router-dom";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -17,11 +18,13 @@ const FigureCard = ({
 }: FigureCardProps): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { deleteFigure } = useFigures();
+  const navigate = useNavigate();
 
   const handleDeleteFigure = async () => {
     await deleteFigure(id);
 
     dispatch(deleteFigureActionCreator(id));
+    navigate(0);
   };
 
   return (

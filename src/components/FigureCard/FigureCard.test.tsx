@@ -3,6 +3,8 @@ import { figureMockFactory } from "../../mocks/factory/factories";
 import { renderWithProviders } from "../../utils/testUtils";
 import FigureCard from "./FigureCard";
 import userEvent from "@testing-library/user-event";
+import { store } from "../../store";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 
 describe("Given a FiguresList component", () => {
   describe("When it is rendered and receives one figure", () => {
@@ -60,7 +62,9 @@ describe("Given a FiguresList component", () => {
 
         await userEvent.click(button);
 
-        expect(button).toBeInTheDocument();
+        const message = store.getState().ui.modal.message;
+
+        expect(message).toBe(modalsMessage.removeCorrect);
       });
     });
   });
