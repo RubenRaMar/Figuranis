@@ -68,6 +68,7 @@ const GenericForm = ({
   const handleAddFigureSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
     actionOnClick(figureData);
+    setFigureData(initialFigureState);
   };
 
   return (

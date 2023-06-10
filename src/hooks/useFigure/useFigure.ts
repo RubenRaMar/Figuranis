@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { FigureAddDataStructure, FiguresDataStructures } from "../../types";
+import {
+  FigureAddDataStructure,
+  FiguresDataStructures,
+  ResponseGetStateStructure,
+} from "../../types";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
@@ -21,25 +25,30 @@ const useFigures = () => {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-  const getFiguresList = useCallback(async (): Promise<
-    FiguresDataStructures[] | undefined
-  > => {
-    try {
-      dispatch(showLoadingActionCreator());
+  const getFiguresList = useCallback(
+    async (
+      skip: number,
+      limit: number
+    ): Promise<ResponseGetStateStructure | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
 
-      const {
-        data: { figures },
-      } = await figuresApi.get<{ figures: FiguresDataStructures[] }>(
-        `${apiUrl}${pathList.figures}`
-      );
+        const {
+          data: { figures, length },
+        } = await figuresApi.get<{
+          figures: FiguresDataStructures[];
+          length: number;
+        }>(`${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}`);
 
-      dispatch(hideLoadingActionCreator());
+        dispatch(hideLoadingActionCreator());
 
-      return figures;
-    } catch (error) {
-      dispatch(hideLoadingActionCreator());
-    }
-  }, [apiUrl, figuresApi, dispatch]);
+        return { figures, length };
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+      }
+    },
+    [apiUrl, figuresApi, dispatch]
+  );
 
   const deleteFigure = async (id: string) => {
     try {
