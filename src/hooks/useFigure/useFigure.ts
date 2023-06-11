@@ -28,8 +28,9 @@ const useFigures = () => {
 
   const getFiguresList = useCallback(
     async (
-      skip: number,
-      limit: number
+      skip?: number,
+      limit?: number,
+      filter?: boolean
     ): Promise<ResponseGetStateStructure | undefined> => {
       try {
         const {
@@ -37,7 +38,9 @@ const useFigures = () => {
         } = await figuresApi.get<{
           figures: FiguresDataStructures[];
           length: number;
-        }>(`${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}`);
+        }>(
+          `${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}&filter=${filter}`
+        );
 
         return { figures, length };
       } catch (error) {
@@ -54,8 +57,6 @@ const useFigures = () => {
       await figuresApi.delete(
         `${apiUrl}${pathList.figures}${pathList.delete}/${id}`
       );
-
-      location.reload();
 
       dispatch(deleteFigureActionCreator(id));
       dispatch(hideLoadingActionCreator());

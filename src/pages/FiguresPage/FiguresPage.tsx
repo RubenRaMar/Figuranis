@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import FiguresPageStyled from "./FiguresPageStyled";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { loadFiguresActionCreator } from "../../store/figures/figureSlice";
 import FiguresList from "../../components/FiguresList/FiguresList";
 import useFigures from "../../hooks/useFigure/useFigure";
 import Pagination from "../../components/Pagination/Pagination";
 
 const FiguresPage = (): React.ReactElement => {
+  const filter = useAppSelector((store) => store.figure.filter);
   const dispatch = useAppDispatch();
   const { getFiguresList } = useFigures();
   const [totalFigures, setTotalFigures] = useState(0);
@@ -15,7 +16,7 @@ const FiguresPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const response = await getFiguresList(skip, limit);
+      const response = await getFiguresList(skip, limit, filter);
 
       if (response) {
         const { figures, length } = response;
@@ -25,16 +26,16 @@ const FiguresPage = (): React.ReactElement => {
         dispatch(loadFiguresActionCreator(figures));
       }
     })();
-  }, [dispatch, getFiguresList, limit, skip]);
+  }, [dispatch, getFiguresList, filter, limit, skip]);
 
   const nextPage = () => {
     setSkip(skip + limit);
-    window.scroll(0, 0);
+    scrollTo(0, 0);
   };
 
   const previousPage = () => {
     setSkip(skip - limit);
-    window.scroll(0, 0);
+    scrollTo(0, 0);
   };
 
   return (

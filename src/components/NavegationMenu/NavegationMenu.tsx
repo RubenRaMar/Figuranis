@@ -2,9 +2,16 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
+import { useAppDispatch } from "../../store";
+import { loadFiguresFilterActionCreator } from "../../store/figures/figureSlice";
 
 const NavegationMenu = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
   const location = useLocation();
+
+  const handleFiguresFilter = async () => {
+    dispatch(loadFiguresFilterActionCreator());
+  };
 
   return (
     <NavegationMenuStyled className="navbar">
@@ -31,7 +38,11 @@ const NavegationMenu = (): React.ReactElement => {
         </li>
         <li>
           {location.pathname === pathList.figures && (
-            <button aria-label="Pending figures icon" className="navbar__icon">
+            <button
+              onClick={handleFiguresFilter}
+              aria-label="Pending figures icon"
+              className="navbar__icon"
+            >
               <img
                 src="/images/pendingfigures.svg"
                 width="60"

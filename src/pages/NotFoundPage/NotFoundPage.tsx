@@ -1,4 +1,4 @@
-import NotFoundPageStyled from "./NotFoundPageStyled";
+import NotFoundPageStyled from "./NotFoundPageStyled.js";
 
 const NotFoundPage = (): React.ReactElement => {
   return (
