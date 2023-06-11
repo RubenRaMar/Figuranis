@@ -1,11 +1,13 @@
 import { screen } from "@testing-library/react";
 import NavegationMenu from "./NavegationMenu";
 import { renderWithProviders } from "../../utils/testUtils";
-import Layout from "../Layout/Layout";
 import userEvent from "@testing-library/user-event";
+import { store } from "../../store";
 
 describe("Given a NavegationMenu component", () => {
-  describe("When it rendering", () => {
+  const expectedAlternativeText = "Pending figures icon";
+
+  describe("When it is rendered", () => {
     test("Then it should show two links", () => {
       const expectedAlternativesTexts = [
         "All figures icon",
@@ -24,8 +26,6 @@ describe("Given a NavegationMenu component", () => {
     });
 
     test("Then a button with the text 'Pending figures icon' should not appear", () => {
-      const expectedAlternativeText = "Pending figures icon";
-
       renderWithProviders(<NavegationMenu />);
 
       const button = screen.queryByRole("button", {
@@ -58,10 +58,8 @@ describe("Given a NavegationMenu component", () => {
     });
   });
 
-  describe("When this is rendered and in the addFigures page", () => {
+  describe("When it is rendered and in the addFigures page", () => {
     test("Then it should the link image to be blue", async () => {
-      renderWithProviders(<Layout />);
-
       const expectedLabelText = "Add figures icon";
       const expectedLabelTextBlue = "Add figures icon blue";
 
@@ -71,12 +69,35 @@ describe("Given a NavegationMenu component", () => {
 
       await userEvent.click(link);
 
-      screen.debug();
       const linkBlue = screen.getByRole("link", {
         name: expectedLabelTextBlue,
       });
 
       expect(linkBlue).toBeInTheDocument();
+    });
+  });
+
+  describe("When it is renderd and user click on the button 'Pending figures icon'", () => {
+    test("Then it should will show you the pending figures", async () => {
+      const expectedLabelText = "All figures icon";
+
+      renderWithProviders(<NavegationMenu />);
+
+      const link = screen.getByRole("link", { name: expectedLabelText });
+
+      await userEvent.click(link);
+
+      const button = screen.getByRole("button", {
+        name: expectedAlternativeText,
+      });
+
+      await userEvent.click(button);
+
+      screen.debug();
+
+      const filter = store.getState().figure.filter;
+
+      expect(filter).toBe(true);
     });
   });
 });
