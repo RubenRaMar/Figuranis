@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FiguresDataStructures, FiguresStateStructure } from "../../types";
+import { FigureFilterStructure, FiguresDataStructures } from "../../types";
 
-export const initialFiguresState: FiguresStateStructure = { figuresData: [] };
+export const initialFiguresState: FigureFilterStructure = {
+  figuresData: [],
+};
 
 const figureSlice = createSlice({
   name: "figure",
@@ -13,6 +15,11 @@ const figureSlice = createSlice({
     ) => ({
       ...currentFiguresState,
       figuresData: action.payload,
+    }),
+
+    loadFiguresFilter: (currentFiguresState) => ({
+      ...currentFiguresState,
+      filter: !currentFiguresState.filter,
     }),
 
     deleteFigure: (currentFiguresState, action: PayloadAction<string>) => ({
@@ -36,6 +43,7 @@ export const {
   loadFigures: loadFiguresActionCreator,
   deleteFigure: deleteFigureActionCreator,
   addFigure: addFigureActionCreator,
+  loadFiguresFilter: loadFiguresFilterActionCreator,
 } = figureSlice.actions;
 
 export const figureReducer = figureSlice.reducer;
