@@ -2,8 +2,6 @@ import React from "react";
 import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
 import GenericButton from "../GenericButton/GenericButton.js";
-import { useAppDispatch } from "../../store/index.js";
-import { deleteFigureActionCreator } from "../../store/figures/figureSlice.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
 
 interface FigureCardProps {
@@ -15,14 +13,9 @@ const FigureCard = ({
   figure: { title, franchise, purchased, image, price, id },
   position,
 }: FigureCardProps): React.ReactElement => {
-  const dispatch = useAppDispatch();
   const { deleteFigure } = useFigures();
 
-  const handleDeleteFigure = async () => {
-    await deleteFigure(id);
-
-    dispatch(deleteFigureActionCreator(id));
-  };
+  const handleDeleteFigure = async () => await deleteFigure(id);
 
   return (
     <FigureCardStyled>

@@ -29,10 +29,12 @@ const FiguresPage = (): React.ReactElement => {
 
   const nextPage = () => {
     setSkip(skip + limit);
+    window.scroll(0, 0);
   };
 
   const previousPage = () => {
     setSkip(skip - limit);
+    window.scroll(0, 0);
   };
 
   return (

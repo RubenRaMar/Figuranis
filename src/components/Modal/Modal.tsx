@@ -3,10 +3,8 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 import ModalStyled from "./ModalStyled";
 import { hideModalActionCreator } from "../../store/ui/uiSlice";
-import { useNavigate } from "react-router-dom";
 
 const Modal = (): React.ReactElement => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { error, message } = useAppSelector(({ ui: { modal } }) => modal);
 
@@ -51,8 +49,6 @@ const Modal = (): React.ReactElement => {
   }
 
   const handleHideModal = () => {
-    navigate(0);
-
     dispatch(hideModalActionCreator());
   };
 

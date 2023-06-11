@@ -50,7 +50,16 @@ describe("Given a Modal component", () => {
     test("Then it should show a 'An X to close' button", async () => {
       const expectedAltTextButton = "An X to close";
 
-      renderWithProviders(<Modal />);
+      renderWithProviders(<Modal />, {
+        ui: {
+          isLoading: false,
+          modal: {
+            error: false,
+            message: modalsMessage.removeCorrect,
+            isModal: true,
+          },
+        },
+      });
 
       const button = screen.getByRole("button", {
         name: expectedAltTextButton,
