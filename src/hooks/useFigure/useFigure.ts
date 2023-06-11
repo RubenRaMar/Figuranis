@@ -13,6 +13,7 @@ import {
 } from "../../store/ui/uiSlice";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 import pathList from "../../utils/pathList/pathList";
+import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 
 const useFigures = () => {
   const dispatch = useAppDispatch();
@@ -31,16 +32,12 @@ const useFigures = () => {
       limit: number
     ): Promise<ResponseGetStateStructure | undefined> => {
       try {
-        dispatch(showLoadingActionCreator());
-
         const {
           data: { figures, length },
         } = await figuresApi.get<{
           figures: FiguresDataStructures[];
           length: number;
         }>(`${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}`);
-
-        dispatch(hideLoadingActionCreator());
 
         return { figures, length };
       } catch (error) {
@@ -58,6 +55,9 @@ const useFigures = () => {
         `${apiUrl}${pathList.figures}${pathList.delete}/${id}`
       );
 
+      location.reload();
+
+      dispatch(deleteFigureActionCreator(id));
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
