@@ -18,6 +18,7 @@ const AddFiguresPage = (): React.ReactElement => {
     if (figureData) {
       dispatch(addFigureActionCreator(figureData));
       navigate(pathList.figures);
+      scrollTo(0, 0);
     }
   };
 
