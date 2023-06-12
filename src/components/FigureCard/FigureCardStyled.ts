@@ -3,6 +3,10 @@ import { themeColors } from "../../styles/theme/theme";
 import toRem from "../../styles/functions/toRem";
 
 const FigureCardStyled = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .figure,
   .figure--pending {
     position: relative;
@@ -33,6 +37,7 @@ const FigureCardStyled = styled.li`
       width: 100%;
       gap: 12px;
       padding: 22px;
+      padding-bottom: 83px;
 
       &__purchased,
       &__pending {

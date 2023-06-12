@@ -3,7 +3,7 @@ import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
 import GenericButton from "../GenericButton/GenericButton.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import pathList from "../../utils/pathList/pathList.js";
 
 interface FigureCardProps {
@@ -16,15 +16,13 @@ const FigureCard = ({
   position,
 }: FigureCardProps): React.ReactElement => {
   const { deleteFigure } = useFigures();
-  const navigate = useNavigate();
 
   const handleDeleteFigure = async () => await deleteFigure(id);
-  const handleDetailsFigure = async () => navigate(`${pathList.figures}/${id}`);
 
   return (
     <FigureCardStyled>
-      <button
-        onClick={handleDetailsFigure}
+      <NavLink
+        to={`${pathList.figures}/${id}`}
         className={`figure${purchased ? "" : "--pending"}`}
       >
         <img
@@ -42,25 +40,25 @@ const FigureCard = ({
           {purchased ? "Purchased" : "Pending"}
         </span>
         <div className="figure__data">
-          <h2 className="data__franchise">{franchise}</h2>
+          <h2 className="figure__data__franchise">{franchise}</h2>
           <span
             aria-label={`The figure title is ${title}`}
-            className="data__title"
+            className="figure__data__title"
           >
             {title}
           </span>
           <span
             aria-label={`The figure price is ${price} euros`}
-            className="data__price"
+            className="figure__data__price"
           >{`${price}€`}</span>
-          <GenericButton
-            isDisabled={false}
-            actionOnClick={handleDeleteFigure}
-            className="delete"
-            text="Delete"
-          />
         </div>
-      </button>
+      </NavLink>
+      <GenericButton
+        isDisabled={false}
+        actionOnClick={handleDeleteFigure}
+        className="delete-card"
+        text="Delete"
+      />
     </FigureCardStyled>
   );
 };
