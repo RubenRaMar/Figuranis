@@ -17,6 +17,13 @@ const figureSlice = createSlice({
       figuresData: action.payload,
     }),
 
+    loadFigureById: (
+      _currentFiguresState,
+      action: PayloadAction<FiguresDataStructures>
+    ) => ({
+      figuresData: [action.payload],
+    }),
+
     loadFiguresFilter: (currentFiguresState) => ({
       ...currentFiguresState,
       filter: !currentFiguresState.filter,
@@ -44,6 +51,7 @@ export const {
   deleteFigure: deleteFigureActionCreator,
   addFigure: addFigureActionCreator,
   loadFiguresFilter: loadFiguresFilterActionCreator,
+  loadFigureById: loadFigureByIdActionCreator,
 } = figureSlice.actions;
 
 export const figureReducer = figureSlice.reducer;

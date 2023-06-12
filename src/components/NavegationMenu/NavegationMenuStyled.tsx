@@ -34,6 +34,10 @@ const NavegationMenuStyled = styled.nav`
   .active {
     color: ${themeColors.primary};
   }
+
+  .pending {
+    color: #e0730e;
+  }
 `;
 
 export default NavegationMenuStyled;
