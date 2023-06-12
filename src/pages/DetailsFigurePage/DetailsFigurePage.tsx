@@ -65,7 +65,7 @@ const DetailsFigurePage = (): React.ReactElement => {
               height="409"
               className="top__image"
               src={image}
-              alt=""
+              alt={`${character} figure`}
             />
             <span className="top__title">{title}</span>
           </article>
@@ -111,20 +111,8 @@ const DetailsFigurePage = (): React.ReactElement => {
             </div>
 
             <div className="bottom__buttons">
-              <GenericButton
-                className="modify"
-                actionOnClick={() => {
-                  return;
-                }}
-                text="modify"
-              />
-              <GenericButton
-                className="delete"
-                actionOnClick={() => {
-                  return;
-                }}
-                text="delete"
-              />
+              <GenericButton className="modify" text="modify" />
+              <GenericButton className="delete" text="delete" />
             </div>
           </article>
         </div>
