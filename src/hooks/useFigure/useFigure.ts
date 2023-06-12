@@ -21,11 +21,6 @@ const useFigures = () => {
   const token = useAppSelector(({ user: { token } }) => token);
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const figuresApi = axios.create({
-    baseURL: apiUrl,
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
   const getFiguresList = useCallback(
     async (
       skip?: number,
@@ -33,21 +28,30 @@ const useFigures = () => {
       filter?: boolean
     ): Promise<ResponseGetStateStructure | undefined> => {
       try {
+        dispatch(showLoadingActionCreator());
+
+        const request = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
+
         const {
           data: { figures, length },
-        } = await figuresApi.get<{
+        } = await axios.get<{
           figures: FiguresDataStructures[];
           length: number;
         }>(
-          `${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}&filter=${filter}`
+          `${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}&filter=${filter}`,
+          request
         );
+
+        dispatch(hideLoadingActionCreator());
 
         return { figures, length };
       } catch (error) {
         dispatch(hideLoadingActionCreator());
       }
     },
-    [apiUrl, figuresApi, dispatch]
+    [apiUrl, dispatch, token]
   );
 
   const getFigureById = async (
@@ -55,12 +59,15 @@ const useFigures = () => {
   ): Promise<FiguresDataStructures[] | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
+      const request = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
 
       const {
         data: { figure },
-      } = await figuresApi.get<{
+      } = await axios.get<{
         figure: FiguresDataStructures[];
-      }>(`${apiUrl}${pathList.figures}/${id}`);
+      }>(`${apiUrl}${pathList.figures}/${id}`, request);
 
       dispatch(hideLoadingActionCreator());
 
@@ -73,9 +80,13 @@ const useFigures = () => {
   const deleteFigure = async (id: string) => {
     try {
       dispatch(showLoadingActionCreator());
+      const request = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
 
-      await figuresApi.delete(
-        `${apiUrl}${pathList.figures}${pathList.delete}/${id}`
+      await axios.delete(
+        `${apiUrl}${pathList.figures}${pathList.delete}/${id}`,
+        request
       );
 
       dispatch(deleteFigureActionCreator(id));
@@ -104,12 +115,16 @@ const useFigures = () => {
   ): Promise<FiguresDataStructures | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
+      const request = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
 
       const {
         data: { figure },
-      } = await figuresApi.post<{ figure: FiguresDataStructures }>(
+      } = await axios.post<{ figure: FiguresDataStructures }>(
         `${apiUrl}${pathList.figures}${pathList.addFigure}`,
-        figureData
+        figureData,
+        request
       );
 
       dispatch(hideLoadingActionCreator());

@@ -14,13 +14,13 @@ const uiSlice = createSlice({
   name: "ui",
   initialState: initialUiState,
   reducers: {
-    showLoading: () => ({
-      ...initialUiState,
+    showLoading: (currentUiState) => ({
+      ...currentUiState,
       isLoading: true,
     }),
 
-    hideLoading: () => ({
-      ...initialUiState,
+    hideLoading: (currentUiState) => ({
+      ...currentUiState,
       isLoading: false,
     }),
 
