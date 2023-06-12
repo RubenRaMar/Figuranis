@@ -9,6 +9,7 @@ import { userLoginActionCreator } from "../../store/user/userSlice";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import pathList from "../../utils/pathList/pathList";
+import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 
 const LoginPage = (): React.ReactElement => {
   const { getLoginUser } = useUser();
@@ -32,7 +33,9 @@ const LoginPage = (): React.ReactElement => {
   return (
     <LoginPageStyled>
       <h1>LOGIN</h1>
-      <LoginForm actionOnClick={handleUserLogin} />
+      <GeneralContainerStyled>
+        <LoginForm actionOnClick={handleUserLogin} />
+      </GeneralContainerStyled>
     </LoginPageStyled>
   );
 };

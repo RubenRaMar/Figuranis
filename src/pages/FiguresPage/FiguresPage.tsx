@@ -5,6 +5,7 @@ import { loadFiguresActionCreator } from "../../store/figures/figureSlice";
 import FiguresList from "../../components/FiguresList/FiguresList";
 import useFigures from "../../hooks/useFigure/useFigure";
 import Pagination from "../../components/Pagination/Pagination";
+import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 
 const FiguresPage = (): React.ReactElement => {
   const filter = useAppSelector((store) => store.figure.filter);
@@ -43,13 +44,15 @@ const FiguresPage = (): React.ReactElement => {
       <h1>
         Your favorite <br /> figures
       </h1>
-      <FiguresList />
-      <Pagination
-        totalFigures={totalFigures}
-        nextPage={nextPage}
-        previousPage={previousPage}
-        skip={skip}
-      />
+      <GeneralContainerStyled>
+        <FiguresList />
+        <Pagination
+          totalFigures={totalFigures}
+          nextPage={nextPage}
+          previousPage={previousPage}
+          skip={skip}
+        />
+      </GeneralContainerStyled>
     </FiguresPageStyled>
   );
 };
