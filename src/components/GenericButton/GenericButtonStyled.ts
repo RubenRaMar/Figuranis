@@ -6,12 +6,13 @@ const GenericButtonStyled = styled.button`
   width: 100%;
   height: 48px;
   font-weight: 700;
-  background: #000000;
+  background: ${themeColors.dark};
   border-radius: 10px;
   font-size: ${toRem(18)};
   text-transform: uppercase;
 
-  &.add {
+  &.add,
+  &.modify {
     border: 2px solid ${themeColors.primary};
     color: ${themeColors.primary};
     box-shadow: 0px 1px 8px 0px #24acf070;
@@ -26,6 +27,14 @@ const GenericButtonStyled = styled.button`
   &.delete {
     border: 2px solid ${themeColors.error};
     box-shadow: 0px 1px 8px 0px #c80c0cb3;
+  }
+
+  &.delete-card {
+    border: 2px solid ${themeColors.error};
+    box-shadow: 0px 1px 8px 0px #c80c0cb3;
+    position: relative;
+    bottom: 69px;
+    width: 237px;
   }
 
   &.previous {

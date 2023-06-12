@@ -12,7 +12,7 @@ describe("Given a loadFigureById mini reducer", () => {
 
       const loadFigures = figureReducer(
         { figuresData: figuresMock },
-        loadFigureByIdActionCreator(figureMock)
+        loadFigureByIdActionCreator([figureMock])
       );
 
       expect(loadFigures).toStrictEqual({ figuresData: [figureMock] });

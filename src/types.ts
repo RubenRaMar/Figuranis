@@ -23,7 +23,7 @@ export interface FigureFilterStructure extends FiguresStateStructure {
   filter?: boolean;
 }
 
-export interface ResponseGetStateStructure {
+export interface FigureDataStateStructure {
   figures: FiguresDataStructures[];
   length: number;
 }

@@ -3,6 +3,8 @@ import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
 import GenericButton from "../GenericButton/GenericButton.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
+import { NavLink } from "react-router-dom";
+import pathList from "../../utils/pathList/pathList.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -19,7 +21,10 @@ const FigureCard = ({
 
   return (
     <FigureCardStyled>
-      <article className={`figure${purchased ? "" : "--pending"}`}>
+      <NavLink
+        to={`${pathList.figures}/${id}`}
+        className={`figure${purchased ? "" : "--pending"}`}
+      >
         <img
           width="277"
           height="382"
@@ -46,14 +51,14 @@ const FigureCard = ({
             aria-label={`The figure price is ${price} euros`}
             className="figure__data__price"
           >{`${price}€`}</span>
-          <GenericButton
-            isDisabled={false}
-            actionOnClick={handleDeleteFigure}
-            className="delete"
-            text="Delete"
-          />
         </div>
-      </article>
+      </NavLink>
+      <GenericButton
+        isDisabled={false}
+        actionOnClick={handleDeleteFigure}
+        className="delete-card"
+        text="Delete"
+      />
     </FigureCardStyled>
   );
 };

@@ -8,6 +8,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 
 const FiguresPage = (): React.ReactElement => {
+  const isLogged = useAppSelector((state) => state.user.isLogged);
   const filter = useAppSelector((store) => store.figure.filter);
   const dispatch = useAppDispatch();
   const { getFiguresList } = useFigures();
@@ -27,7 +28,7 @@ const FiguresPage = (): React.ReactElement => {
         dispatch(loadFiguresActionCreator(figures));
       }
     })();
-  }, [dispatch, getFiguresList, filter, limit, skip]);
+  }, [dispatch, getFiguresList, filter, limit, skip, isLogged]);
 
   const nextPage = () => {
     setSkip(skip + limit);

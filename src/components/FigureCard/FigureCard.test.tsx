@@ -50,9 +50,9 @@ describe("Given a FiguresList component", () => {
       });
     });
 
-    describe("When it is rendered and the user clicks the 'delete' button", () => {
+    describe("When it is rendered and the user clicks the 'delete-card' button", () => {
       test("Then it should be able to remove the figure", async () => {
-        const expectedAtlTextButton = "delete";
+        const expectedAtlTextButton = "delete-card";
 
         renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
