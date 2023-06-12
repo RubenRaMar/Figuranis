@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store";
 import { addFigureActionCreator } from "../../store/figures/figureSlice";
 import pathList from "../../utils/pathList/pathList";
+import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 
 const AddFiguresPage = (): React.ReactElement => {
   const navigate = useNavigate();
@@ -27,11 +28,13 @@ const AddFiguresPage = (): React.ReactElement => {
       <h1>
         Add your favorite <br /> figure
       </h1>
-      <GenericForm
-        actionOnClick={handleAddFigureSubmit}
-        buttonClassName="add"
-        textButton="Add figure"
-      />
+      <GeneralContainerStyled>
+        <GenericForm
+          actionOnClick={handleAddFigureSubmit}
+          buttonClassName="add"
+          textButton="Add figure"
+        />
+      </GeneralContainerStyled>
     </AddFigurePageStyled>
   );
 };

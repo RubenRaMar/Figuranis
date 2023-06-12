@@ -38,6 +38,30 @@ const NavegationMenuStyled = styled.nav`
   .pending {
     color: #e0730e;
   }
+
+  @media (min-width: 650px) {
+    .navbar {
+      &__list {
+        width: 615px;
+      }
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .navbar {
+      &__list {
+        width: 950px;
+      }
+    }
+  }
+
+  @media (min-width: 1314px) {
+    .navbar {
+      &__list {
+        width: 1270px;
+      }
+    }
+  }
 `;
 
 export default NavegationMenuStyled;
