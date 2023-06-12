@@ -15,6 +15,10 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ figures: figuresMock }));
   }),
 
+  rest.get(`${apiUrl}${pathList.figures}/:id`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ figure: [figuresMock[0]] }));
+  }),
+
   rest.delete(
     `${apiUrl}${pathList.figures}${pathList.delete}/:id`,
     (_req, res, ctx) => {
@@ -53,4 +57,8 @@ export const errorHandlers = [
       return res(ctx.status(400));
     }
   ),
+
+  rest.get(`${apiUrl}${pathList.figures}/:id`, (_req, res, ctx) => {
+    return res(ctx.status(400));
+  }),
 ];
