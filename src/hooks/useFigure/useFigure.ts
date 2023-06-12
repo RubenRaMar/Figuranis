@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
+import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import pathList from "../../utils/pathList/pathList";
+import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 import {
   FigureAddDataStructure,
   FiguresDataStructures,
@@ -11,9 +14,6 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
-import pathList from "../../utils/pathList/pathList";
-import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 
 const useFigures = () => {
   const dispatch = useAppDispatch();
@@ -49,6 +49,26 @@ const useFigures = () => {
     },
     [apiUrl, figuresApi, dispatch]
   );
+
+  const getFigureById = async (
+    id: string
+  ): Promise<FiguresDataStructures[] | undefined> => {
+    try {
+      dispatch(showLoadingActionCreator());
+
+      const {
+        data: { figure },
+      } = await figuresApi.get<{
+        figure: FiguresDataStructures[];
+      }>(`${apiUrl}${pathList.figures}/${id}`);
+
+      dispatch(hideLoadingActionCreator());
+
+      return figure;
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+    }
+  };
 
   const deleteFigure = async (id: string) => {
     try {
@@ -114,7 +134,7 @@ const useFigures = () => {
     }
   };
 
-  return { getFiguresList, deleteFigure, addFigureApi };
+  return { getFiguresList, deleteFigure, addFigureApi, getFigureById };
 };
 
 export default useFigures;
