@@ -17,7 +17,9 @@ const FiguresList = (): React.ReactElement => {
   }, []);
 
   return (
-    <FiguresListStyled className="figure-list">
+    <FiguresListStyled
+      className={figures.length === 0 ? "figure-list center" : "figure-list"}
+    >
       {figures.map((figure, posotion) => (
         <FigureCard figure={figure} key={figure.id} position={posotion} />
       ))}
