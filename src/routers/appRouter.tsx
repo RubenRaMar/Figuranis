@@ -2,6 +2,7 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import App from "../components/App/App";
 import {
   LazyAddFigurePage,
+  LazyDetailsFigurePage,
   LazyFiguresPage,
   LazyLoginPage,
   LazyNotFoundError,
@@ -36,6 +37,14 @@ const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyAddFigurePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${pathList.figures}/:id`,
+        element: (
+          <Suspense>
+            <LazyDetailsFigurePage />
           </Suspense>
         ),
       },

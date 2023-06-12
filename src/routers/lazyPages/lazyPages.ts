@@ -14,3 +14,7 @@ export const LazyNotFoundError = lazy(
 export const LazyAddFigurePage = lazy(
   () => import("../../pages/AddFigurePage/AddFigurePage")
 );
+
+export const LazyDetailsFigurePage = lazy(
+  () => import("../../pages/DetailsFigurePage/DetailsFigurePage")
+);
