@@ -17,10 +17,10 @@ const FiguresPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const response = await getFiguresList(skip, limit, filter);
+      const figureData = await getFiguresList(skip, limit, filter);
 
-      if (response) {
-        const { figures, length } = response;
+      if (figureData) {
+        const { figures, length } = figureData;
 
         setTotalFigures(length);
 
