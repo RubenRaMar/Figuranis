@@ -1,8 +1,55 @@
-import React from "react";
+import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
 import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 import DetailsFigurePageStyled from "./DetailsFigurePageStyled";
 import GenericButton from "../../components/GenericButton/GenericButton";
+import useFigures from "../../hooks/useFigure/useFigure";
+import { loadFigureByIdActionCreator } from "../../store/figures/figureSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { FiguresDataStructures } from "../../types";
+
 const DetailsFigurePage = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+  const figure = useAppSelector((state) => state.figure.figuresData[0]);
+  const { id } = useParams();
+  const { getFigureById } = useFigures();
+
+  useEffect(() => {
+    (async () => {
+      scrollTo(0, 0);
+
+      const figure = await getFigureById(id as string);
+
+      if (figure) {
+        dispatch(
+          loadFigureByIdActionCreator(figure as FiguresDataStructures[])
+        );
+
+        const preloadLink = await document.createElement("link");
+        preloadLink.rel = "preload";
+        preloadLink.as = "image";
+        preloadLink.href = figure[0].character;
+
+        const head = document.head;
+        const firstChild = head.firstChild;
+        head.insertBefore(preloadLink, firstChild);
+      }
+    })();
+  }, [dispatch, getFigureById, id]);
+
+  const {
+    title,
+    character,
+    franchise,
+    purchased,
+    manufacturer,
+    material,
+    size,
+    weight,
+    price,
+    image,
+  } = figure;
+
   return (
     <DetailsFigurePageStyled>
       <h1>
@@ -12,58 +59,54 @@ const DetailsFigurePage = (): React.ReactElement => {
       <GeneralContainerStyled>
         <div className="details-container">
           <article className="top">
-            <span className="top__franchise">Dragon ball</span>
+            <span className="top__franchise">{franchise}</span>
             <img
               width="277"
               height="409"
               className="top__image"
-              src="https://i.ibb.co/SQtQ4tC/luffy.webp"
+              src={image}
               alt=""
             />
-            <span className="top__title">
-              Dragon Ball ZBC Studio Goku Extreme Power Monkey Resin Statue
-            </span>
+            <span className="top__title">{title}</span>
           </article>
-          <div className="purchased">
-            <span className="purchased__title">Purchased</span>
-            <span className="purchased__price">697.34€</span>
+          <div className={purchased ? "purchased" : "pending"}>
+            <span className="purchased__title pending__title">Purchased</span>
+            <span className="purchased__price pending__price">{`${price} €`}</span>
           </div>
           <article className="bottom">
             <div className="bottom__data">
               <span className="bottom__title">Character</span>
               <div className="bottom__description-container">
                 <span className="bottom__point"></span>
-                <span className="bottom__description">
-                  Son Goku Extrem Power
-                </span>
+                <span className="bottom__description">{character}</span>
               </div>
             </div>
             <div className="bottom__data">
               <span className="bottom__title">Manufacturer</span>
               <div className="bottom__description-container">
                 <span className="bottom__point"></span>
-                <span className="bottom__description">ZBC Studio</span>
+                <span className="bottom__description">{manufacturer}</span>
               </div>
             </div>
             <div className="bottom__data">
               <span className="bottom__title">Material</span>
               <div className="bottom__description-container">
                 <span className="bottom__point"></span>
-                <span className="bottom__description">Resina</span>
+                <span className="bottom__description">{material}</span>
               </div>
             </div>
             <div className="bottom__data">
               <span className="bottom__title">Size</span>
               <div className="bottom__description-container">
                 <span className="bottom__point"></span>
-                <span className="bottom__description">46 Cm</span>
+                <span className="bottom__description">{`${size} cm`}</span>
               </div>
             </div>
             <div className="bottom__data">
               <span className="bottom__title">Weight</span>
               <div className="bottom__description-container">
                 <span className="bottom__point"></span>
-                <span className="bottom__description">4.65 Kg</span>
+                <span className="bottom__description">{`${weight} Kg`}</span>
               </div>
             </div>
 

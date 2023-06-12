@@ -18,10 +18,11 @@ const figureSlice = createSlice({
     }),
 
     loadFigureById: (
-      _currentFiguresState,
-      action: PayloadAction<FiguresDataStructures>
+      currentFiguresState,
+      action: PayloadAction<FiguresDataStructures[]>
     ) => ({
-      figuresData: [action.payload],
+      ...currentFiguresState,
+      figuresData: action.payload,
     }),
 
     loadFiguresFilter: (currentFiguresState) => ({

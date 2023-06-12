@@ -41,6 +41,7 @@ const DetailsFigurePageStyled = styled.main`
       color: ${themeColors.lightGrey};
       text-transform: uppercase;
       font-weight: 700;
+      height: fit-content;
     }
 
     &__title {
@@ -82,6 +83,8 @@ const DetailsFigurePageStyled = styled.main`
     }
 
     &__title {
+      height: fit-content;
+
       width: fit-content;
       padding-bottom: 5px;
       border-bottom: 2px solid ${themeColors.primary};
@@ -93,6 +96,7 @@ const DetailsFigurePageStyled = styled.main`
     }
 
     &__description {
+      height: fit-content;
       font-size: ${toRem(17)};
     }
 
@@ -108,7 +112,7 @@ const DetailsFigurePageStyled = styled.main`
       display: flex;
       flex-direction: column;
       gap: 36px;
-      padding: 22px;
+      padding-block: 22px;
     }
   }
 `;

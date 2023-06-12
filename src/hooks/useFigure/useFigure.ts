@@ -6,8 +6,8 @@ import pathList from "../../utils/pathList/pathList";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 import {
   FigureAddDataStructure,
+  FigureDataStateStructure,
   FiguresDataStructures,
-  ResponseGetStateStructure,
 } from "../../types";
 import {
   hideLoadingActionCreator,
@@ -26,7 +26,7 @@ const useFigures = () => {
       skip?: number,
       limit?: number,
       filter?: boolean
-    ): Promise<ResponseGetStateStructure | undefined> => {
+    ): Promise<FigureDataStateStructure | undefined> => {
       try {
         dispatch(showLoadingActionCreator());
 
@@ -53,28 +53,29 @@ const useFigures = () => {
     [apiUrl, dispatch, token]
   );
 
-  const getFigureById = async (
-    id: string
-  ): Promise<FiguresDataStructures[] | undefined> => {
-    try {
-      dispatch(showLoadingActionCreator());
-      const request = {
-        headers: { Authorization: `Bearer ${token}` },
-      };
+  const getFigureById = useCallback(
+    async (id: string): Promise<FiguresDataStructures[] | undefined> => {
+      try {
+        dispatch(showLoadingActionCreator());
+        const request = {
+          headers: { Authorization: `Bearer ${token}` },
+        };
 
-      const {
-        data: { figure },
-      } = await axios.get<{
-        figure: FiguresDataStructures[];
-      }>(`${apiUrl}${pathList.figures}/${id}`, request);
+        const {
+          data: { figure },
+        } = await axios.get<{
+          figure: FiguresDataStructures[];
+        }>(`${apiUrl}${pathList.figures}/${id}`, request);
 
-      dispatch(hideLoadingActionCreator());
+        dispatch(hideLoadingActionCreator());
 
-      return figure;
-    } catch (error) {
-      dispatch(hideLoadingActionCreator());
-    }
-  };
+        return figure;
+      } catch (error) {
+        dispatch(hideLoadingActionCreator());
+      }
+    },
+    [apiUrl, dispatch, token]
+  );
 
   const deleteFigure = async (id: string) => {
     try {
