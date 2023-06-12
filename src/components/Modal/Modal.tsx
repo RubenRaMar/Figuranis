@@ -49,10 +49,7 @@ const Modal = (): React.ReactElement => {
   }
 
   const handleHideModal = () => {
-    if (message === modalsMessage.removeCorrect) {
-      location.reload();
-    }
-
+    scrollTo(0, 0);
     dispatch(hideModalActionCreator());
   };
 

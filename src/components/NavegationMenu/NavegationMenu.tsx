@@ -2,10 +2,11 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { loadFiguresFilterActionCreator } from "../../store/figures/figureSlice";
 
 const NavegationMenu = (): React.ReactElement => {
+  const filter = useAppSelector((store) => store.figure.filter);
   const dispatch = useAppDispatch();
   const location = useLocation();
 
@@ -44,13 +45,17 @@ const NavegationMenu = (): React.ReactElement => {
               className="navbar__icon"
             >
               <img
-                src="/images/pendingfigures.svg"
+                src={
+                  filter
+                    ? "/images/pendingfiguresorangesvg.svg"
+                    : "/images/pendingfigures.svg"
+                }
                 width="60"
                 height="65"
                 alt="A showcase with a shopping list with figurines"
                 loading="lazy"
               />
-              <span>Pending</span>
+              <span className={filter ? "pending" : ""}>Pending</span>
             </button>
           )}
         </li>
