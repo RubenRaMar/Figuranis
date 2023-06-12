@@ -2,7 +2,7 @@ import styled from "styled-components";
 import toRem from "../../styles/functions/toRem";
 import { themeColors } from "../../styles/theme/theme";
 
-const AddFigurePageStyled = styled.section`
+const AddFigurePageStyled = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;

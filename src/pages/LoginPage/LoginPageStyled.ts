@@ -2,7 +2,7 @@ import styled from "styled-components";
 import toRem from "../../styles/functions/toRem";
 import { themeColors } from "../../styles/theme/theme";
 
-const LoginPageStyled = styled.section`
+const LoginPageStyled = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;

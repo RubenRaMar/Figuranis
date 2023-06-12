@@ -43,7 +43,6 @@ const useFigures = () => {
           `${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}&filter=${filter}`,
           request
         );
-
         dispatch(hideLoadingActionCreator());
 
         return { figures, length };

@@ -3,6 +3,8 @@ import { FiguresDataStructures } from "../../types.js";
 import FigureCardStyled from "./FigureCardStyled.js";
 import GenericButton from "../GenericButton/GenericButton.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
+import { useNavigate } from "react-router-dom";
+import pathList from "../../utils/pathList/pathList.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -14,12 +16,17 @@ const FigureCard = ({
   position,
 }: FigureCardProps): React.ReactElement => {
   const { deleteFigure } = useFigures();
+  const navigate = useNavigate();
 
   const handleDeleteFigure = async () => await deleteFigure(id);
+  const handleDetailsFigure = async () => navigate(`${pathList.figures}/${id}`);
 
   return (
     <FigureCardStyled>
-      <article className={`figure${purchased ? "" : "--pending"}`}>
+      <button
+        onClick={handleDetailsFigure}
+        className={`figure${purchased ? "" : "--pending"}`}
+      >
         <img
           width="277"
           height="382"
@@ -35,16 +42,16 @@ const FigureCard = ({
           {purchased ? "Purchased" : "Pending"}
         </span>
         <div className="figure__data">
-          <h2 className="figure__data__franchise">{franchise}</h2>
+          <h2 className="data__franchise">{franchise}</h2>
           <span
             aria-label={`The figure title is ${title}`}
-            className="figure__data__title"
+            className="data__title"
           >
             {title}
           </span>
           <span
             aria-label={`The figure price is ${price} euros`}
-            className="figure__data__price"
+            className="data__price"
           >{`${price}€`}</span>
           <GenericButton
             isDisabled={false}
@@ -53,7 +60,7 @@ const FigureCard = ({
             text="Delete"
           />
         </div>
-      </article>
+      </button>
     </FigureCardStyled>
   );
 };
