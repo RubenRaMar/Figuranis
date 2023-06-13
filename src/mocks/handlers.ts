@@ -19,11 +19,18 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ figure: [figuresMock[0]] }));
   }),
 
+  rest.put(`${apiUrl}${pathList.figures}`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ message: modalsMessage.modifyCorrect })
+    );
+  }),
+
   rest.delete(
     `${apiUrl}${pathList.figures}${pathList.delete}/:id`,
     (_req, res, ctx) => {
       return res(
-        ctx.status(200),
+        ctx.status(201),
         ctx.json({ message: modalsMessage.removeCorrect })
       );
     }

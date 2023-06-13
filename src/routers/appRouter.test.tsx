@@ -8,7 +8,7 @@ localStorage.setItem("FIguRaniSTokeN", userTokenMock);
 
 describe("Given a appRouter", () => {
   describe("When rendered and a token exists in local storage", () => {
-    test("Then it should show the 'All', 'Add figures icon' and 'Pending figures icon' links", async () => {
+    test("Then it should show the 'All figures icon', 'Add figures icon' and 'Pending figures icon' links", async () => {
       const linksLabelsTexts = [
         "All figures icon",
         "Pending figures icon",

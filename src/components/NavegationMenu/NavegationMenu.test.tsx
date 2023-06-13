@@ -93,8 +93,6 @@ describe("Given a NavegationMenu component", () => {
 
       await userEvent.click(button);
 
-      screen.debug();
-
       const filter = store.getState().figure.filter;
 
       expect(filter).toBe(true);
