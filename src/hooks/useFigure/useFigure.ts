@@ -4,11 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
 import pathList from "../../utils/pathList/pathList";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
-import {
-  FigureAddDataStructure,
-  FiguresDataStructures,
-  FiguresStateStructure,
-} from "../../types";
+import { FiguresDataStructures, FiguresStateStructure } from "../../types";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
@@ -113,7 +109,7 @@ const useFigures = () => {
   };
 
   const addFigureApi = async (
-    figureData: FigureAddDataStructure
+    figureData: Partial<FiguresDataStructures>
   ): Promise<FiguresDataStructures | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
@@ -153,7 +149,7 @@ const useFigures = () => {
   };
 
   const updateFigure = async (
-    figure: FiguresDataStructures
+    figure: Partial<FiguresDataStructures>
   ): Promise<string | undefined> => {
     const request = {
       headers: { Authorization: `Bearer ${token}` },

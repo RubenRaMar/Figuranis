@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import GenericFormStyled from "./GenericFormStyled";
-import { FigureAddDataStructure } from "../../types";
+import { FigureAddDataStructure, FiguresDataStructures } from "../../types";
 import GenericButton from "../GenericButton/GenericButton";
 
 interface GenericFormProps {
-  actionOnClick: (figure: FigureAddDataStructure) => void;
+  actionOnClick: (figure: Partial<FiguresDataStructures>) => void;
   textButton: string;
   buttonClassName: string;
+  figure?: FiguresDataStructures;
 }
 
 const GenericForm = ({
   actionOnClick,
   textButton,
   buttonClassName,
+  figure,
 }: GenericFormProps): React.ReactElement => {
-  const initialFigureState: FigureAddDataStructure = {
+  const initialFigureState: FigureAddDataStructure = figure ?? {
     title: "",
     character: "",
     franchise: "",

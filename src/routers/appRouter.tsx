@@ -6,6 +6,7 @@ import {
   LazyFiguresPage,
   LazyLoginPage,
   LazyNotFoundError,
+  LazyUpdateFigurePage,
 } from "./lazyPages/lazyPages";
 import { Suspense } from "react";
 import pathList from "../utils/pathList/pathList";
@@ -37,6 +38,14 @@ const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyAddFigurePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${pathList.figures}${pathList.update}/:id`,
+        element: (
+          <Suspense>
+            <LazyUpdateFigurePage />
           </Suspense>
         ),
       },

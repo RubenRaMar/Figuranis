@@ -7,6 +7,7 @@ const pathList: PathStructure = {
   figures: "/figures",
   addFigure: "/add-figure",
   delete: "/delete",
+  update: "/update",
 };
 
 export default pathList;
