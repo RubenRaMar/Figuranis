@@ -58,6 +58,10 @@ const DetailsFigurePage = (): React.ReactElement => {
     dispatch(paginationActionCreator(0));
   };
 
+  const handleUpdateFigurePage = async () => {
+    navigate(`${pathList.figures}${pathList.update}/${id}`);
+  };
+
   return (
     <DetailsFigurePageStyled>
       <h1>
@@ -119,7 +123,11 @@ const DetailsFigurePage = (): React.ReactElement => {
             </div>
 
             <div className="bottom__buttons">
-              <GenericButton className="modify" text="modify" />
+              <GenericButton
+                actionOnClick={handleUpdateFigurePage}
+                className="modify"
+                text="modify"
+              />
               <GenericButton
                 className="delete"
                 text="delete"

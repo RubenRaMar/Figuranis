@@ -18,3 +18,7 @@ export const LazyAddFigurePage = lazy(
 export const LazyDetailsFigurePage = lazy(
   () => import("../../pages/DetailsFigurePage/DetailsFigurePage")
 );
+
+export const LazyUpdateFigurePage = lazy(
+  () => import("../../pages/UpdateFigurePage/UpdateFigurePage")
+);

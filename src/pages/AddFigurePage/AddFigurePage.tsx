@@ -1,7 +1,7 @@
 import AddFigurePageStyled from "./AddFigurePageStyled";
 import GenericForm from "../../components/GenericForm/GenericForm";
 import useFigures from "../../hooks/useFigure/useFigure";
-import { FigureAddDataStructure } from "../../types";
+import { FiguresDataStructures } from "../../types";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store";
 import { addFigureActionCreator } from "../../store/figures/figureSlice";
@@ -13,7 +13,9 @@ const AddFiguresPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { addFigureApi } = useFigures();
 
-  const handleAddFigureSubmit = async (figure: FigureAddDataStructure) => {
+  const handleAddFigureSubmit = async (
+    figure: Partial<FiguresDataStructures>
+  ) => {
     const figureData = await addFigureApi(figure);
 
     if (figureData) {
