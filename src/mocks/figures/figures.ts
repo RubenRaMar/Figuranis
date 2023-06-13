@@ -1,4 +1,5 @@
 import { FiguresDataStructures } from "../../types";
+import { figuresMocksFactory } from "../factory/factories";
 
 export const figuresMock: FiguresDataStructures[] = [
   {
@@ -63,3 +64,5 @@ export const figuresMock: FiguresDataStructures[] = [
     user: "646fc50910c8e8c5b17d54a7",
   },
 ];
+
+export const twentyFigures = figuresMocksFactory(20);

@@ -5,6 +5,8 @@ import GenericButton from "../GenericButton/GenericButton.js";
 import useFigures from "../../hooks/useFigure/useFigure.js";
 import { NavLink } from "react-router-dom";
 import pathList from "../../utils/pathList/pathList.js";
+import { useAppDispatch, useAppSelector } from "../../store/index.js";
+import { loadFiguresActionCreator } from "../../store/figures/figureSlice.js";
 
 interface FigureCardProps {
   figure: FiguresDataStructures;
@@ -15,9 +17,18 @@ const FigureCard = ({
   figure: { title, franchise, purchased, image, price, id },
   position,
 }: FigureCardProps): React.ReactElement => {
-  const { deleteFigure } = useFigures();
+  const { limit, skip } = useAppSelector((state) => state.ui.pagination);
+  const { deleteFigure, getFiguresList } = useFigures();
+  const dispatch = useAppDispatch();
 
-  const handleDeleteFigure = async () => await deleteFigure(id);
+  const handleDeleteFigure = async () => {
+    await deleteFigure(id);
+    const figuresData = await getFiguresList(skip, limit);
+
+    if (figuresData) {
+      dispatch(loadFiguresActionCreator(figuresData));
+    }
+  };
 
   return (
     <FigureCardStyled>

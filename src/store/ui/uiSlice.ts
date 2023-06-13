@@ -8,6 +8,10 @@ export const initialUiState: UiStructure = {
     error: false,
     message: "",
   },
+  pagination: {
+    skip: 0,
+    limit: 10,
+  },
 };
 
 const uiSlice = createSlice({
@@ -37,6 +41,14 @@ const uiSlice = createSlice({
         message: "",
       },
     }),
+
+    pagination: (currentUiState, action: PayloadAction<number>) => ({
+      ...currentUiState,
+      pagination: {
+        ...currentUiState.pagination,
+        skip: action.payload,
+      },
+    }),
   },
 });
 
@@ -45,5 +57,6 @@ export const {
   hideLoading: hideLoadingActionCreator,
   showModal: showModalActionCreator,
   hideModal: hideModalActionCreator,
+  pagination: paginationActionCreator,
 } = uiSlice.actions;
 export const uiReducer = uiSlice.reducer;
