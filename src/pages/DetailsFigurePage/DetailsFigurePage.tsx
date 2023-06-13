@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import GeneralContainerStyled from "../../components/shared/GeneralContainerStyled";
 import DetailsFigurePageStyled from "./DetailsFigurePageStyled";
@@ -6,22 +6,24 @@ import GenericButton from "../../components/GenericButton/GenericButton";
 import useFigures from "../../hooks/useFigure/useFigure";
 import { loadFigureByIdActionCreator } from "../../store/figures/figureSlice";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { FiguresDataStructures } from "../../types";
+import { paginationActionCreator } from "../../store/ui/uiSlice";
+import pathList from "../../utils/pathList/pathList";
 
 const DetailsFigurePage = (): React.ReactElement => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const figureData = useAppSelector((state) => state.figure.figureData);
-  const { id } = useParams();
-  const { getFigureById } = useFigures();
+  const { id: fiugreIdParams } = useParams();
+  const { getFigureById, deleteFigure } = useFigures();
 
   useEffect(() => {
     (async () => {
       scrollTo(0, 0);
 
-      const figure = await getFigureById(id as string);
+      const figure = await getFigureById(fiugreIdParams as string);
 
       if (figure) {
-        dispatch(loadFigureByIdActionCreator(figure as FiguresDataStructures));
+        dispatch(loadFigureByIdActionCreator(figure));
 
         const preloadLink = await document.createElement("link");
         preloadLink.rel = "preload";
@@ -33,7 +35,7 @@ const DetailsFigurePage = (): React.ReactElement => {
         head.insertBefore(preloadLink, firstChild);
       }
     })();
-  }, [dispatch, getFigureById, id]);
+  }, [dispatch, getFigureById, fiugreIdParams]);
 
   const {
     title,
@@ -46,7 +48,15 @@ const DetailsFigurePage = (): React.ReactElement => {
     weight,
     price,
     image,
+    id,
   } = figureData;
+
+  const handleDeleteFigure = async () => {
+    await deleteFigure(id);
+
+    navigate(`${pathList.figures}`);
+    dispatch(paginationActionCreator(0));
+  };
 
   return (
     <DetailsFigurePageStyled>
@@ -110,7 +120,11 @@ const DetailsFigurePage = (): React.ReactElement => {
 
             <div className="bottom__buttons">
               <GenericButton className="modify" text="modify" />
-              <GenericButton className="delete" text="delete" />
+              <GenericButton
+                className="delete"
+                text="delete"
+                actionOnClick={handleDeleteFigure}
+              />
             </div>
           </article>
         </div>
