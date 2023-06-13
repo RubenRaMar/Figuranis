@@ -117,6 +117,7 @@ const useFigures = () => {
   ): Promise<FiguresDataStructures | undefined> => {
     try {
       dispatch(showLoadingActionCreator());
+
       const request = {
         headers: { Authorization: `Bearer ${token}` },
       };
@@ -151,7 +152,44 @@ const useFigures = () => {
     }
   };
 
-  return { getFiguresList, deleteFigure, addFigureApi, getFigureById };
+  const updateFigure = (figure: FiguresDataStructures) => {
+    const request = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+
+    try {
+      dispatch(showLoadingActionCreator());
+
+      axios.put(`${apiUrl}${pathList.figures}`, figure, request);
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(
+        showModalActionCreator({
+          error: false,
+          isModal: true,
+          message: modalsMessage.modifyCorrect,
+        })
+      );
+    } catch (error) {
+      dispatch(hideLoadingActionCreator());
+      dispatch(
+        showModalActionCreator({
+          error: true,
+          isModal: true,
+          message: modalsMessage.modifyError,
+        })
+      );
+    }
+  };
+
+  return {
+    getFiguresList,
+    deleteFigure,
+    addFigureApi,
+    getFigureById,
+    updateFigure,
+  };
 };
 
 export default useFigures;
