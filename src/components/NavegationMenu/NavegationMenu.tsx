@@ -4,6 +4,7 @@ import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadFiguresFilterActionCreator } from "../../store/figures/figureSlice";
+import { paginationActionCreator } from "../../store/ui/uiSlice";
 
 const NavegationMenu = (): React.ReactElement => {
   const filter = useAppSelector((store) => store.figure.filter);
@@ -12,6 +13,7 @@ const NavegationMenu = (): React.ReactElement => {
 
   const handleFiguresFilter = async () => {
     dispatch(loadFiguresFilterActionCreator());
+    dispatch(paginationActionCreator(0));
   };
 
   return (

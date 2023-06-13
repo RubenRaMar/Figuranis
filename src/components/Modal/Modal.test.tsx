@@ -36,6 +36,10 @@ describe("Given a Modal component", () => {
               isModal: true,
               error: true,
             },
+            pagination: {
+              limit: 1,
+              skip: 1,
+            },
           },
         });
 
@@ -57,6 +61,10 @@ describe("Given a Modal component", () => {
             error: false,
             message: modalsMessage.removeCorrect,
             isModal: true,
+          },
+          pagination: {
+            limit: 1,
+            skip: 1,
           },
         },
       });

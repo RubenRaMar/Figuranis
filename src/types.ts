@@ -42,6 +42,12 @@ export interface FiguresDataStructures extends FigureAddDataStructure {
 export interface UiStructure {
   isLoading: boolean;
   modal: UiModalStructure;
+  pagination: PaginationStructure;
+}
+
+export interface PaginationStructure {
+  skip: number;
+  limit: number;
 }
 export interface UiModalStructure {
   isModal: boolean;
