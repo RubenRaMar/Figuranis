@@ -16,6 +16,8 @@ const FiguresPage = (): React.ReactElement => {
   const { getFiguresList } = useFigures();
 
   useEffect(() => {
+    scrollTo(0, 0);
+
     (async () => {
       const figuresData = await getFiguresList(skip, limit, filter);
 

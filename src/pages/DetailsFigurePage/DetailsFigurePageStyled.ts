@@ -69,6 +69,19 @@ const DetailsFigurePageStyled = styled.main`
     gap: 3px;
   }
 
+  .pending {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: ${toRem(23)};
+    color: ${themeColors.pending};
+    background: ${themeColors.dark};
+    border: 2px solid ${themeColors.pending};
+    padding-block: 7px;
+    border-radius: 10px;
+    gap: 3px;
+  }
+
   .bottom {
     display: flex;
     flex-direction: column;
