@@ -9,23 +9,18 @@ import GeneralContainerStyled from "../../components/shared/GeneralContainerStyl
 
 const FiguresPage = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
-  const filter = useAppSelector((store) => store.figure.filter);
+  const { filter, length } = useAppSelector((store) => store.figure);
   const dispatch = useAppDispatch();
   const { getFiguresList } = useFigures();
-  const [totalFigures, setTotalFigures] = useState(0);
   const [skip, setSkip] = useState(0);
   const [limit] = useState(10);
 
   useEffect(() => {
     (async () => {
-      const figureData = await getFiguresList(skip, limit, filter);
+      const figuresData = await getFiguresList(skip, limit, filter);
 
-      if (figureData) {
-        const { figures, length } = figureData;
-
-        setTotalFigures(length);
-
-        dispatch(loadFiguresActionCreator(figures));
+      if (figuresData) {
+        dispatch(loadFiguresActionCreator(figuresData));
       }
     })();
   }, [dispatch, getFiguresList, filter, limit, skip, isLogged]);
@@ -48,7 +43,7 @@ const FiguresPage = (): React.ReactElement => {
       <GeneralContainerStyled>
         <FiguresList />
         <Pagination
-          totalFigures={totalFigures}
+          length={length}
           nextPage={nextPage}
           previousPage={previousPage}
           skip={skip}
