@@ -31,3 +31,15 @@ export const wrapWithProviders = ({
 }: PropsWithChildren): React.ReactElement => (
   <Provider store={store}>{children}</Provider>
 );
+
+export const renderWithProvidersRouterTest = (ui: React.ReactElement) => {
+  const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
+    return (
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>{children}</Provider>
+      </ThemeProvider>
+    );
+  };
+
+  render(ui, { wrapper: Wrapper });
+};
