@@ -13,8 +13,23 @@ describe("Given a loadFiguresFilter mini reducer", () => {
       );
 
       expect(loadFiguresFilter).toStrictEqual({
+        figureData: {
+          id: "",
+          user: "",
+          title: "",
+          character: "",
+          franchise: "",
+          purchased: false,
+          manufacturer: "",
+          material: "",
+          size: 0,
+          weight: 0,
+          price: 0,
+          image: "",
+        },
         figuresData: [],
         filter: true,
+        length: 0,
       });
     });
   });

@@ -5,14 +5,14 @@ import { useAppSelector } from "../../store";
 
 interface PaginationProps {
   skip: number;
-  totalFigures: number;
+  length: number | undefined;
   nextPage: () => void;
   previousPage: () => void;
 }
 
 const Pagination = ({
   skip,
-  totalFigures,
+  length,
   nextPage,
   previousPage,
 }: PaginationProps): React.ReactElement => {
@@ -29,7 +29,7 @@ const Pagination = ({
   return (
     <PaginationStyle>
       <span>
-        {figures.length + skip}/{totalFigures}
+        {figures.length + skip}/{length}
       </span>
       <div className="pagination">
         <GenericButton
@@ -42,7 +42,7 @@ const Pagination = ({
           actionOnClick={actionOnNextButton}
           className="next"
           text="Next"
-          isDisabled={skip + figures.length === totalFigures}
+          isDisabled={skip + figures.length === length}
         />
       </div>
     </PaginationStyle>

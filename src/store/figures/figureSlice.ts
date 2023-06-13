@@ -1,8 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FigureFilterStructure, FiguresDataStructures } from "../../types";
+import { FiguresDataStructures, FiguresStateStructure } from "../../types";
 
-export const initialFiguresState: FigureFilterStructure = {
+export const initialFiguresState: FiguresStateStructure = {
   figuresData: [],
+  figureData: {
+    id: "",
+    user: "",
+    title: "",
+    character: "",
+    franchise: "",
+    purchased: false,
+    manufacturer: "",
+    material: "",
+    size: 0,
+    weight: 0,
+    price: 0,
+    image: "",
+  },
+  length: 0,
+  filter: false,
 };
 
 const figureSlice = createSlice({
@@ -11,18 +27,21 @@ const figureSlice = createSlice({
   reducers: {
     loadFigures: (
       currentFiguresState,
-      action: PayloadAction<FiguresDataStructures[]>
+      action: PayloadAction<
+        Pick<FiguresStateStructure, "figuresData" | "length">
+      >
     ) => ({
       ...currentFiguresState,
-      figuresData: action.payload,
+      figuresData: action.payload.figuresData,
+      length: action.payload.length,
     }),
 
     loadFigureById: (
       currentFiguresState,
-      action: PayloadAction<FiguresDataStructures[]>
+      action: PayloadAction<FiguresDataStructures>
     ) => ({
       ...currentFiguresState,
-      figuresData: action.payload,
+      figureData: action.payload,
     }),
 
     loadFiguresFilter: (currentFiguresState) => ({

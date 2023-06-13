@@ -10,7 +10,7 @@ import { FiguresDataStructures } from "../../types";
 
 const DetailsFigurePage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
-  const figure = useAppSelector((state) => state.figure.figuresData[0]);
+  const figureData = useAppSelector((state) => state.figure.figureData);
   const { id } = useParams();
   const { getFigureById } = useFigures();
 
@@ -21,14 +21,12 @@ const DetailsFigurePage = (): React.ReactElement => {
       const figure = await getFigureById(id as string);
 
       if (figure) {
-        dispatch(
-          loadFigureByIdActionCreator(figure as FiguresDataStructures[])
-        );
+        dispatch(loadFigureByIdActionCreator(figure as FiguresDataStructures));
 
         const preloadLink = await document.createElement("link");
         preloadLink.rel = "preload";
         preloadLink.as = "image";
-        preloadLink.href = figure[0].character;
+        preloadLink.href = figure.image;
 
         const head = document.head;
         const firstChild = head.firstChild;
@@ -48,7 +46,7 @@ const DetailsFigurePage = (): React.ReactElement => {
     weight,
     price,
     image,
-  } = figure;
+  } = figureData;
 
   return (
     <DetailsFigurePageStyled>

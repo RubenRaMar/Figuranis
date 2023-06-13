@@ -6,8 +6,8 @@ import pathList from "../../utils/pathList/pathList";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 import {
   FigureAddDataStructure,
-  FigureDataStateStructure,
   FiguresDataStructures,
+  FiguresStateStructure,
 } from "../../types";
 import {
   hideLoadingActionCreator,
@@ -26,7 +26,9 @@ const useFigures = () => {
       skip?: number,
       limit?: number,
       filter?: boolean
-    ): Promise<FigureDataStateStructure | undefined> => {
+    ): Promise<
+      Pick<FiguresStateStructure, "figuresData" | "length"> | undefined
+    > => {
       try {
         dispatch(showLoadingActionCreator());
 
@@ -45,7 +47,7 @@ const useFigures = () => {
         );
         dispatch(hideLoadingActionCreator());
 
-        return { figures, length };
+        return { figuresData: figures, length };
       } catch (error) {
         dispatch(hideLoadingActionCreator());
       }
@@ -54,7 +56,7 @@ const useFigures = () => {
   );
 
   const getFigureById = useCallback(
-    async (id: string): Promise<FiguresDataStructures[] | undefined> => {
+    async (id: string): Promise<FiguresDataStructures | undefined> => {
       try {
         dispatch(showLoadingActionCreator());
         const request = {
@@ -64,7 +66,7 @@ const useFigures = () => {
         const {
           data: { figure },
         } = await axios.get<{
-          figure: FiguresDataStructures[];
+          figure: FiguresDataStructures;
         }>(`${apiUrl}${pathList.figures}/${id}`, request);
 
         dispatch(hideLoadingActionCreator());

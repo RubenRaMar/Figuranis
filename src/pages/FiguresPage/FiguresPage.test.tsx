@@ -28,7 +28,7 @@ describe("Given a FiguresPage component", () => {
           nextPage={nextPage}
           previousPage={previousPage}
           skip={1}
-          totalFigures={10}
+          length={10}
         />
       );
 
@@ -48,7 +48,7 @@ describe("Given a FiguresPage component", () => {
           nextPage={nextPage}
           previousPage={previousPage}
           skip={1}
-          totalFigures={10}
+          length={10}
         />
       );
 

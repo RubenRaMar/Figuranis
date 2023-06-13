@@ -17,15 +17,9 @@ export interface UserLoggedStructured extends UserTokenStructure {
 }
 export interface FiguresStateStructure {
   figuresData: FiguresDataStructures[];
-}
-
-export interface FigureFilterStructure extends FiguresStateStructure {
+  figureData: FiguresDataStructures;
+  length?: number;
   filter?: boolean;
-}
-
-export interface FigureDataStateStructure {
-  figures: FiguresDataStructures[];
-  length: number;
 }
 
 export interface FigureAddDataStructure {

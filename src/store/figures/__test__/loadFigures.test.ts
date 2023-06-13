@@ -12,10 +12,31 @@ describe("Given a loadFigures mini reducer", () => {
 
       const loadFigures = figureReducer(
         initialFiguresState,
-        loadFiguresActionCreator(figuresMock)
+        loadFiguresActionCreator({
+          figuresData: figuresMock,
+          length: figuresMock.length,
+        })
       );
 
-      expect(loadFigures).toStrictEqual({ figuresData: figuresMock });
+      expect(loadFigures).toStrictEqual({
+        figureData: {
+          id: "",
+          user: "",
+          title: "",
+          character: "",
+          franchise: "",
+          purchased: false,
+          manufacturer: "",
+          material: "",
+          size: 0,
+          weight: 0,
+          price: 0,
+          image: "",
+        },
+        figuresData: figuresMock,
+        filter: false,
+        length: 2,
+      });
     });
   });
 });

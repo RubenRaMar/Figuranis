@@ -11,7 +11,28 @@ describe("Given a addFigure mini reducer", () => {
       const figuresList = figuresMocksFactory(4);
       const figure = figureMockFactory();
 
+      const currentState = {
+        figuresData: [],
+        figureData: {
+          id: "",
+          user: "",
+          title: "",
+          character: "",
+          franchise: "",
+          purchased: false,
+          manufacturer: "",
+          material: "",
+          size: 0,
+          weight: 0,
+          price: 0,
+          image: "",
+        },
+        length: 0,
+        filter: false,
+      };
+
       const figureData: FiguresStateStructure = {
+        ...currentState,
         figuresData: figuresList,
       };
 
@@ -19,7 +40,10 @@ describe("Given a addFigure mini reducer", () => {
 
       figuresList.push(figure);
 
-      expect(figures).toStrictEqual({ figuresData: figuresList });
+      expect(figures).toStrictEqual({
+        ...currentState,
+        figuresData: figuresList,
+      });
     });
   });
 });
