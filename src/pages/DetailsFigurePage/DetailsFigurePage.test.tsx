@@ -1,6 +1,8 @@
 import { renderWithProviders } from "../../utils/testUtils";
 import DetailsFigurePage from "./DetailsFigurePage";
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import pathList from "../../utils/pathList/pathList";
 
 describe("Given a DetailsFigurePage component", () => {
   describe("When it is rendered", () => {
@@ -71,6 +73,38 @@ describe("Given a DetailsFigurePage component", () => {
 
         expect(text).toBeInTheDocument();
       });
+    });
+  });
+
+  describe("When it is rendered and the user clicks on the 'delete' button", () => {
+    test("Then it should call the function 'handleDeleteFigure'", async () => {
+      const expectedButtonText = /delete/i;
+
+      renderWithProviders(<DetailsFigurePage />, {
+        figure: {
+          figureData: {
+            user: "",
+            title: "title",
+            character: "character",
+            franchise: "franchise",
+            purchased: true,
+            manufacturer: "manufacturer",
+            material: "material",
+            size: 0,
+            weight: 0,
+            price: 0,
+            image: "",
+            id: "",
+          },
+          figuresData: [],
+        },
+      });
+
+      const button = screen.getByRole("button", { name: expectedButtonText });
+
+      await userEvent.click(button);
+
+      expect(location.pathname).toBe(pathList.figures);
     });
   });
 });
