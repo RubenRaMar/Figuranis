@@ -152,7 +152,9 @@ const useFigures = () => {
     }
   };
 
-  const updateFigure = (figure: FiguresDataStructures) => {
+  const updateFigure = async (
+    figure: FiguresDataStructures
+  ): Promise<string | undefined> => {
     const request = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -160,7 +162,13 @@ const useFigures = () => {
     try {
       dispatch(showLoadingActionCreator());
 
-      axios.put(`${apiUrl}${pathList.figures}`, figure, request);
+      const {
+        data: { message },
+      } = await axios.put<{ message: string }>(
+        `${apiUrl}${pathList.figures}`,
+        figure,
+        request
+      );
 
       dispatch(hideLoadingActionCreator());
 
@@ -171,6 +179,8 @@ const useFigures = () => {
           message: modalsMessage.modifyCorrect,
         })
       );
+
+      return message;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
       dispatch(
