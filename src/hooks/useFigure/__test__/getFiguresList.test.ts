@@ -17,7 +17,7 @@ describe("Given a getFiguresList custom hook", () => {
 
       const figures = await getFiguresList(1, 2);
 
-      expect(figures?.figures).toStrictEqual(figuresMock);
+      expect(figures?.figuresData).toStrictEqual(figuresMock);
     });
   });
 

@@ -9,22 +9,21 @@ describe("Given a DetailsFigurePage component", () => {
 
       renderWithProviders(<DetailsFigurePage />, {
         figure: {
-          figuresData: [
-            {
-              user: "",
-              title: "title",
-              character: "character",
-              franchise: "franchise",
-              purchased: false,
-              manufacturer: "manufacturer",
-              material: "material",
-              size: 0,
-              weight: 0,
-              price: 0,
-              image: "",
-              id: "",
-            },
-          ],
+          figuresData: [],
+          figureData: {
+            user: "",
+            title: "title",
+            character: "character",
+            franchise: "franchise",
+            purchased: false,
+            manufacturer: "manufacturer",
+            material: "material",
+            size: 0,
+            weight: 0,
+            price: 0,
+            image: "",
+            id: "",
+          },
         },
       });
 
@@ -49,22 +48,21 @@ describe("Given a DetailsFigurePage component", () => {
 
       renderWithProviders(<DetailsFigurePage />, {
         figure: {
-          figuresData: [
-            {
-              user: "",
-              title: "title",
-              character: "character",
-              franchise: "franchise",
-              purchased: true,
-              manufacturer: "manufacturer",
-              material: "material",
-              size: 0,
-              weight: 0,
-              price: 0,
-              image: "",
-              id: "",
-            },
-          ],
+          figureData: {
+            user: "",
+            title: "title",
+            character: "character",
+            franchise: "franchise",
+            purchased: true,
+            manufacturer: "manufacturer",
+            material: "material",
+            size: 0,
+            weight: 0,
+            price: 0,
+            image: "",
+            id: "",
+          },
+          figuresData: [],
         },
       });
 

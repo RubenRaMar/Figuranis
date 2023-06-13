@@ -1,16 +1,20 @@
 import { act, screen } from "@testing-library/react";
 import { vi } from "vitest";
-import { figuresMocksFactory } from "../../mocks/factory/factories";
+import {
+  figureMockFactory,
+  figuresMocksFactory,
+} from "../../mocks/factory/factories";
 import { renderWithProviders } from "../../utils/testUtils";
 import FiguresList from "./FiguresList";
 
 describe("Given a FiguresList component", () => {
+  const figureMock = figureMockFactory();
+  const figuresMockList = figuresMocksFactory(2);
+
   describe("When it rendered", () => {
     test("Then it should show a card title with a heading ", () => {
-      const figuresMockList = figuresMocksFactory(2);
-
       renderWithProviders(<FiguresList />, {
-        figure: { figuresData: figuresMockList },
+        figure: { figureData: figureMock, figuresData: figuresMockList },
       });
 
       const heading = screen.getByRole("heading", {
@@ -33,7 +37,7 @@ describe("Given a FiguresList component", () => {
       const figuresMockList: [] = [];
 
       renderWithProviders(<FiguresList />, {
-        figure: { figuresData: figuresMockList },
+        figure: { figureData: figureMock, figuresData: figuresMockList },
       });
 
       act(() => {
@@ -50,7 +54,7 @@ describe("Given a FiguresList component", () => {
       const figuresMockList: [] = [];
 
       renderWithProviders(<FiguresList />, {
-        figure: { figuresData: figuresMockList },
+        figure: { figureData: figureMock, figuresData: figuresMockList },
       });
 
       act(() => {

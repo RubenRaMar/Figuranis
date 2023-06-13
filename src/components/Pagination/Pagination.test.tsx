@@ -17,7 +17,7 @@ describe("Given a Pagination component", () => {
           nextPage={actionOnNextButton}
           previousPage={actionOnPreviousButton}
           skip={1}
-          totalFigures={10}
+          length={10}
         />
       );
 
@@ -37,7 +37,7 @@ describe("Given a Pagination component", () => {
           nextPage={actionOnNextButton}
           previousPage={actionOnPreviousButton}
           skip={0}
-          totalFigures={1}
+          length={1}
         />
       );
 
