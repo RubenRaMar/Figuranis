@@ -76,7 +76,7 @@ describe("Given a DetailsFigurePage component", () => {
     });
   });
 
-  describe("When it is rendered and the user clicks on the 'delete' button", () => {
+  describe("When it is rendered and the user clicks on the 'delete' or 'modify' button", () => {
     test("Then it should call the function 'handleDeleteFigure'", async () => {
       const expectedButtonText = /delete/i;
 
@@ -105,6 +105,38 @@ describe("Given a DetailsFigurePage component", () => {
       await userEvent.click(button);
 
       expect(location.pathname).toBe(pathList.figures);
+    });
+
+    test("Then it should call the function 'handleUpdateFigurePage'", async () => {
+      const expectedButtonText = /modify/i;
+
+      renderWithProviders(<DetailsFigurePage />, {
+        figure: {
+          figureData: {
+            user: "",
+            title: "title",
+            character: "character",
+            franchise: "franchise",
+            purchased: true,
+            manufacturer: "manufacturer",
+            material: "material",
+            size: 0,
+            weight: 0,
+            price: 0,
+            image: "",
+            id: "123",
+          },
+          figuresData: [],
+        },
+      });
+
+      const button = screen.getByRole("button", { name: expectedButtonText });
+
+      await userEvent.click(button);
+
+      expect(location.pathname).toBe(
+        `${pathList.figures}${pathList.update}/undefined`
+      );
     });
   });
 });
