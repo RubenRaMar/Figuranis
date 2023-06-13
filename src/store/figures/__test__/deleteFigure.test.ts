@@ -9,6 +9,20 @@ describe("Given a deleteFigure mini reducer", () => {
 
       const figureData: FiguresStateStructure = {
         figuresData: figuresList,
+        figureData: {
+          id: "",
+          user: "",
+          title: "",
+          character: "",
+          franchise: "",
+          purchased: false,
+          manufacturer: "",
+          material: "",
+          size: 0,
+          weight: 0,
+          price: 0,
+          image: "",
+        },
       };
 
       const figures = figureReducer(
@@ -18,7 +32,23 @@ describe("Given a deleteFigure mini reducer", () => {
 
       figuresList.shift();
 
-      expect(figures).toStrictEqual({ figuresData: figuresList });
+      expect(figures).toStrictEqual({
+        figuresData: figuresList,
+        figureData: {
+          id: "",
+          user: "",
+          title: "",
+          character: "",
+          franchise: "",
+          purchased: false,
+          manufacturer: "",
+          material: "",
+          size: 0,
+          weight: 0,
+          price: 0,
+          image: "",
+        },
+      });
     });
   });
 });
