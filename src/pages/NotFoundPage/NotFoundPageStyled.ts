@@ -7,9 +7,12 @@ const NotFoundPageStyled = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 50px;
 
   img {
-    padding-top: 20px;
+    max-width: 1260px;
+    width: 100%;
+    height: 100%;
   }
 
   h1 {

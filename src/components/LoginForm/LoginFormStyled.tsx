@@ -8,6 +8,7 @@ const LoginFormStyled = styled.form`
   flex-direction: column;
   font-size: ${toRem(16)};
   padding: 30px 20px;
+  margin-bottom: 30px;
   border-radius: 16px;
   gap: 27px;
   box-shadow: 0px 0px 8px 1px rgba(11, 253, 180, 0.3);

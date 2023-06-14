@@ -8,6 +8,7 @@ const NotFoundPage = (): React.ReactElement => {
         src="/images/pagenotfound.webp"
         alt="Mr Satan hiding under a stone-shaped tarpaulin while the presenter searches for him"
         width="320"
+        height="233"
       />
     </NotFoundPageStyled>
   );

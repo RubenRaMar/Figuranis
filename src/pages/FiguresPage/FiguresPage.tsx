@@ -23,6 +23,15 @@ const FiguresPage = (): React.ReactElement => {
 
       if (figuresData) {
         dispatch(loadFiguresActionCreator(figuresData));
+
+        const preloadLink = await document.createElement("link");
+        preloadLink.rel = "preload";
+        preloadLink.as = "image";
+        preloadLink.href = figuresData.figuresData[0].image;
+
+        const head = document.head;
+        const firstChild = head.firstChild;
+        head.insertBefore(preloadLink, firstChild);
       }
     })();
   }, [dispatch, getFiguresList, filter, limit, skip, isLogged]);

@@ -33,7 +33,7 @@ const FigureCard = ({
   return (
     <FigureCardStyled>
       <NavLink
-        to={`${pathList.figures}/${id}`}
+        to={`${pathList.figures}${pathList.details}/${id}`}
         className={`figure${purchased ? "" : "--pending"}`}
       >
         <img

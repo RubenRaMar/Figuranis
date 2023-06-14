@@ -3,7 +3,6 @@ import toRem from "../../styles/functions/toRem";
 
 const PaginationStyle = styled.section`
   width: 279px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
