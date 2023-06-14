@@ -50,7 +50,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-        path: `${pathList.figures}/:id`,
+        path: `${pathList.figures}${pathList.details}/:id`,
         element: (
           <Suspense>
             <LazyDetailsFigurePage />

@@ -44,9 +44,9 @@ const GenericButtonStyled = styled.button`
     text-transform: none;
     &--disabled {
       text-transform: none;
-      border: 1px solid #0084c7;
+      border: 1px solid #00a9ff;
       background-color: ${themeColors.dark};
-      color: #0084c7;
+      color: #00a9ff;
     }
   }
 

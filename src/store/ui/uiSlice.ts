@@ -10,7 +10,7 @@ export const initialUiState: UiStructure = {
   },
   pagination: {
     skip: 0,
-    limit: 10,
+    limit: 12,
   },
 };
 
