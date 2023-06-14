@@ -4,7 +4,7 @@ import MainHeaderStyled from "./MainHeaderStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { userLogoutActionCreator } from "../../store/user/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import pathList from "../../utils/pathList/pathList";
 
 const MainHeader = (): React.ReactElement => {
@@ -22,14 +22,15 @@ const MainHeader = (): React.ReactElement => {
   return (
     <MainHeaderStyled>
       <div className="top-header">
-        <img
-          src="/images/logo.webp"
-          alt="Figuranis logotype"
-          width="250"
-          height="98"
-          loading="lazy"
-        />
-
+        <Link to={pathList.figures}>
+          <img
+            src="/images/logo.webp"
+            alt="Figuranis logotype"
+            width="250"
+            height="98"
+            loading="lazy"
+          />
+        </Link>
         {isLogged ? (
           <button
             aria-label={"Logout button"}

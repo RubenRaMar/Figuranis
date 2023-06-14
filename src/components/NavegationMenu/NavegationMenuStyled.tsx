@@ -31,7 +31,7 @@ const NavegationMenuStyled = styled.nav`
     background-color: transparent;
   }
 
-  .active {
+  .actived {
     color: ${themeColors.primary};
   }
 

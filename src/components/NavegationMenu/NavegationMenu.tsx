@@ -23,7 +23,11 @@ const NavegationMenu = (): React.ReactElement => {
           <NavLink
             aria-label="All figures icon"
             to={`${pathList.figures}`}
-            className="navbar__icon"
+            className={
+              location.pathname === pathList.figures
+                ? "navbar__icon actived"
+                : "navbar__icon"
+            }
           >
             <img
               src={
@@ -67,7 +71,11 @@ const NavegationMenu = (): React.ReactElement => {
               location.pathname === "/add-figure" ? "blue" : ""
             }`}
             to={pathList.addFigure}
-            className="navbar__icon"
+            className={
+              location.pathname === pathList.addFigure
+                ? "navbar__icon actived"
+                : "navbar__icon"
+            }
           >
             <img
               src={
