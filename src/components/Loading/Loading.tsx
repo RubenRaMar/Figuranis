@@ -2,14 +2,19 @@ import React from "react";
 import LoadingStyled from "./LoadingStyled";
 
 const Loading = (): React.ReactElement => {
+  const LoadingPrefersReducedMotion = () => (
+    <picture>
+      <source
+        srcSet="/images/loadingimg.svg"
+        media="(prefers-reduced-motion: reduce)"
+      />
+      <img src="/images/loading.gif" alt="Goku playing with the dragon balls" />
+    </picture>
+  );
+
   return (
     <LoadingStyled>
-      <img
-        src="/images/loading.gif"
-        alt="Goku playing the dragon balls"
-        width="220"
-        height="286"
-      />
+      <LoadingPrefersReducedMotion />
       <span>Loading...</span>
     </LoadingStyled>
   );

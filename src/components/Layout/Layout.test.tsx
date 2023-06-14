@@ -18,8 +18,8 @@ describe("Given a Layout component", () => {
   });
 
   describe("When it rendered but expect a response", () => {
-    test("Then it should show a 'Goku playing the dragon balls' image", () => {
-      const expectedAltText = "Goku playing the dragon balls";
+    test("Then it should show a 'Goku playing with the dragon balls' image", () => {
+      const expectedAltText = "Goku playing with the dragon balls";
 
       renderWithProviders(<Layout />, {
         ui: {

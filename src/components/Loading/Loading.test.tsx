@@ -14,8 +14,8 @@ describe("Given a Loading component", () => {
       expect(text).toBeInTheDocument();
     });
 
-    test("Then it should show a 'Goku playing the dragon balls' image", () => {
-      const expectedAltText = "Goku playing the dragon balls";
+    test("Then it should show a 'Goku playing with the dragon balls' image", () => {
+      const expectedAltText = /Goku playing with the dragon balls/i;
 
       renderWithProviders(<Loading />);
 
