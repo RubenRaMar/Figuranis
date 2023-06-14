@@ -20,8 +20,8 @@ const FiguresList = (): React.ReactElement => {
     <FiguresListStyled
       className={figures.length === 0 ? "figure-list center" : "figure-list"}
     >
-      {figures.map((figure, posotion) => (
-        <FigureCard figure={figure} key={figure.id} position={posotion} />
+      {figures.map((figure, position) => (
+        <FigureCard figure={figure} key={figure.id} position={position} />
       ))}
       {showElement && figures.length === 0 && (
         <div className="figures-not-found">
