@@ -24,7 +24,7 @@ const FiguresPage = (): React.ReactElement => {
       if (figuresData) {
         dispatch(loadFiguresActionCreator(figuresData));
 
-        const preloadLink = await document.createElement("link");
+        const preloadLink = document.createElement("link");
         preloadLink.rel = "preload";
         preloadLink.as = "image";
         preloadLink.href = figuresData.figuresData[0].image;

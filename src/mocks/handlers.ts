@@ -38,9 +38,7 @@ export const handlers = [
 
   rest.post(
     `${apiUrl}${pathList.figures}${pathList.addFigure}`,
-    (req, res, ctx) => {
-      req.bodyUsed;
-
+    (_req, res, ctx) => {
       return res(ctx.status(201), ctx.json({ figure: figuresMock }));
     }
   ),

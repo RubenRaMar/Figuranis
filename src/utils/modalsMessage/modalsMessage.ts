@@ -1,6 +1,6 @@
-import { modalMessageStructure } from "./types";
+import { ModalMessageStructure } from "./types";
 
-export const modalsMessage: modalMessageStructure = {
+export const modalsMessage: ModalMessageStructure = {
   wrongCredentials: "Wrong credentials",
   addCorrect: "You have successfully added a new figure to your favorites list",
   addError: "Could not add new figure to your favorites list",
