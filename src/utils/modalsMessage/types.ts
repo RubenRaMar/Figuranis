@@ -1,4 +1,4 @@
-export interface modalMessageStructure {
+export interface ModalMessageStructure {
   wrongCredentials: string;
   addCorrect: string;
   addError: string;
