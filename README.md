@@ -69,13 +69,13 @@
 # <div align="center">Connect with me</div>
 
 <div align="center">
-<a href="https://twitter.com/https://twitter.com/Ruben_Ramirez_M" target="_blank">
+<a href="https://twitter.com/Ruben_Ramirez_M" target="_blank">
 <img src=https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
 </a>
-<a href="https://github.com/https://github.com/RubenRaMar" target="_blank">
+<a href="https://github.com/RubenRaMar" target="_blank">
 <img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
 </a>
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/ruben-ramirez-martinez/" target="_blank">
+<a href="https://www.linkedin.com/in/ruben-ramirez-martinez/" target="_blank">
 <img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
 </a>  
 </div>
@@ -98,10 +98,11 @@
 
 # <div align="center">FIGURAniS API</div>
 
+The figuranis project will connect to a custom API rest to retrieve and update figure data.
+
 <div align="center">
 <a href="https://github.com/RubenRaMar/figuranis-API" target="_blank">
 <img src=https://media.licdn.com/dms/image/D4E12AQHUpQpcSsjnUw/article-cover_image-shrink_600_2000/0/1667956348172?e=2147483647&v=beta&t=VBPnkpfgha0y5fuNEdjOmG6vSwXOarA-M5XeSR6d1Wk height="100" alt=figuranis-api style="margin-bottom: 5px;" />
 </a>
 </div>
 
-The figuranis project will connect to a custom API rest to retrieve and update figure data.
