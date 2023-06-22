@@ -52,7 +52,7 @@ const NavegationMenu = (): React.ReactElement => {
             >
               <img
                 src={
-                  filter
+                  filter && location.pathname === pathList.figures
                     ? "/images/pendingfiguresorangesvg.svg"
                     : "/images/pendingfigures.svg"
                 }
