@@ -1,11 +1,19 @@
 <div align="center">
 <img src="https://i.ibb.co/982xrGy/Logo-y-letras-transparente-sin-com.png" align="center" height="100" width="" />
-
-<span>[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=isdi-coders-2023_Ruben-Ramirez-Final-Project-front-202304-bcn&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Ruben-Ramirez-Final-Project-front-202304-bcn)</span>
-
+</div>
+<div align="center">
+<img src="https://sonarcloud.io/images/project_badges/sonarcloud-black.svg" align="center" height="20" width="" />
+</div>
+<div align="center">
+<img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=alert_status" align="center" height="20" width="" />
+<img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=coverage" align="center" height="20" width="" />
 </div>
 
+<br/>
+
 ## <div align="center">Welcome to the [FIGURAniS](https://figuranis.netlify.app/user/login) project! This is a specialized private collection management application tailored specifically for anime enthusiasts and their collectibles.
+
+<br/>
 
 - Is a SPA (Single Page Application) that provides a seamless and uninterrupted user experience without the need for additional page reloads.
 
@@ -14,6 +22,8 @@
 - Within this project, users can easily add, remove, create, and view anime figures in their collection.
 
 - The application offers various features, including authentication for secure access, comprehensive figure listings and details, intuitive forms for adding and modifying figures, informative error and success notifications, and a user-friendly interface.
+
+<br/>
 
 🌐Please visit our website: ![Logotype](https://i.ibb.co/xJJFLCz/Cuadrado.png) [FIGURAniS](https://figuranis.netlify.app/user/login)</div>
 
@@ -66,6 +76,20 @@
 
 <br/>
 
+<br />
+
+# <div align="center">FIGURAniS API
+
+The figuranis project will connect to a custom API rest to retrieve and update figure data.
+
+</div>
+
+<div align="center">
+<a href="https://github.com/RubenRaMar/figuranis-API" target="_blank">
+<img src=https://media.licdn.com/dms/image/D4E12AQHUpQpcSsjnUw/article-cover_image-shrink_600_2000/0/1667956348172?e=2147483647&v=beta&t=VBPnkpfgha0y5fuNEdjOmG6vSwXOarA-M5XeSR6d1Wk height="100" alt=figuranis-api style="margin-bottom: 5px;" />
+</a>
+</div>
+
 # <div align="center">Connect with me</div>
 
 <div align="center">
@@ -79,30 +103,3 @@
 <img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
 </a>  
 </div>
-
-<br />
-
-# <div align="center">Scripts</div>
-
-`npm run dev`: starts a development server
-
-`npm run build`: builds the app
-
-`npm run preview`: runs the built app
-
-`npm run lint`: runs ESLint
-
-`npm run test`: runs vitest(test)
-
-`npm run test:coverage`: runs vitest coverage(test)
-
-# <div align="center">FIGURAniS API</div>
-
-The figuranis project will connect to a custom API rest to retrieve and update figure data.
-
-<div align="center">
-<a href="https://github.com/RubenRaMar/figuranis-API" target="_blank">
-<img src=https://media.licdn.com/dms/image/D4E12AQHUpQpcSsjnUw/article-cover_image-shrink_600_2000/0/1667956348172?e=2147483647&v=beta&t=VBPnkpfgha0y5fuNEdjOmG6vSwXOarA-M5XeSR6d1Wk height="100" alt=figuranis-api style="margin-bottom: 5px;" />
-</a>
-</div>
-

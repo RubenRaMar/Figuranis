@@ -75,7 +75,7 @@ const useFigures = () => {
     [apiUrl, dispatch, token]
   );
 
-  const deleteFigure = async (id: string) => {
+  const deleteFigure = async (id: string): Promise<void> => {
     try {
       dispatch(showLoadingActionCreator());
       const request = {
@@ -150,7 +150,7 @@ const useFigures = () => {
 
   const updateFigure = async (
     figure: Partial<FiguresDataStructures>
-  ): Promise<string | undefined> => {
+  ): Promise<void> => {
     const request = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -158,9 +158,7 @@ const useFigures = () => {
     try {
       dispatch(showLoadingActionCreator());
 
-      const {
-        data: { message },
-      } = await axios.put<{ message: string }>(
+      await axios.put<{ message: string }>(
         `${apiUrl}${pathList.figures}`,
         figure,
         request
@@ -175,8 +173,6 @@ const useFigures = () => {
           message: modalsMessage.modifyCorrect,
         })
       );
-
-      return message;
     } catch (error) {
       dispatch(hideLoadingActionCreator());
       dispatch(
