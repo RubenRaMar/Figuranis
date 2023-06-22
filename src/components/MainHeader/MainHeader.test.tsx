@@ -5,6 +5,7 @@ import { userMockCredentials } from "../../mocks/user/userMocks";
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import userEvent from "@testing-library/user-event";
 import pathList from "../../utils/pathList/pathList";
+import { initialFiguresState } from "../../store/figures/figureSlice";
 
 describe("Given a MainHeader component", () => {
   const expectedAltTextLayout = "Logout button icon";
@@ -106,7 +107,16 @@ describe("Given a MainHeader component", () => {
         const expectedPath = `${pathList.user}${pathList.login}`;
         const expectedArialLabel = "Logout button";
 
-        renderWithProviders(<MainHeader />);
+        renderWithProviders(<MainHeader />, {
+          figure: { ...initialFiguresState, filter: true },
+          user: {
+            id: "123456",
+            username: "Xavi",
+            token:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTYiLCJuYW1lIjoiWGF2aSJ9.mnjzr5sUVS-ot7dK31LmaAoPnZPuzNtqvepmo_9dn4I",
+            isLogged: true,
+          },
+        });
 
         const layoutButton = screen.getByRole("button", {
           name: expectedArialLabel,
@@ -114,7 +124,7 @@ describe("Given a MainHeader component", () => {
 
         await userEvent.click(layoutButton);
 
-        expect(window.location.pathname).toBe(expectedPath);
+        expect(location.pathname).toBe(expectedPath);
       });
     });
   });
