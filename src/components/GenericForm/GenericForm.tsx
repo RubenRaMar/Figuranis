@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GenericFormStyled from "./GenericFormStyled";
 import { FigureAddDataStructure, FiguresDataStructures } from "../../types";
 import GenericButton from "../GenericButton/GenericButton";
@@ -16,7 +16,7 @@ const GenericForm = ({
   buttonClassName,
   figure,
 }: GenericFormProps): React.ReactElement => {
-  const initialFigureState: FigureAddDataStructure = figure ?? {
+  const initialFigureState: FigureAddDataStructure = {
     title: "",
     character: "",
     franchise: "",
@@ -30,6 +30,12 @@ const GenericForm = ({
   };
 
   const [figureData, setFigureData] = useState(initialFigureState);
+
+  useEffect(() => {
+    if (figure) {
+      setFigureData(figure);
+    }
+  }, [figure]);
 
   const {
     title,

@@ -41,11 +41,9 @@ const UpdateFigurePage = (): React.ReactElement => {
   const handleUpdateFigure = async (figure: Partial<FiguresDataStructures>) => {
     await updateFigure(figure);
 
-    if (typeof figure !== "string") {
-      dispatch(paginationActionCreator(0));
+    dispatch(paginationActionCreator(0));
 
-      navigate(pathList.figures);
-    }
+    navigate(pathList.figures);
   };
 
   return (
