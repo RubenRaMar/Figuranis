@@ -31,7 +31,13 @@ const MainHeader = (): React.ReactElement => {
   return (
     <MainHeaderStyled>
       <div className="top-header">
-        <Link to={pathList.figures}>
+        <Link
+          to={
+            location.pathname.includes(`${pathList.user}${pathList.login}`)
+              ? `${pathList.user}${pathList.login}`
+              : pathList.figures
+          }
+        >
           <img
             src="/images/logo.webp"
             alt="Figuranis logotype"
