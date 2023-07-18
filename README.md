@@ -1,12 +1,12 @@
 <div align="center">
-<img src="https://i.ibb.co/982xrGy/Logo-y-letras-transparente-sin-com.png" align="center" height="100" width="" />
+  <img src="https://i.ibb.co/982xrGy/Logo-y-letras-transparente-sin-com.png" align="center" height="100" width="" />
 </div>
 <div align="center">
-<img src="https://sonarcloud.io/images/project_badges/sonarcloud-black.svg" align="center" height="20" width="" />
+  <img src="https://sonarcloud.io/images/project_badges/sonarcloud-black.svg" align="center" height="20" width="" />
 </div>
 <div align="center">
-<img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=alert_status" align="center" height="20" width="" />
-<img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=coverage" align="center" height="20" width="" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=alert_status" align="center" height="20" width="" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=coverage" align="center" height="20" width="" />
 </div>
 
 <br/>
@@ -76,30 +76,44 @@
 
 <br/>
 
-<br />
+# <div align="center">🚀 Features 🚀</div>
 
-# <div align="center">FIGURAniS API
+<br/>
 
-The figuranis project will connect to a custom API rest to retrieve and update figure data.
+- User authentication with JWT (JSON Web Tokens).
+- User login and logout functionality.
+- Secure password hashing with bcrypt.
+- CRUD operations for managing anime figures.
+- Add new figures to the collection with images.
+- View detailed information about each figure.
+- Update and delete figures from the collection.
+- Responsive and user-friendly interface.
+- Error and success notifications for user feedback.
+- Filter functionality for figures.
+- Pagination for efficient data handling.
+- Error handling for invalid routes and server errors.
+- Codebase organized into modules and reusable components.
 
-</div>
+<br/>
+
+# <div align="center">📷 Screenshots 📷</div>
+
+<br/>
 
 <div align="center">
-<a href="https://github.com/RubenRaMar/figuranis-API" target="_blank">
-<img src=https://media.licdn.com/dms/image/D4E12AQHUpQpcSsjnUw/article-cover_image-shrink_600_2000/0/1667956348172?e=2147483647&v=beta&t=VBPnkpfgha0y5fuNEdjOmG6vSwXOarA-M5XeSR6d1Wk height="100" alt=figuranis-api style="margin-bottom: 5px;" />
-</a>
-</div>
-
-# <div align="center">Connect with me</div>
-
-<div align="center">
-<a href="https://twitter.com/Ruben_Ramirez_M" target="_blank">
-<img src=https://img.shields.io/badge/twitter-%2300acee.svg?&style=for-the-badge&logo=twitter&logoColor=white alt=twitter style="margin-bottom: 5px;" />
-</a>
-<a href="https://github.com/RubenRaMar" target="_blank">
-<img src=https://img.shields.io/badge/github-%2324292e.svg?&style=for-the-badge&logo=github&logoColor=white alt=github style="margin-bottom: 5px;" />
-</a>
-<a href="https://www.linkedin.com/in/ruben-ramirez-martinez/" target="_blank">
-<img src=https://img.shields.io/badge/linkedin-%231E77B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white alt=linkedin style="margin-bottom: 5px;" />
-</a>  
+  <a href="https://i.ibb.co/0jdMRmZ/Login.png" target="_blank">
+    <img src="https://i.ibb.co/0jdMRmZ/Login.png" style="padding: 2px;" height="200" />
+  </a>
+  <a href="https://i.ibb.co/K0cD28h/Figures.png" target="_blank">
+    <img src="https://i.ibb.co/K0cD28h/Figures.png" style="padding: 2px;" height="200" />
+  </a>
+  <a href="https://i.ibb.co/FJn7Cpq/Pagination.png" target="_blank">
+    <img src="https://i.ibb.co/FJn7Cpq/Pagination.png" style="padding: 2px;" height="200" />
+  </a>
+  <a href="https://i.ibb.co/hH2T82B/Detalle.png" target="_blank">
+    <img src="https://i.ibb.co/hH2T82B/Detalle.png" style="padding: 2px;" height="200" />
+  </a>
+  <a href="https://i.ibb.co/tYTH0rz/Modigy.png" target="_blank">
+    <img src="https://i.ibb.co/tYTH0rz/Modigy.png" style="padding: 2px;" height="200" />
+  </a>
 </div>
