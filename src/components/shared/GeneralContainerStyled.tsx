@@ -5,6 +5,7 @@ const GeneralContainerStyled = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 0 22px 31px;
+  width: 100%;
 `;
 
 export default GeneralContainerStyled;
