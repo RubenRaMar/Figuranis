@@ -8,8 +8,8 @@ interface LoginFormProps {
 
 const LoginForm = ({ actionOnClick }: LoginFormProps): React.ReactElement => {
   const initialUserCredentials = {
-    username: "",
-    password: "",
+    username: "admin",
+    password: "admin",
   };
 
   const [userCredentials, setUserCredentials] = useState(
