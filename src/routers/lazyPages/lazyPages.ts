@@ -7,6 +7,7 @@ export const LazyLoginPage = lazy(
 export const LazyFiguresPage = lazy(
   () => import("../../pages/FiguresPage/FiguresPage")
 );
+
 export const LazyNotFoundError = lazy(
   () => import("../../pages/NotFoundPage/NotFoundPage")
 );
