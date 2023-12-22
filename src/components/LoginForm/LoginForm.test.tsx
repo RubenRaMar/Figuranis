@@ -6,13 +6,15 @@ import LoginForm from "./LoginForm";
 import { userMockCredentials } from "../../mocks/user/userMocks";
 
 describe("Given a LoginForm component", () => {
-  const expectedArialsLabelsTexts = ["username", "password"];
-  const expectedAlternativeButtonText = "Login";
-  const handleOnClick = vi.fn();
+  const usernameText = "username";
+  const passwordText = "password";
+  const expectedArialsLabelsTexts = [usernameText, passwordText];
+  const loginText = "Login";
+  const submitOnClick = vi.fn();
 
   describe("When it rendered", () => {
     test("Then it should show the credentials inputs", () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
       expectedArialsLabelsTexts.forEach((arialLabelText) => {
         const input = screen.getByLabelText(arialLabelText);
@@ -22,33 +24,39 @@ describe("Given a LoginForm component", () => {
     });
 
     test("Then it should show the button with 'Login' text", () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
-      const button = screen.getByRole("button", {
-        name: expectedAlternativeButtonText,
+      const loginButton = screen.getByRole("button", {
+        name: loginText,
       });
 
-      expect(button).toBeInTheDocument();
+      expect(loginButton).toBeInTheDocument();
     });
 
     test("Then it should show a heading with the 'Welcome to, FIGURAniS' text", () => {
-      const expectedAlternativeText = "Welcome to, FIGURAniS";
+      const welcomeText = "Welcome to, FIGURAniS";
 
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
       const heading = screen.getByRole("heading", {
-        name: expectedAlternativeText,
+        name: welcomeText,
       });
 
       expect(heading).toBeInTheDocument();
     });
 
-    test("Then it shoul show a disabled button", () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+    test("Then it shoul show a disabled button", async () => {
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
       const button = screen.getByRole("button", {
-        name: expectedAlternativeButtonText,
+        name: loginText,
       });
+
+      const usernameInput = screen.getByLabelText(usernameText);
+      const passwordInput = screen.getByLabelText(passwordText);
+
+      await userEvent.clear(usernameInput);
+      await userEvent.clear(passwordInput);
 
       expect(button).toBeDisabled();
     });
@@ -56,43 +64,45 @@ describe("Given a LoginForm component", () => {
 
   describe("When rendering and a user types 'Xavi' in username input", () => {
     test("Then it should show 'Xavi' in the username input", async () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
-      const input = screen.getByLabelText(expectedArialsLabelsTexts[0]);
+      const usernameInput = screen.getByLabelText(usernameText);
 
-      await userEvent.type(input, userMockCredentials.username);
+      await userEvent.clear(usernameInput);
+      await userEvent.type(usernameInput, userMockCredentials.username);
 
-      expect(input).toHaveValue(userMockCredentials.username);
+      expect(usernameInput).toHaveValue(userMockCredentials.username);
     });
   });
 
   describe("When rendering and a user types 'champion' in username input", () => {
     test("Then it should show 'champion' in the username input", async () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
-      const input = screen.getByLabelText(expectedArialsLabelsTexts[1]);
+      const passwordInput = screen.getByLabelText(passwordText);
 
-      await userEvent.type(input, userMockCredentials.password);
+      await userEvent.clear(passwordInput);
+      await userEvent.type(passwordInput, userMockCredentials.password);
 
-      expect(input).toHaveValue(userMockCredentials.password);
+      expect(passwordInput).toHaveValue(userMockCredentials.password);
     });
   });
 
   describe("When rendering and a user types 'Xavi' as the username 'champion' as the password", () => {
     test("Then it should  the user should be able to submit the form", async () => {
-      renderWithProviders(<LoginForm actionOnClick={handleOnClick} />);
+      renderWithProviders(<LoginForm actionOnClick={submitOnClick} />);
 
-      const usernameInput = screen.getByLabelText(expectedArialsLabelsTexts[0]);
-      const passwordInput = screen.getByLabelText(expectedArialsLabelsTexts[1]);
+      const usernameInput = screen.getByLabelText(usernameText);
+      const passwordInput = screen.getByLabelText(passwordText);
       const button = screen.getByRole("button", {
-        name: expectedAlternativeButtonText,
+        name: loginText,
       });
 
       await userEvent.type(usernameInput, userMockCredentials.username);
       await userEvent.type(passwordInput, userMockCredentials.password);
       await userEvent.click(button);
 
-      expect(handleOnClick).toHaveBeenCalled();
+      expect(submitOnClick).toHaveBeenCalled();
     });
   });
 });
