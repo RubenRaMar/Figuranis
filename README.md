@@ -1,12 +1,12 @@
 <div align="center">
-  <img src="https://i.ibb.co/982xrGy/Logo-y-letras-transparente-sin-com.png" align="center" height="100" width="" />
+  <img src="https://i.ibb.co/982xrGy/Logo-y-letras-transparente-sin-com.png" align="center" height="100" />
 </div>
 <div align="center">
-  <img src="https://sonarcloud.io/images/project_badges/sonarcloud-black.svg" align="center" height="20" width="" />
+  <img src="https://sonarcloud.io/images/project_badges/sonarcloud-black.svg" align="center" height="20" />
 </div>
 <div align="center">
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=alert_status" align="center" height="20" width="" />
-  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_figuranis&metric=coverage" align="center" height="20" width="" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_Figuranis&metric=alert_status" align="center" height="20" />
+  <img src="https://sonarcloud.io/api/project_badges/measure?project=RubenRaMar_Figuranis&metric=coverage" align="center" height="20" />
 </div>
 
 <br/>
@@ -26,13 +26,6 @@
 <br/>
 
 🌐Please visit our website: ![Logotype](https://i.ibb.co/xJJFLCz/Cuadrado.png) [FIGURAniS](https://figuranis.netlify.app/user/login)</div>
-
-### 🔑Credentials:
-
-- Username: admin
-- Password: admin
-
-<br/>
 
 # <div align="center">👨‍💻 Technologies Used 👨‍💻</div>
 
