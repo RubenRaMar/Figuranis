@@ -1,4 +1,6 @@
 import { figuresMocksFactory } from "../../../mocks/factory/factories";
+import { initialFiguresStateMock } from "../../../mocks/figures/figuresMocks";
+import { FiguresDataStructures } from "../../../types";
 import {
   figureReducer,
   initialFiguresState,
@@ -8,35 +10,25 @@ import {
 describe("Given a loadFigures mini reducer", () => {
   describe("When it is invoked with a figure list", () => {
     test("Then it returns a new list figures with the old figures plus the new figures", () => {
-      const figuresMock = figuresMocksFactory(2);
+      const figuresMock: FiguresDataStructures[] = figuresMocksFactory(2);
+      const newFigures: FiguresDataStructures[] = figuresMock;
+      const newTotaFigures: number = figuresMock.length;
+      const expectedFiguresState = {
+        ...initialFiguresStateMock,
+        figuresData: newFigures,
+        length: newTotaFigures,
+      };
 
-      const loadFigures = figureReducer(
+      const loadFiguresAction = loadFiguresActionCreator({
+        figuresData: newFigures,
+        length: newTotaFigures,
+      });
+      const figuresState = figureReducer(
         initialFiguresState,
-        loadFiguresActionCreator({
-          figuresData: figuresMock,
-          length: figuresMock.length,
-        })
+        loadFiguresAction
       );
 
-      expect(loadFigures).toStrictEqual({
-        figureData: {
-          id: "",
-          user: "",
-          title: "",
-          character: "",
-          franchise: "",
-          purchased: false,
-          manufacturer: "",
-          material: "",
-          size: 0,
-          weight: 0,
-          price: 0,
-          image: "",
-        },
-        figuresData: figuresMock,
-        filter: false,
-        length: 2,
-      });
+      expect(figuresState).toStrictEqual(expectedFiguresState);
     });
   });
 });
