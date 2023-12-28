@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useCallback, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import {
+  modalsImages,
+  modalsMessage,
+} from "../../utils/modalsMessage/modalsMessage";
 import pathList from "../../utils/pathList/pathList";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 import { FiguresDataStructures, FiguresStateStructure } from "../../types";
@@ -15,6 +18,14 @@ const useFigures = () => {
   const dispatch = useAppDispatch();
   const apiUrl = import.meta.env.VITE_API_URL;
   const token = useAppSelector(({ user: { token } }) => token);
+  const {
+    removeCorrect,
+    removeError,
+    addCorrect,
+    addError,
+    modifyCorrect,
+    modifyError,
+  } = modalsImages;
 
   const figuresApi = useMemo(
     () =>
@@ -87,18 +98,26 @@ const useFigures = () => {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: false,
+          isError: false,
           isModal: true,
           message: modalsMessage.removeCorrect,
+          image: {
+            src: removeCorrect.src,
+            alt: removeCorrect.alt,
+          },
         })
       );
     } catch (error) {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: true,
+          isError: true,
           isModal: true,
           message: modalsMessage.removeError,
+          image: {
+            src: removeError.src,
+            alt: removeError.alt,
+          },
         })
       );
     }
@@ -120,9 +139,13 @@ const useFigures = () => {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: false,
+          isError: false,
           isModal: true,
           message: modalsMessage.addCorrect,
+          image: {
+            src: addCorrect.src,
+            alt: addCorrect.alt,
+          },
         })
       );
 
@@ -131,9 +154,13 @@ const useFigures = () => {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: true,
+          isError: true,
           isModal: true,
           message: modalsMessage.addError,
+          image: {
+            src: addError.src,
+            alt: addError.alt,
+          },
         })
       );
     }
@@ -154,18 +181,26 @@ const useFigures = () => {
 
       dispatch(
         showModalActionCreator({
-          error: false,
+          isError: false,
           isModal: true,
           message: modalsMessage.modifyCorrect,
+          image: {
+            src: modifyCorrect.src,
+            alt: modifyCorrect.alt,
+          },
         })
       );
     } catch (error) {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: true,
+          isError: true,
           isModal: true,
           message: modalsMessage.modifyError,
+          image: {
+            src: modifyError.src,
+            alt: modifyError.alt,
+          },
         })
       );
     }

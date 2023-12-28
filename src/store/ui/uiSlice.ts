@@ -1,16 +1,20 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { UiModalStructure, UiStructure } from "../../types";
+import { UiModalStructure, UiStructure } from "./types";
 
 export const initialUiState: UiStructure = {
   isLoading: false,
   modal: {
     isModal: false,
-    error: false,
+    isError: false,
     message: "",
+    image: {
+      src: "",
+      alt: "",
+    },
   },
   pagination: {
-    skip: 0,
-    limit: 12,
+    page: 0,
+    totalFiguresToShow: 12,
   },
 };
 
@@ -35,18 +39,14 @@ const uiSlice = createSlice({
 
     hideModal: (currentUiState) => ({
       ...currentUiState,
-      modal: {
-        isModal: false,
-        error: false,
-        message: "",
-      },
+      modal: initialUiState.modal,
     }),
 
     pagination: (currentUiState, action: PayloadAction<number>) => ({
       ...currentUiState,
       pagination: {
         ...currentUiState.pagination,
-        skip: action.payload,
+        page: action.payload,
       },
     }),
   },

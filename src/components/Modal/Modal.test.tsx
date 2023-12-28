@@ -38,7 +38,7 @@ describe("Given a Modal component", () => {
             },
             pagination: {
               limit: 1,
-              skip: 1,
+              page: 1,
             },
           },
         });
@@ -64,7 +64,7 @@ describe("Given a Modal component", () => {
           },
           pagination: {
             limit: 1,
-            skip: 1,
+            page: 1,
           },
         },
       });

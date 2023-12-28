@@ -23,7 +23,7 @@ describe("Given a FiguresPage component", () => {
           isLoading: false,
           modal: { error: false, isModal: false, message: "tot be" },
           pagination: {
-            skip: 1,
+            page: 1,
             limit: 1,
           },
         },
@@ -46,7 +46,7 @@ describe("Given a FiguresPage component", () => {
           isLoading: false,
           modal: { error: false, isModal: false, message: "tot be" },
           pagination: {
-            skip: 1,
+            page: 1,
             limit: 1,
           },
         },

@@ -11,7 +11,7 @@ import { paginationActionCreator } from "../../store/ui/uiSlice";
 const FiguresPage = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
   const { filter, totalFigures } = useAppSelector((store) => store.figure);
-  const { limit, skip } = useAppSelector((store) => store.ui.pagination);
+  const { limit, page: skip } = useAppSelector((store) => store.ui.pagination);
   const dispatch = useAppDispatch();
   const { getFiguresList } = useFigures();
 

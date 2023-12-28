@@ -6,7 +6,10 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import {
+  modalsImages,
+  modalsMessage,
+} from "../../utils/modalsMessage/modalsMessage";
 
 const useUser = () => {
   const dispatch = useAppDispatch();
@@ -33,9 +36,13 @@ const useUser = () => {
       dispatch(hideLoadingActionCreator());
       dispatch(
         showModalActionCreator({
-          error: true,
+          isError: true,
           isModal: true,
           message: modalsMessage.wrongCredentials,
+          image: {
+            src: modalsImages.wrongCredentials.src,
+            alt: modalsImages.wrongCredentials.alt,
+          },
         })
       );
     }
