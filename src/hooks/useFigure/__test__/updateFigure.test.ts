@@ -3,7 +3,7 @@ import { figureMockFactory } from "../../../mocks/factory/factories";
 import { handlers, errorHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
 import { store } from "../../../store";
-import { modalsMessage } from "../../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../../utils/modalsData/modalsData";
 import { wrapWithProviders } from "../../../utils/testUtils";
 import useFigures from "../useFigure";
 

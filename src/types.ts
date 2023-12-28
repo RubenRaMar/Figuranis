@@ -1,22 +1,21 @@
 export type Id = string;
 
-export interface UserCredentialsStructure {
+export interface UserLoggedStructured {
+  id: Id;
   username: string;
+  token: string;
+  isLogged: boolean;
+}
+
+export interface UserCredentialsStructure
+  extends Pick<UserLoggedStructured, "username"> {
   password: string;
 }
 
-export interface UserDataStructure {
-  id: Id;
-  username: string;
-}
+export type UserDataStructure = Pick<UserLoggedStructured, "username" | "id">;
 
-export interface UserTokenStructure extends UserDataStructure {
-  token: string;
-}
+export type UserTokenStructure = Omit<UserLoggedStructured, "isLogged">;
 
-export interface UserLoggedStructured extends UserTokenStructure {
-  isLogged: boolean;
-}
 export interface FiguresStateStructure {
   figuresData: FiguresDataStructures[];
   figureData: FiguresDataStructures;
@@ -24,7 +23,9 @@ export interface FiguresStateStructure {
   filter?: boolean;
 }
 
-export interface FigureAddDataStructure {
+export interface FiguresDataStructures {
+  id: Id;
+  user: string;
   title: string;
   character: string;
   franchise: string;
@@ -36,23 +37,4 @@ export interface FigureAddDataStructure {
   price: number;
   image: string;
 }
-export interface FiguresDataStructures extends FigureAddDataStructure {
-  id: Id;
-  user: string;
-}
-
-export interface UiStructure {
-  isLoading: boolean;
-  modal: UiModalStructure;
-  pagination: PaginationStructure;
-}
-
-export interface PaginationStructure {
-  skip: number;
-  limit: number;
-}
-export interface UiModalStructure {
-  isModal: boolean;
-  error: boolean;
-  message: string;
-}
+export type FigureAddDataStructure = Omit<FiguresDataStructures, "id" | "user">;

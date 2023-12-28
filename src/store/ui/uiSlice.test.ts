@@ -1,3 +1,5 @@
+import { modalsMessage } from "../../utils/modalsData/modalsData";
+import { UiModalStructure } from "./types";
 import {
   hideLoadingActionCreator,
   hideModalActionCreator,
@@ -7,10 +9,14 @@ import {
   uiReducer,
 } from "./uiSlice";
 
-const modalErrorMock = {
+const modalErrorMock: UiModalStructure = {
   isModal: true,
-  error: true,
-  message: "Wrong credential",
+  isError: true,
+  message: modalsMessage.wrongCredentials,
+  image: {
+    src: "",
+    alt: "",
+  },
 };
 
 const isLoadingTrue = { ...initialUiState, isLoading: true };

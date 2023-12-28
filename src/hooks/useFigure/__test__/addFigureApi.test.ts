@@ -5,7 +5,7 @@ import { figuresMock } from "../../../mocks/figures/figuresMocks";
 import { server } from "../../../mocks/server";
 import { errorHandlers, handlers } from "../../../mocks/handlers";
 import { store } from "../../../store";
-import { modalsMessage } from "../../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../../utils/modalsData/modalsData";
 import { figureMockFactory } from "../../../mocks/factory/factories";
 
 describe("Given a addFigureApi custom hook", () => {
