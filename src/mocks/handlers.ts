@@ -1,7 +1,7 @@
 import { rest } from "msw";
 import { figuresMock } from "./figures/figuresMocks";
 import { userTokenMock } from "./user/userMocks";
-import { modalsMessage } from "../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../utils/modalsData/modalsData";
 import pathList from "../utils/pathList/pathList";
 
 const apiUrl = import.meta.env.VITE_API_URL;

@@ -3,7 +3,7 @@ import { renderWithProviders } from "../../utils/testUtils";
 import AddFiguresPage from "./AddFigurePage";
 import userEvent from "@testing-library/user-event";
 import { store } from "../../store";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../utils/modalsData/modalsData";
 
 describe("Given a AddFiguresPage component", () => {
   describe("When it rendered", () => {

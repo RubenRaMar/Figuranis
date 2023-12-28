@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../utils/modalsData/modalsData";
 import { renderWithProviders } from "../../utils/testUtils";
 import Modal from "./Modal";
 import userEvent from "@testing-library/user-event";

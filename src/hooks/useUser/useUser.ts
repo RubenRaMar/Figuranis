@@ -6,10 +6,7 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
-import {
-  modalsImages,
-  modalsMessage,
-} from "../../utils/modalsMessage/modalsMessage";
+import { modalsImages, modalsMessage } from "../../utils/modalsData/modalsData";
 
 const useUser = () => {
   const dispatch = useAppDispatch();

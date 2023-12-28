@@ -4,7 +4,7 @@ import { renderWithProviders } from "../../utils/testUtils";
 import FigureCard from "./FigureCard";
 import userEvent from "@testing-library/user-event";
 import { store } from "../../store";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../utils/modalsData/modalsData";
 
 describe("Given a FiguresList component", () => {
   describe("When it is rendered and receives one figure", () => {

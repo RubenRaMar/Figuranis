@@ -9,7 +9,7 @@ import { wrapWithProviders } from "../../utils/testUtils";
 import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
 import { store } from "../../store";
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../utils/modalsData/modalsData";
 
 describe("Given a getLoginUser funtion", () => {
   const {

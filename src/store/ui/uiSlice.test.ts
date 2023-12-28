@@ -1,4 +1,4 @@
-import { modalsMessage } from "../../utils/modalsMessage/modalsMessage";
+import { modalsMessage } from "../../utils/modalsData/modalsData";
 import { UiModalStructure } from "./types";
 import {
   hideLoadingActionCreator,

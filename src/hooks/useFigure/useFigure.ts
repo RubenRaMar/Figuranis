@@ -1,10 +1,7 @@
 import axios from "axios";
 import { useCallback, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
-import {
-  modalsImages,
-  modalsMessage,
-} from "../../utils/modalsMessage/modalsMessage";
+import { modalsImages, modalsMessage } from "../../utils/modalsData/modalsData";
 import pathList from "../../utils/pathList/pathList";
 import { deleteFigureActionCreator } from "../../store/figures/figureSlice";
 import { FiguresDataStructures, FiguresStateStructure } from "../../types";
