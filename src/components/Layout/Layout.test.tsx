@@ -27,8 +27,12 @@ describe("Given a Layout component", () => {
           isLoading: true,
           modal: {
             isModal: true,
-            error: true,
+            isError: true,
             message: modalsMessage.wrongCredentials,
+            image: {
+              src: "",
+              alt: "",
+            },
           },
         },
       });
