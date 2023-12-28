@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { figuresMock } from "../../../mocks/figures/figures";
+import { figuresMock } from "../../../mocks/figures/figuresMocks";
 import { errorHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
 import { store } from "../../../store";

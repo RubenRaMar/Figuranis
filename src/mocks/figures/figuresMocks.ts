@@ -1,5 +1,35 @@
-import { FiguresDataStructures } from "../../types";
+import { FiguresDataStructures, FiguresStateStructure } from "../../types";
 import { figuresMocksFactory } from "../factory/factories";
+
+export const figuresFactoryMock: FiguresDataStructures[] =
+  figuresMocksFactory(4);
+
+export const initialFiguresDataStateMock: FiguresDataStructures = {
+  id: "",
+  user: "",
+  title: "",
+  character: "",
+  franchise: "",
+  isPurchased: false,
+  manufacturer: "",
+  material: "",
+  size: 0,
+  weight: 0,
+  price: 0,
+  image: "",
+};
+
+export const initialFiguresStateMock: FiguresStateStructure = {
+  figuresData: [],
+  figureData: initialFiguresDataStateMock,
+  length: 0,
+  filter: false,
+};
+
+export const currentFigureStateMock: FiguresStateStructure = {
+  ...initialFiguresStateMock,
+  figuresData: figuresFactoryMock,
+};
 
 export const figuresMock: FiguresDataStructures[] = [
   {
@@ -7,7 +37,7 @@ export const figuresMock: FiguresDataStructures[] = [
     title: "One Piece XS Studio Zoro",
     character: "Zoro",
     franchise: "One Piece",
-    purchased: true,
+    isPurchased: true,
     manufacturer: "XS Studio",
     material: "Resin",
     size: 38,
@@ -23,7 +53,7 @@ export const figuresMock: FiguresDataStructures[] = [
     title: "Metroid Dread Creation Studio Samus Aran",
     character: "Samus Aran",
     franchise: "Metroid Dread",
-    purchased: false,
+    isPurchased: false,
     manufacturer: "Creation Studio",
     material: "Resin",
     size: 55,
@@ -38,7 +68,7 @@ export const figuresMock: FiguresDataStructures[] = [
     title: "Naruto Madara JIYI Studio",
     character: "Madara",
     franchise: "Naruto",
-    purchased: false,
+    isPurchased: false,
     manufacturer: "JIYI Studio",
     material: "Resin + LED",
     size: 62,
@@ -53,7 +83,7 @@ export const figuresMock: FiguresDataStructures[] = [
     title: "Dragon Ball DMS Vegeta Blue, Evolution and UltraEgo",
     character: "Vegeta Blue",
     franchise: "Dragon Ball",
-    purchased: true,
+    isPurchased: true,
     manufacturer: "Dim Model Studio",
     material: "Resin",
     size: 46,
@@ -65,4 +95,4 @@ export const figuresMock: FiguresDataStructures[] = [
   },
 ];
 
-export const twentyFigures = figuresMocksFactory(20);
+export const twentyFigures: FiguresDataStructures[] = figuresMocksFactory(20);

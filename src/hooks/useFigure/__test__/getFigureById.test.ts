@@ -3,7 +3,7 @@ import { errorHandlers } from "../../../mocks/handlers";
 import { server } from "../../../mocks/server";
 import { wrapWithProviders } from "../../../utils/testUtils";
 import useFigures from "../useFigure";
-import { figuresMock } from "../../../mocks/figures/figures";
+import { figuresMock } from "../../../mocks/figures/figuresMocks";
 
 describe("Given a getFigureById custom hook", () => {
   describe("When it invoked with a valid figure id", () => {

@@ -24,7 +24,7 @@ const GenericForm = ({
     manufacturer: "",
     material: "",
     price: 0,
-    purchased: false,
+    isPurchased: false,
     size: 0,
     weight: 0,
   };
@@ -45,7 +45,7 @@ const GenericForm = ({
     manufacturer,
     material,
     price,
-    purchased,
+    isPurchased,
     size,
     weight,
   } = figureData;
@@ -65,7 +65,7 @@ const GenericForm = ({
     event.target.id === "purchased"
       ? setFigureData({
           ...figureData,
-          purchased: !purchased,
+          isPurchased: !isPurchased,
         })
       : setFigureData({
           ...figureData,
@@ -181,7 +181,7 @@ const GenericForm = ({
           type="checkbox"
           id="purchased"
           onChange={onChangeFigureData}
-          checked={purchased}
+          checked={isPurchased}
         />
       </div>
 
