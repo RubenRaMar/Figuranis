@@ -1,54 +1,32 @@
-import { figuresMocksFactory } from "../../../mocks/factory/factories";
-import { FiguresStateStructure } from "../../../types";
+import {
+  initialFiguresStateMock,
+  currentFigureStateMock,
+  figuresFactoryMock,
+} from "../../../mocks/figures/figuresMocks";
+import {
+  Id,
+  FiguresStateStructure,
+  FiguresDataStructures,
+} from "../../../types";
 import { deleteFigureActionCreator, figureReducer } from "../figureSlice";
 
 describe("Given a deleteFigure mini reducer", () => {
   describe("When it is invoked with an id of a figure", () => {
-    test("Then it should delete this figure", () => {
-      const figuresList = figuresMocksFactory(4);
-
-      const figureData: FiguresStateStructure = {
-        figuresData: figuresList,
-        figureData: {
-          id: "",
-          user: "",
-          title: "",
-          character: "",
-          franchise: "",
-          purchased: false,
-          manufacturer: "",
-          material: "",
-          size: 0,
-          weight: 0,
-          price: 0,
-          image: "",
-        },
+    test("Then it should return a figure state without the figure", () => {
+      const figures: FiguresDataStructures[] = figuresFactoryMock;
+      const figuresId: Id = figures[0].id;
+      const expectedFiguresState: FiguresStateStructure = {
+        ...initialFiguresStateMock,
+        figuresData: figures.filter((figure) => figure.id !== figuresId),
       };
 
-      const figures = figureReducer(
-        figureData,
-        deleteFigureActionCreator(figuresList[0].id)
+      const deleteFigureAction = deleteFigureActionCreator(figuresId);
+      const figureState = figureReducer(
+        currentFigureStateMock,
+        deleteFigureAction
       );
 
-      figuresList.shift();
-
-      expect(figures).toStrictEqual({
-        figuresData: figuresList,
-        figureData: {
-          id: "",
-          user: "",
-          title: "",
-          character: "",
-          franchise: "",
-          purchased: false,
-          manufacturer: "",
-          material: "",
-          size: 0,
-          weight: 0,
-          price: 0,
-          image: "",
-        },
-      });
+      expect(figureState).toStrictEqual(expectedFiguresState);
     });
   });
 });
