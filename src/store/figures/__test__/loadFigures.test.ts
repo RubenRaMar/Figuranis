@@ -1,6 +1,6 @@
 import { figuresMocksFactory } from "../../../mocks/factory/factories";
 import { initialFiguresStateMock } from "../../../mocks/figures/figuresMocks";
-import { FiguresDataStructures } from "../../../types";
+import { FiguresDataStructures, FiguresStateStructure } from "../../../types";
 import {
   figureReducer,
   initialFiguresState,
@@ -13,15 +13,15 @@ describe("Given a loadFigures mini reducer", () => {
       const figuresMock: FiguresDataStructures[] = figuresMocksFactory(2);
       const newFigures: FiguresDataStructures[] = figuresMock;
       const newTotaFigures: number = figuresMock.length;
-      const expectedFiguresState = {
+      const expectedFiguresState: FiguresStateStructure = {
         ...initialFiguresStateMock,
         figuresData: newFigures,
-        length: newTotaFigures,
+        totalFigures: newTotaFigures,
       };
 
       const loadFiguresAction = loadFiguresActionCreator({
         figuresData: newFigures,
-        length: newTotaFigures,
+        totalFigures: newTotaFigures,
       });
       const figuresState = figureReducer(
         initialFiguresState,
