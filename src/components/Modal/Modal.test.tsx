@@ -34,10 +34,14 @@ describe("Given a Modal component", () => {
             modal: {
               message: expectedAltText,
               isModal: true,
-              error: true,
+              isError: true,
+              image: {
+                src: "",
+                alt: "",
+              },
             },
             pagination: {
-              limit: 1,
+              totalFiguresToShow: 12,
               page: 1,
             },
           },
@@ -58,12 +62,16 @@ describe("Given a Modal component", () => {
         ui: {
           isLoading: false,
           modal: {
-            error: false,
+            isError: false,
             message: modalsMessage.removeCorrect,
             isModal: true,
+            image: {
+              src: "",
+              alt: "",
+            },
           },
           pagination: {
-            limit: 1,
+            totalFiguresToShow: 12,
             page: 1,
           },
         },
