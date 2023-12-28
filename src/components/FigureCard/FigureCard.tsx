@@ -14,7 +14,7 @@ interface FigureCardProps {
 }
 
 const FigureCard = ({
-  figure: { title, franchise, purchased, image, price, id },
+  figure: { title, franchise, isPurchased, image, price, id },
   position,
 }: FigureCardProps): React.ReactElement => {
   const { limit, skip } = useAppSelector((state) => state.ui.pagination);
@@ -34,7 +34,7 @@ const FigureCard = ({
     <FigureCardStyled>
       <NavLink
         to={`${pathList.figures}${pathList.details}/${id}`}
-        className={`figure${purchased ? "" : "--pending"}`}
+        className={`figure${isPurchased ? "" : "--pending"}`}
       >
         <img
           width="277"
@@ -45,10 +45,10 @@ const FigureCard = ({
           loading={position ? "lazy" : "eager"}
         />
         <span
-          aria-label={`The figure is ${purchased ? "purchased" : "pending"}`}
-          className={`figure__data__${purchased ? "purchased" : "pending"}`}
+          aria-label={`The figure is ${isPurchased ? "purchased" : "pending"}`}
+          className={`figure__data__${isPurchased ? "purchased" : "pending"}`}
         >
-          {purchased ? "Purchased" : "Pending"}
+          {isPurchased ? "Purchased" : "Pending"}
         </span>
         <div className="figure__data">
           <h2 className="figure__data__franchise">{franchise}</h2>

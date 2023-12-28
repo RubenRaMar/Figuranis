@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import useFigures from "../useFigure";
 import { wrapWithProviders } from "../../../utils/testUtils";
-import { figuresMock } from "../../../mocks/figures/figures";
+import { figuresMock } from "../../../mocks/figures/figuresMocks";
 import { server } from "../../../mocks/server";
 import { errorHandlers, handlers } from "../../../mocks/handlers";
 import { store } from "../../../store";

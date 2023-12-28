@@ -9,7 +9,7 @@ export const initialFiguresState: FiguresStateStructure = {
     title: "",
     character: "",
     franchise: "",
-    purchased: false,
+    isPurchased: false,
     manufacturer: "",
     material: "",
     size: 0,

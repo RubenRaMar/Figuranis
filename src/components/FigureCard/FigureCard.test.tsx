@@ -13,7 +13,7 @@ describe("Given a FiguresList component", () => {
     test("Then it should show a card title with a heading ", () => {
       renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
-      figureMock.purchased = true;
+      figureMock.isPurchased = true;
 
       const heading = screen.getByRole("heading", {
         name: figureMock.franchise,
@@ -25,7 +25,7 @@ describe("Given a FiguresList component", () => {
     test("Then it should show a card image", () => {
       renderWithProviders(<FigureCard position={0} figure={figureMock} />);
 
-      figureMock.purchased = false;
+      figureMock.isPurchased = false;
 
       const image = screen.getByRole("img", {
         name: `${figureMock.title} figure`,
@@ -36,7 +36,7 @@ describe("Given a FiguresList component", () => {
 
     test("Then it should show three data texts of the figure", () => {
       const figuresData = [
-        `The figure is ${figureMock.purchased ? "purchased" : "pending"}`,
+        `The figure is ${figureMock.isPurchased ? "purchased" : "pending"}`,
         `The figure title is ${figureMock.title}`,
         `The figure price is ${figureMock.price} euros`,
       ];

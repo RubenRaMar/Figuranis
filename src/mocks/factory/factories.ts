@@ -10,7 +10,7 @@ const figureFactory = Factory.define<FiguresDataStructures>(() => ({
   manufacturer: faker.company.name(),
   material: faker.commerce.productMaterial(),
   price: faker.number.int(),
-  purchased: faker.datatype.boolean(),
+  isPurchased: faker.datatype.boolean(),
   size: faker.number.int(),
   title: faker.commerce.product(),
   weight: faker.number.int(),

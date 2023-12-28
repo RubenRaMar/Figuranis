@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { figuresMock } from "./figures/figures";
+import { figuresMock } from "./figures/figuresMocks";
 import { userTokenMock } from "./user/userMocks";
 import { modalsMessage } from "../utils/modalsMessage/modalsMessage";
 import pathList from "../utils/pathList/pathList";

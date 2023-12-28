@@ -1,10 +1,12 @@
+export type Id = string;
+
 export interface UserCredentialsStructure {
   username: string;
   password: string;
 }
 
 export interface UserDataStructure {
-  id: string;
+  id: Id;
   username: string;
 }
 
@@ -26,7 +28,7 @@ export interface FigureAddDataStructure {
   title: string;
   character: string;
   franchise: string;
-  purchased: boolean;
+  isPurchased: boolean;
   manufacturer: string;
   material: string;
   size: number;
@@ -35,7 +37,7 @@ export interface FigureAddDataStructure {
   image: string;
 }
 export interface FiguresDataStructures extends FigureAddDataStructure {
-  id: string;
+  id: Id;
   user: string;
 }
 

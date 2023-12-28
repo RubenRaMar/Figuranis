@@ -41,7 +41,7 @@ const DetailsFigurePage = (): React.ReactElement => {
     title,
     character,
     franchise,
-    purchased,
+    isPurchased,
     manufacturer,
     material,
     size,
@@ -81,9 +81,9 @@ const DetailsFigurePage = (): React.ReactElement => {
             />
             <span className="top__title">{title}</span>
           </article>
-          <div className={purchased ? "purchased" : "pending"}>
+          <div className={isPurchased ? "purchased" : "pending"}>
             <span className="purchased__title pending__title">
-              {purchased ? "Purchased" : "Pending"}
+              {isPurchased ? "Purchased" : "Pending"}
             </span>
             <span className="purchased__price pending__price">{`${price} €`}</span>
           </div>
