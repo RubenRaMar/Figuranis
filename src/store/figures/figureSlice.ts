@@ -17,7 +17,7 @@ export const initialFiguresState: FiguresStateStructure = {
     price: 0,
     image: "",
   },
-  length: 0,
+  totalFigures: 0,
   filter: false,
 };
 
@@ -28,12 +28,12 @@ const figureSlice = createSlice({
     loadFigures: (
       currentFiguresState,
       action: PayloadAction<
-        Pick<FiguresStateStructure, "figuresData" | "length">
+        Pick<FiguresStateStructure, "figuresData" | "totalFigures">
       >
     ) => ({
       ...currentFiguresState,
       figuresData: action.payload.figuresData,
-      length: action.payload.length,
+      totalFigures: action.payload.totalFigures,
     }),
 
     loadFigureById: (

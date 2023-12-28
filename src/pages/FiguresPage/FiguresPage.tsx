@@ -10,7 +10,7 @@ import { paginationActionCreator } from "../../store/ui/uiSlice";
 
 const FiguresPage = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.user.isLogged);
-  const { filter, length } = useAppSelector((store) => store.figure);
+  const { filter, totalFigures } = useAppSelector((store) => store.figure);
   const { limit, skip } = useAppSelector((store) => store.ui.pagination);
   const dispatch = useAppDispatch();
   const { getFiguresList } = useFigures();
@@ -58,7 +58,7 @@ const FiguresPage = (): React.ReactElement => {
       <GeneralContainerStyled>
         <FiguresList />
         <Pagination
-          length={length}
+          length={totalFigures}
           nextPage={nextPage}
           previousPage={previousPage}
           skip={skip}

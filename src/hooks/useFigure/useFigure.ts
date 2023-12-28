@@ -31,13 +31,13 @@ const useFigures = () => {
       limit?: number,
       filter?: boolean
     ): Promise<
-      Pick<FiguresStateStructure, "figuresData" | "length"> | undefined
+      Pick<FiguresStateStructure, "figuresData" | "totalFigures"> | undefined
     > => {
       try {
         dispatch(showLoadingActionCreator());
 
         const {
-          data: { figures, length },
+          data: { figures, length: totalFigures },
         } = await figuresApi.get<{
           figures: FiguresDataStructures[];
           length: number;
@@ -46,7 +46,7 @@ const useFigures = () => {
         );
         dispatch(hideLoadingActionCreator());
 
-        return { figuresData: figures, length };
+        return { figuresData: figures, totalFigures };
       } catch (error) {
         dispatch(hideLoadingActionCreator());
       }
