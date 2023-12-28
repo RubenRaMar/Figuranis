@@ -21,10 +21,18 @@ describe("Given a FiguresPage component", () => {
       renderWithProviders(<FiguresPage />, {
         ui: {
           isLoading: false,
-          modal: { error: false, isModal: false, message: "tot be" },
+          modal: {
+            isError: false,
+            isModal: false,
+            message: "tot be",
+            image: {
+              src: "",
+              alt: "",
+            },
+          },
           pagination: {
             page: 1,
-            limit: 1,
+            totalFiguresToShow: 12,
           },
         },
       });
@@ -44,10 +52,18 @@ describe("Given a FiguresPage component", () => {
       renderWithProviders(<FiguresPage />, {
         ui: {
           isLoading: false,
-          modal: { error: false, isModal: false, message: "tot be" },
+          modal: {
+            isError: false,
+            isModal: false,
+            message: "tot be",
+            image: {
+              src: "",
+              alt: "",
+            },
+          },
           pagination: {
             page: 1,
-            limit: 1,
+            totalFiguresToShow: 12,
           },
         },
       });
