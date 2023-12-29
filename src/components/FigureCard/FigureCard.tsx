@@ -17,15 +17,13 @@ const FigureCard = ({
   figure: { title, franchise, isPurchased, image, price, id },
   position,
 }: FigureCardProps): React.ReactElement => {
-  const { totalFiguresToShow, page } = useAppSelector(
-    (state) => state.ui.pagination
-  );
+  const { page } = useAppSelector((state) => state.ui.pagination);
   const { deleteFigure, getFiguresList } = useFigures();
   const dispatch = useAppDispatch();
 
   const handleDeleteFigure = async () => {
     await deleteFigure(id);
-    const figuresData = await getFiguresList(page, totalFiguresToShow);
+    const figuresData = await getFiguresList({ page });
 
     if (figuresData) {
       dispatch(loadFiguresActionCreator(figuresData));

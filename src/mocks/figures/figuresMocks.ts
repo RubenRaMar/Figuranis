@@ -23,7 +23,7 @@ export const initialFiguresStateMock: FiguresStateStructure = {
   figuresData: [],
   figureData: initialFiguresDataStateMock,
   totalFigures: 0,
-  filter: false,
+  isPurchasedFilter: undefined,
 };
 
 export const currentFigureStateMock: FiguresStateStructure = {

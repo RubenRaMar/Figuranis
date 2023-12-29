@@ -13,7 +13,7 @@ export const initialUiState: UiStructure = {
     },
   },
   pagination: {
-    page: 0,
+    page: 1,
     totalFiguresToShow: 12,
   },
 };

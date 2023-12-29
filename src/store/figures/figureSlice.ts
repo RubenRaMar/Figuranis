@@ -18,7 +18,7 @@ export const initialFiguresState: FiguresStateStructure = {
     image: "",
   },
   totalFigures: 0,
-  filter: false,
+  isPurchasedFilter: undefined,
 };
 
 const figureSlice = createSlice({
@@ -35,7 +35,6 @@ const figureSlice = createSlice({
       figuresData: action.payload.figuresData,
       totalFigures: action.payload.totalFigures,
     }),
-
     loadFigureById: (
       currentFiguresState,
       action: PayloadAction<FiguresDataStructures>
@@ -43,19 +42,20 @@ const figureSlice = createSlice({
       ...currentFiguresState,
       figureData: action.payload,
     }),
-
-    loadFiguresFilter: (currentFiguresState) => ({
+    loadFiguresIsPurchased: (currentFiguresState) => ({
       ...currentFiguresState,
-      filter: !currentFiguresState.filter,
+      isPurchasedFilter: !currentFiguresState.isPurchasedFilter,
     }),
-
+    resetFiguresIsPurchased: (currentFiguresState) => ({
+      ...currentFiguresState,
+      isPurchasedFilter: undefined,
+    }),
     deleteFigure: (currentFiguresState, action: PayloadAction<string>) => ({
       ...currentFiguresState,
       figuresData: currentFiguresState.figuresData.filter(
         (figure) => figure.id !== action.payload
       ),
     }),
-
     addFigure: (
       currentFiguresState,
       action: PayloadAction<FiguresDataStructures>
@@ -70,7 +70,8 @@ export const {
   loadFigures: loadFiguresActionCreator,
   deleteFigure: deleteFigureActionCreator,
   addFigure: addFigureActionCreator,
-  loadFiguresFilter: loadFiguresFilterActionCreator,
+  loadFiguresIsPurchased: loadFiguresIsPurchasedActionCreator,
+  resetFiguresIsPurchased: resetFiguresIsPurchasedActionCreator,
   loadFigureById: loadFigureByIdActionCreator,
 } = figureSlice.actions;
 
