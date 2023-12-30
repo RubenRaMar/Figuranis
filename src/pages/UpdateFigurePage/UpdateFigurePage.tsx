@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFigures from "../../hooks/useFigure/useFigure";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadFigureByIdActionCreator } from "../../store/figures/figureSlice";
-import { paginationActionCreator } from "../../store/ui/uiSlice";
 import pathList from "../../utils/pathList/pathList";
 import { FiguresDataStructures } from "../../types";
 
@@ -40,8 +39,6 @@ const UpdateFigurePage = (): React.ReactElement => {
 
   const handleUpdateFigure = async (figure: Partial<FiguresDataStructures>) => {
     await updateFigure(figure);
-
-    dispatch(paginationActionCreator(0));
 
     navigate(pathList.figures);
   };
