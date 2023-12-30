@@ -15,7 +15,7 @@ describe("Given a getFiguresList custom hook", () => {
         },
       } = renderHook(() => useFigures(), { wrapper: wrapWithProviders });
 
-      const figures = await getFiguresList(1, 2);
+      const figures = await getFiguresList({});
 
       expect(figures?.figuresData).toStrictEqual(figuresMock);
     });
@@ -27,11 +27,11 @@ describe("Given a getFiguresList custom hook", () => {
 
       const {
         result: {
-          current: { getFiguresList: getFiguresList },
+          current: { getFiguresList },
         },
       } = renderHook(() => useFigures(), { wrapper: wrapWithProviders });
 
-      await getFiguresList(1, 2);
+      await getFiguresList({});
 
       const isLoading = store.getState().ui.isLoading;
 

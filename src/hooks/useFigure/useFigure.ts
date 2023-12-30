@@ -33,25 +33,37 @@ const useFigures = () => {
     [apiUrl, token]
   );
 
+  interface GetFiguresListProps {
+    page?: number;
+    totalFiguresToShow?: number;
+    isPurchasedFilter?: boolean;
+  }
+
   const getFiguresList = useCallback(
-    async (
-      skip?: number,
-      limit?: number,
-      filter?: boolean
-    ): Promise<
+    async ({
+      page,
+      isPurchasedFilter,
+      totalFiguresToShow,
+    }: GetFiguresListProps): Promise<
       Pick<FiguresStateStructure, "figuresData" | "totalFigures"> | undefined
     > => {
       try {
         dispatch(showLoadingActionCreator());
+
+        const queryParams = [
+          page && page > 1 && `page=${--page}`,
+          totalFiguresToShow && `limit=${totalFiguresToShow}`,
+          isPurchasedFilter !== undefined && `purchased=${!isPurchasedFilter}`,
+        ]
+          .filter(Boolean)
+          .join("&");
 
         const {
           data: { figures, length: totalFigures },
         } = await figuresApi.get<{
           figures: FiguresDataStructures[];
           length: number;
-        }>(
-          `${apiUrl}${pathList.figures}?skip=${skip}&limit=${limit}&filter=${filter}`
-        );
+        }>(`${apiUrl}${pathList.figures}?${queryParams}`);
         dispatch(hideLoadingActionCreator());
 
         return { figuresData: figures, totalFigures };
