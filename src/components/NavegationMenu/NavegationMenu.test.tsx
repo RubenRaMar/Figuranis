@@ -93,9 +93,9 @@ describe("Given a NavegationMenu component", () => {
 
       await userEvent.click(button);
 
-      const filter = store.getState().figure.filter;
+      const isPurchased = store.getState().figure.isPurchasedFilter;
 
-      expect(filter).toBe(true);
+      expect(isPurchased).toBe(true);
     });
   });
 });

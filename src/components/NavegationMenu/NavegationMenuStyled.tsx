@@ -39,6 +39,10 @@ const NavegationMenuStyled = styled.nav`
     color: #e0730e;
   }
 
+  .purchased {
+    color: ${themeColors.secundary};
+  }
+
   @media (min-width: 650px) {
     .navbar {
       &__list {
