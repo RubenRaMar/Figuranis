@@ -108,7 +108,7 @@ describe("Given a MainHeader component", () => {
         const expectedArialLabel = "Logout button";
 
         renderWithProviders(<MainHeader />, {
-          figure: { ...initialFiguresState, filter: true },
+          figure: { ...initialFiguresState, isPurchasedFilter: true },
           user: {
             id: "123456",
             username: "Xavi",

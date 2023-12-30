@@ -6,21 +6,23 @@ import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { userLogoutActionCreator } from "../../store/user/userSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import pathList from "../../utils/pathList/pathList";
-import { loadFiguresFilterActionCreator } from "../../store/figures/figureSlice";
+import { loadFiguresIsPurchasedActionCreator } from "../../store/figures/figureSlice";
 
 const MainHeader = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
-  const isLogged = useAppSelector(({ user: { isLogged } }) => isLogged);
-  const filter = useAppSelector(({ figure: { filter } }) => filter);
   const { removeToken } = useLocalStorage();
+  const location = useLocation();
+  const {
+    user: { isLogged },
+    figure: { isPurchasedFilter },
+  } = useAppSelector((store) => store);
 
   useEffect(() => {
-    if (filter && location.pathname !== pathList.figures) {
-      dispatch(loadFiguresFilterActionCreator());
+    if (isPurchasedFilter && location.pathname !== pathList.figures) {
+      dispatch(loadFiguresIsPurchasedActionCreator());
     }
-  }, [dispatch, filter, location.pathname]);
+  }, [dispatch, isPurchasedFilter, location.pathname]);
 
   const handleLogoutUser = () => {
     removeToken("FIguRaniSTokeN");

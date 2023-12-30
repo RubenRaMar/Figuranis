@@ -3,17 +3,22 @@ import { NavLink, useLocation } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { loadFiguresFilterActionCreator } from "../../store/figures/figureSlice";
+import { loadFiguresIsPurchasedActionCreator } from "../../store/figures/figureSlice";
 import { paginationActionCreator } from "../../store/ui/uiSlice";
 
 const NavegationMenu = (): React.ReactElement => {
-  const filter = useAppSelector((store) => store.figure.filter);
+  const isPurchasedFilter = useAppSelector(
+    (store) => store.figure.isPurchasedFilter
+  );
   const dispatch = useAppDispatch();
   const location = useLocation();
 
-  const handleFiguresFilter = async () => {
-    dispatch(loadFiguresFilterActionCreator());
-    dispatch(paginationActionCreator(0));
+  const hasPurchasedFilter = isPurchasedFilter?.toString();
+
+  const handleFiguresisPurchased = async () => {
+    dispatch(loadFiguresIsPurchasedActionCreator());
+
+    dispatch(paginationActionCreator(1));
   };
 
   return (
@@ -46,22 +51,36 @@ const NavegationMenu = (): React.ReactElement => {
         <li>
           {location.pathname === pathList.figures && (
             <button
-              onClick={handleFiguresFilter}
+              onClick={handleFiguresisPurchased}
               aria-label="Pending figures icon"
               className="navbar__icon"
             >
               <img
                 src={
-                  filter && location.pathname === pathList.figures
+                  isPurchasedFilter === undefined
+                    ? "/images/pendingfigures.svg"
+                    : isPurchasedFilter
                     ? "/images/pendingfiguresorangesvg.svg"
-                    : "/images/pendingfigures.svg"
+                    : "/images/pendingfiguresgreen.svg"
                 }
                 width="60"
                 height="65"
                 alt="A showcase with a shopping list with figurines"
                 loading="lazy"
               />
-              <span className={filter ? "pending" : ""}>Pending</span>
+              <span
+                className={
+                  isPurchasedFilter === undefined
+                    ? ""
+                    : isPurchasedFilter
+                    ? "pending"
+                    : "purchased"
+                }
+              >
+                {hasPurchasedFilter && hasPurchasedFilter === "false"
+                  ? "Purchased"
+                  : "Pending"}
+              </span>
             </button>
           )}
         </li>

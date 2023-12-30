@@ -20,7 +20,7 @@ export interface FiguresStateStructure {
   figuresData: FiguresDataStructures[];
   figureData: FiguresDataStructures;
   totalFigures?: number;
-  filter?: boolean;
+  isPurchasedFilter?: boolean;
 }
 
 export interface FiguresDataStructures {
@@ -37,4 +37,5 @@ export interface FiguresDataStructures {
   price: number;
   image: string;
 }
+
 export type FigureAddDataStructure = Omit<FiguresDataStructures, "id" | "user">;

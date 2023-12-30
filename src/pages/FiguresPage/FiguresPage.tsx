@@ -13,21 +13,18 @@ const FiguresPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const {
     user: { isLogged },
-    figure: { filter, totalFigures },
+    figure: { isPurchasedFilter },
     ui: {
       pagination: { totalFiguresToShow, page },
     },
   } = useAppSelector((state) => state);
 
   useEffect(() => {
-    scrollTo(0, 0);
-
     (async () => {
-      const figuresData = await getFiguresList(
+      const figuresData = await getFiguresList({
         page,
-        totalFiguresToShow,
-        filter
-      );
+        isPurchasedFilter,
+      });
 
       if (figuresData) {
         dispatch(loadFiguresActionCreator(figuresData));
@@ -42,20 +39,27 @@ const FiguresPage = (): React.ReactElement => {
         head.insertBefore(preloadLink, firstChild);
       }
     })();
-  }, [dispatch, getFiguresList, filter, totalFiguresToShow, page, isLogged]);
+  }, [
+    dispatch,
+    getFiguresList,
+    isPurchasedFilter,
+    totalFiguresToShow,
+    page,
+    isLogged,
+  ]);
 
   const nextPage = () => {
     scrollTo(0, 0);
-    const newSkip = page + totalFiguresToShow;
+    const newPage = page + 1;
 
-    dispatch(paginationActionCreator(newSkip));
+    dispatch(paginationActionCreator(newPage));
   };
 
   const previousPage = () => {
     scrollTo(0, 0);
-    const newSkip = page - totalFiguresToShow;
+    const newPage = page - 1;
 
-    dispatch(paginationActionCreator(newSkip));
+    dispatch(paginationActionCreator(newPage));
   };
 
   return (
@@ -65,12 +69,7 @@ const FiguresPage = (): React.ReactElement => {
       </h1>
       <GeneralContainerStyled>
         <FiguresList />
-        <Pagination
-          length={totalFigures}
-          nextPage={nextPage}
-          previousPage={previousPage}
-          skip={page}
-        />
+        <Pagination nextPage={nextPage} previousPage={previousPage} />
       </GeneralContainerStyled>
     </FiguresPageStyled>
   );
