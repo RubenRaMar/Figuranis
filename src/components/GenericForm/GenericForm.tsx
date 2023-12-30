@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import GenericFormStyled from "./GenericFormStyled";
 import { FigureAddDataStructure, FiguresDataStructures } from "../../types";
 import GenericButton from "../GenericButton/GenericButton";
+import { useAppDispatch } from "../../store";
+import { paginationActionCreator } from "../../store/ui/uiSlice";
 
 interface GenericFormProps {
   actionOnClick: (figure: Partial<FiguresDataStructures>) => void;
@@ -16,6 +18,8 @@ const GenericForm = ({
   buttonClassName,
   figure,
 }: GenericFormProps): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
   const initialFigureState: FigureAddDataStructure = {
     title: "",
     character: "",
@@ -73,14 +77,19 @@ const GenericForm = ({
         });
   };
 
-  const handleAddFigureSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
+    const initialPage = 1;
+
+    if (textButton === "Add figure") {
+      dispatch(paginationActionCreator(initialPage));
+    }
+
     actionOnClick(figureData);
-    setFigureData(initialFigureState);
   };
 
   return (
-    <GenericFormStyled onSubmit={handleAddFigureSubmit}>
+    <GenericFormStyled onSubmit={handleOnSubmit}>
       <div className="controler">
         <label htmlFor="title">title</label>
         <input
@@ -148,7 +157,7 @@ const GenericForm = ({
           id="size"
           autoComplete="off"
           onChange={onChangeFigureData}
-          value={size ? size : ""}
+          value={size || ""}
         />
         <span className="symbol">Cm</span>
       </div>
@@ -159,7 +168,7 @@ const GenericForm = ({
           id="weight"
           autoComplete="off"
           onChange={onChangeFigureData}
-          value={weight ? weight : ""}
+          value={weight || ""}
         />
         <span className="symbol">Kg</span>
       </div>
@@ -170,7 +179,7 @@ const GenericForm = ({
           id="price"
           autoComplete="off"
           onChange={onChangeFigureData}
-          value={price ? price : ""}
+          value={price || ""}
         />
         <span className="symbol">€</span>
       </div>
