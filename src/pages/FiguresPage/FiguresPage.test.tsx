@@ -2,6 +2,7 @@ import { screen, waitFor } from "@testing-library/react";
 import FiguresPage from "./FiguresPage";
 import { renderWithProviders } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
+import { currentFigureStateMock } from "../../mocks/figures/figuresMocks";
 
 describe("Given a FiguresPage component", () => {
   describe("When it rendered", () => {
@@ -32,8 +33,12 @@ describe("Given a FiguresPage component", () => {
           },
           pagination: {
             page: 1,
-            totalFiguresToShow: 12,
+            totalFiguresToShow: 1,
           },
+        },
+        figure: {
+          ...currentFigureStateMock,
+          totalFigures: currentFigureStateMock.figuresData.length,
         },
       });
 
@@ -62,7 +67,7 @@ describe("Given a FiguresPage component", () => {
             },
           },
           pagination: {
-            page: 1,
+            page: 2,
             totalFiguresToShow: 12,
           },
         },
