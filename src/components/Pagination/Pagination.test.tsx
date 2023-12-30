@@ -3,6 +3,7 @@ import { renderWithProviders } from "../../utils/testUtils";
 import Pagination from "./Pagination";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { currentFigureStateMock } from "../../mocks/figures/figuresMocks";
 
 describe("Given a Pagination component", () => {
   describe("When it is rendered", () => {
@@ -16,9 +17,29 @@ describe("Given a Pagination component", () => {
         <Pagination
           nextPage={actionOnNextButton}
           previousPage={actionOnPreviousButton}
-          skip={1}
-          length={10}
-        />
+        />,
+        {
+          ui: {
+            isLoading: false,
+            modal: {
+              isError: false,
+              isModal: false,
+              message: "tot be",
+              image: {
+                src: "",
+                alt: "",
+              },
+            },
+            pagination: {
+              page: 2,
+              totalFiguresToShow: 12,
+            },
+          },
+          figure: {
+            ...currentFigureStateMock,
+            totalFigures: currentFigureStateMock.figuresData.length,
+          },
+        }
       );
 
       const button = screen.getByRole("button", { name: expectedButtonText });
@@ -36,9 +57,29 @@ describe("Given a Pagination component", () => {
         <Pagination
           nextPage={actionOnNextButton}
           previousPage={actionOnPreviousButton}
-          skip={0}
-          length={1}
-        />
+        />,
+        {
+          ui: {
+            isLoading: false,
+            modal: {
+              isError: false,
+              isModal: false,
+              message: "tot be",
+              image: {
+                src: "",
+                alt: "",
+              },
+            },
+            pagination: {
+              page: 0,
+              totalFiguresToShow: 12,
+            },
+          },
+          figure: {
+            ...currentFigureStateMock,
+            totalFigures: currentFigureStateMock.figuresData.length,
+          },
+        }
       );
 
       const button = screen.getByRole("button", { name: expectedButtonText });
