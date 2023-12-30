@@ -54,8 +54,9 @@ const DetailsFigurePage = (): React.ReactElement => {
   const handleDeleteFigure = async () => {
     await deleteFigure(id);
 
+    dispatch(paginationActionCreator(1));
     navigate(`${pathList.figures}`);
-    dispatch(paginationActionCreator(0));
+    scrollTo(0, 0);
   };
 
   const handleUpdateFigurePage = async () => {

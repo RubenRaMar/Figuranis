@@ -3,7 +3,10 @@ import { NavLink, useLocation } from "react-router-dom";
 import NavegationMenuStyled from "./NavegationMenuStyled";
 import pathList from "../../utils/pathList/pathList";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { loadFiguresIsPurchasedActionCreator } from "../../store/figures/figureSlice";
+import {
+  loadFiguresIsPurchasedActionCreator,
+  resetFiguresIsPurchasedActionCreator,
+} from "../../store/figures/figureSlice";
 import { paginationActionCreator } from "../../store/ui/uiSlice";
 
 const NavegationMenu = (): React.ReactElement => {
@@ -21,11 +24,16 @@ const NavegationMenu = (): React.ReactElement => {
     dispatch(paginationActionCreator(1));
   };
 
+  const handleResetFiguresisPurchased = async () => {
+    dispatch(resetFiguresIsPurchasedActionCreator());
+  };
+
   return (
     <NavegationMenuStyled className="navbar">
       <ul className="navbar__list">
         <li>
           <NavLink
+            onClick={handleResetFiguresisPurchased}
             aria-label="All figures icon"
             to={`${pathList.figures}`}
             className={
